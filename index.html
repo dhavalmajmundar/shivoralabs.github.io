@@ -1,97 +1,524 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shivora Labs</title>
+  <meta charset="UTF-8" />
+  <title>Shivora Labs – AI-powered apps</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --accent: #4f46e5;
+      --accent-soft: rgba(79, 70, 229, 0.15);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 45%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to right, rgba(15,23,42,0.9), rgba(15,23,42,0.6));
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .logo-mark {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #a855f7, #4f46e5 45%, #0ea5e9 80%);
+      box-shadow: 0 0 24px rgba(79, 70, 229, 0.7);
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .nav-links a:hover {
+      color: var(--text);
+    }
+    .nav-cta {
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: radial-gradient(circle at top left, rgba(79,70,229,0.25), rgba(15,23,42,0.9));
+    }
+    .nav-cta span {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="Icons/shivora_favicon.jpg">
+    main {
+      flex: 1;
+    }
+    .hero {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 3rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 3rem;
+      align-items: center;
+    }
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        padding-top: 2.5rem;
+      }
+    }
+    .hero-kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+    .hero-title {
+      font-size: clamp(2.4rem, 4vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .hero-title span {
+      background: linear-gradient(to right, #a855f7, #4f46e5, #0ea5e9);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 32rem;
+      margin-bottom: 1.6rem;
+    }
+    .hero-subtitle strong {
+      color: var(--text);
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 1.4rem;
+    }
+    .btn-primary {
+      padding: 0.8rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #4f46e5, #0ea5e9);
+      color: white;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 12px 30px rgba(15,23,42,0.7);
+    }
+    .btn-secondary {
+      padding: 0.8rem 1.3rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.5);
+      background: rgba(15,23,42,0.9);
+      color: var(--text);
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .hero-meta-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 12px rgba(34,197,94,0.8);
+    }
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    .hero-card {
+      border-radius: 1.4rem;
+      border: 1px solid rgba(148,163,184,0.35);
+      background:
+        radial-gradient(circle at top left, rgba(79,70,229,0.35), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(14,165,233,0.25), transparent 55%),
+        linear-gradient(to bottom, rgba(15,23,42,0.95), rgba(15,23,42,0.98));
+      padding: 1.6rem 1.5rem;
+      box-shadow: 0 24px 60px rgba(15,23,42,0.9);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.2rem;
+    }
+    .hero-card-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .hero-card-pill {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.5);
+      color: var(--muted);
+      background: rgba(15,23,42,0.9);
+    }
+    .hero-card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+      margin-bottom: 1.2rem;
+    }
+    .metric {
+      padding: 0.7rem 0.8rem;
+      border-radius: 0.9rem;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(31,41,55,0.9);
+    }
+    .metric-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+    .metric-value {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .metric-tag {
+      font-size: 0.7rem;
+      color: #22c55e;
+    }
+    .hero-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .hero-card-footer span strong {
+      color: var(--text);
+    }
 
-    <style>
-        body {
-            margin: 0;
-            background-color: #090A0F;
-            font-family: 'Inter', sans-serif;
-            color: white;
-        }
+    .section {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem 3rem;
+    }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+      margin-bottom: 1.8rem;
+    }
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    .section-subtitle {
+      font-size: 0.85rem;
+      color: var(--muted);
+      max-width: 26rem;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+    @media (max-width: 900px) {
+      .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 640px) {
+      .cards {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+    .card {
+      border-radius: 1rem;
+      border: 1px solid rgba(31,41,55,0.9);
+      background: rgba(15,23,42,0.95);
+      padding: 1.1rem 1rem;
+    }
+    .card-kicker {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+    .card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+    .card-body {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.7rem;
+    }
+    .card-meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .pill {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.5);
+    }
 
-        /* NAVBAR */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 40px;
-            background-color: #090A0F;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav img {
-            height: 55px;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-        }
-
-        nav ul li {
-            font-family: 'Sora', sans-serif;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        /* HERO SECTION */
-        .hero {
-            text-align: center;
-            padding: 120px 20px;
-        }
-
-        .hero img {
-            height: 180px;
-            margin-bottom: 30px;
-        }
-
-        .hero h1 {
-            font-family: 'Sora', sans-serif;
-            font-size: 48px;
-            letter-spacing: 0.1em;
-            margin: 0;
-        }
-
-        .hero p {
-            font-size: 20px;
-            margin-top: 15px;
-            color: #E2E4F0;
-        }
-    </style>
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+      background: rgba(2,6,23,0.95);
+    }
+    footer a {
+      color: var(--muted);
+    }
+    footer a:hover {
+      color: var(--text);
+    }
+  </style>
 </head>
-
 <body>
+  <div class="page">
+    <header>
+      <div class="nav">
+        <div class="logo">
+          <div class="logo-mark"></div>
+          <span>Shivora Labs</span>
+        </div>
+        <nav class="nav-links">
+          <a href="#apps">Apps</a>
+          <a href="#solutions">Solutions</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button class="nav-cta">
+          Launching soon
+          <span>Join early access</span>
+        </button>
+      </div>
+    </header>
 
-    <!-- NAVBAR -->
-    <nav>
-        <img src="Icons/shivora_landscape_logo.jpg" alt="Shivora Labs Logo">
-        <ul>
-            <li>Home</li>
-            <li>About</li>
-            <li>Projects</li>
-            <li>Contact</li>
-        </ul>
-    </nav>
+    <main>
+      <section class="hero">
+        <div>
+          <div class="hero-kicker">AI-powered digital products</div>
+          <h1 class="hero-title">
+            Build, launch, and scale <span>intelligent apps</span> with confidence.
+          </h1>
+          <p class="hero-subtitle">
+            Shivora Labs crafts <strong>practical, production-ready AI experiences</strong>—from consumer apps to internal tools—
+            designed for reliability, clarity, and measurable impact.
+          </p>
+          <div class="hero-actions">
+            <button class="btn-primary">Request early access</button>
+            <button class="btn-secondary">View upcoming apps</button>
+          </div>
+          <div class="hero-meta">
+            <span><div class="hero-meta-dot"></div> Private beta in progress</span>
+            <span>Optimized for mobile-first experiences</span>
+            <span>Built with modern AI tooling</span>
+          </div>
+        </div>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <img src="Icons/shivora_primary_logo.jpg" alt="Shivora Labs Primary Logo">
-        <h1>SHIVORA LABS</h1>
-        <p>Cosmic Intelligence. Futuristic Engineering.</p>
-    </section>
+        <aside class="hero-card">
+          <div class="hero-card-header">
+            <div class="hero-card-title">Shivora Labs Insight Panel</div>
+            <div class="hero-card-pill">Preview environment</div>
+          </div>
+          <div class="hero-card-grid">
+            <div class="metric">
+              <div class="metric-label">Daily active sessions</div>
+              <div class="metric-value">1,248</div>
+              <div class="metric-tag">+32% this week</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">Response latency</div>
+              <div class="metric-value">210 ms</div>
+              <div class="metric-tag">Optimized pipeline</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">User satisfaction</div>
+              <div class="metric-value">4.8 / 5</div>
+              <div class="metric-tag">Early testers</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">Feature rollouts</div>
+              <div class="metric-value">Weekly</div>
+              <div class="metric-tag">Continuous delivery</div>
+            </div>
+          </div>
+          <div class="hero-card-footer">
+            <span>Designed for <strong>clarity-first analytics</strong></span>
+            <span>Secure, scalable, and observability-ready.</span>
+          </div>
+        </aside>
+      </section>
 
+      <section class="section" id="apps">
+        <div class="section-header">
+          <div>
+            <div class="section-title">Upcoming Shivora Labs apps</div>
+            <div class="section-subtitle">
+              A focused portfolio of AI-native products designed to solve real problems—not just demo capabilities.
+            </div>
+          </div>
+          <div class="pill">Curated, not crowded</div>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="card-kicker">Productivity</div>
+            <div class="card-title">Context-aware task companion</div>
+            <div class="card-body">
+              An intelligent assistant that understands your workflow, surfaces the right actions, and keeps teams aligned
+              without adding noise.
+            </div>
+            <div class="card-meta">
+              <span>Private beta · Q4</span>
+              <span class="pill">Team-focused</span>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-kicker">Knowledge</div>
+            <div class="card-title">Narrative learning engine</div>
+            <div class="card-body">
+              Turn complex topics into guided, story-driven learning experiences—ideal for education, onboarding, and
+              internal documentation.
+            </div>
+            <div class="card-meta">
+              <span>Design phase</span>
+              <span class="pill">Adaptive content</span>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-kicker">Insights</div>
+            <div class="card-title">Signal-first analytics layer</div>
+            <div class="card-body">
+              A lightweight analytics surface that highlights meaningful signals instead of overwhelming dashboards.
+            </div>
+            <div class="card-meta">
+              <span>Concept preview</span>
+              <span class="pill">Founder tools</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="section-header">
+          <div>
+            <div class="section-title">About Shivora Labs</div>
+            <div class="section-subtitle">
+              Shivora Labs is a small, focused studio exploring how AI can power everyday, trustworthy digital experiences—
+              from consumer apps to internal tools.
+            </div>
+          </div>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="card-title">Principles</div>
+            <div class="card-body">
+              We prioritize clarity, reliability, and user trust over novelty. Every feature must earn its place.
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-title">Approach</div>
+            <div class="card-body">
+              We combine modern AI tooling with pragmatic engineering, focusing on maintainable, observable systems.
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-title">Focus</div>
+            <div class="card-body">
+              Early-stage experiments, tightly scoped products, and long-term partnerships with teams who value craft.
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="section-header">
+          <div>
+            <div class="section-title">Stay in touch</div>
+            <div class="section-subtitle">
+              Interested in collaborating, testing early products, or discussing an idea? Reach out and we’ll respond
+              thoughtfully.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            For now, you can add a simple contact method here, such as:
+            <br><br>
+            <strong>Email:</strong> contact@shivoralabs.com<br>
+            <strong>Location:</strong> Charlotte / Harrisburg, NC
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year"></span> Shivora Labs. All rights reserved.
+      ·
+      <a href="#">Privacy</a>
+      ·
+      <a href="#">Terms</a>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
