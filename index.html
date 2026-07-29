@@ -87,12 +87,34 @@
     .nav-logo {
       display: flex;
       align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
     }
 
     .nav-logo img {
-      height: 55px;
-      width: auto;
+      height: 42px;
+      width: 42px;
+      object-fit: cover;
       display: block;
+      border-radius: 50%;
+    }
+
+    .nav-logo-text {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-logo-text span {
+      font-weight: 300;
+      color: var(--text-secondary);
     }
 
     .nav-links {
@@ -722,8 +744,19 @@
       align-items: center;
     }
 
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+    }
+
     .footer-logo img {
-      height: 50px;
+      height: 38px;
+      width: 38px;
+      object-fit: cover;
+      display: block;
+      border-radius: 50%;
     }
 
     .footer-bottom {
@@ -800,7 +833,8 @@
   <header>
     <div class="nav-container">
       <a href="#" class="nav-logo">
-        <img src="Icons/shivora_landscape_logo.jpg" alt="Shivora Labs Logo" />
+        <img src="Icons/shivora_symbol_only.jpg" alt="Shivora Labs Logo" />
+        <div class="nav-logo-text">SHIVORA <span>LABS</span></div>
       </a>
       <nav class="nav-links">
         <a href="#apps">Apps</a>
@@ -1006,7 +1040,8 @@
     <div class="footer-container">
       <div class="footer-top">
         <a href="#" class="footer-logo">
-          <img src="Icons/shivora_landscape_logo.jpg" alt="Shivora Labs Logo" />
+          <img src="Icons/shivora_symbol_only.jpg" alt="Shivora Labs Logo" />
+          <div class="nav-logo-text">SHIVORA <span>LABS</span></div>
         </a>
         <div class="footer-links">
           <a href="#apps">Apps</a>
