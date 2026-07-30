@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 120" width="100%" height="100%">
+  <defs>
+    <!-- Premium Mint to Cyan gradient -->
+    <linearGradient id="brand-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00FFA3" />
+      <stop offset="100%" stop-color="#00B8FF" />
+    </linearGradient>
+    
+    <!-- Subtle glow effect -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <g transform="translate(10, 10)">
+    <!-- Abstract Tech 'S' Monogram -->
+    <path d="M45,15 L75,15 C85,15 90,22 85,32 L70,55 C67,60 67,65 70,70 L85,92 C90,102 85,110 75,110 L45,110" 
+          fill="none" stroke="url(#brand-grad)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M55,35 L40,55 C37,60 37,65 40,70 L55,90" 
+          fill="none" stroke="url(#brand-grad)" stroke-width="8" stroke-linecap="round" filter="url(#glow)"/>
+    
+    <!-- Decorative Center Tech Node -->
+    <circle cx="55" cy="62" r="5" fill="#00FFA3" />
+  </g>
+
+  <!-- Typography -->
+  <!-- "SHIVORA" - Bold and Futuristic -->
+  <text x="130" y="65" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="34" font-weight="900" fill="#FFFFFF" letter-spacing="4">SHIVORA</text>
+  
+  <!-- "LABS" - Sleek, Thin, Spaced -->
+  <text x="130" y="92" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="20" font-weight="300" fill="#00FFA3" letter-spacing="11">LABS</text>
+</svg>
