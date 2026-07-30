@@ -2,1167 +2,1038 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Shivora Labs | Advanced AI Studio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Shivora Labs is an elite, tech-native AI product studio crafting practical, highly optimized, and beautifully designed AI systems and applications." />
-  
-  <!-- Favicon -->
+  <title>Shivora Labs | Premium AI Product Studio</title>
+  <meta name="description" content="Shivora Labs designs and builds premium AI-powered products, workflows, and digital experiences for teams that value clarity, reliability, and craft." />
+  <meta property="og:title" content="Shivora Labs | Premium AI Product Studio" />
+  <meta property="og:description" content="AI products and digital experiences built with precision, polish, and production discipline." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="Icons/shivora_landscape_logo.jpg" />
   <link rel="icon" type="image/jpeg" href="Icons/shivora_favicon.jpg" />
-  
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="family" />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap');
-
     :root {
-      --cyan: #00E5FF;
-      --blue: #0052FF;
-      --purple: #8A2BE2;
-      --accent: #BD00FF;
-      --bg: #05060A;
-      --card-bg: rgba(19, 21, 32, 0.7);
-      --card-border: rgba(226, 228, 240, 0.08);
-      --text-primary: #E2E4F0;
-      --text-secondary: #9FA2B4;
-      --font-heading: 'Outfit', sans-serif;
-      --font-body: 'Inter', sans-serif;
+      --bg: #05060a;
+      --bg-2: #090a0f;
+      --panel: rgba(16, 18, 27, 0.74);
+      --panel-strong: rgba(23, 25, 37, 0.94);
+      --line: rgba(226, 228, 240, 0.13);
+      --line-strong: rgba(226, 228, 240, 0.24);
+      --text: #f5f7fb;
+      --muted: #a8adbd;
+      --soft: #d8dbe6;
+      --cyan: #00e5ff;
+      --blue: #2467ff;
+      --violet: #9c4dff;
+      --silver: #e7e9ef;
+      --shadow: 0 28px 90px rgba(0, 0, 0, 0.48);
+      --radius: 8px;
+      --max: 1180px;
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    html {
       scroll-behavior: smooth;
     }
 
     body {
-      font-family: var(--font-body);
-      background-color: var(--bg);
-      color: var(--text-primary);
-      overflow-x: hidden;
+      min-height: 100vh;
+      background:
+        linear-gradient(180deg, rgba(5, 6, 10, 0.68), #05060a 42%),
+        radial-gradient(circle at 74% 12%, rgba(0, 229, 255, 0.15), transparent 30%),
+        radial-gradient(circle at 24% 8%, rgba(156, 77, 255, 0.16), transparent 28%),
+        #05060a;
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.6;
-      background-image: 
-        radial-gradient(circle at 10% 20%, rgba(138, 43, 226, 0.05) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(0, 229, 255, 0.04) 0%, transparent 45%);
+      overflow-x: hidden;
     }
 
-    /* Scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: var(--bg);
-    }
-    ::-webkit-scrollbar-thumb {
-      background: rgba(138, 43, 226, 0.2);
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: rgba(0, 229, 255, 0.3);
-    }
-
-    /* Navigation Header */
-    header {
+    body::before {
+      content: "";
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      backdrop-filter: blur(20px);
-      background: rgba(5, 6, 10, 0.75);
-      border-bottom: 1px solid var(--card-border);
+      inset: 0;
+      z-index: -2;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(to bottom, black, transparent 72%);
+      pointer-events: none;
     }
 
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(90deg, rgba(5, 6, 10, 0.88), transparent 45%, rgba(5, 6, 10, 0.74));
+      pointer-events: none;
     }
 
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
+    a {
+      color: inherit;
       text-decoration: none;
     }
 
-    .nav-logo img {
-      height: 42px;
-      width: 42px;
-      object-fit: cover;
+    img {
       display: block;
-      border-radius: 50%;
+      max-width: 100%;
     }
 
-    .nav-logo-text {
-      font-family: 'Outfit', sans-serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #FFFFFF;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      line-height: 1;
+    .shell {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(226, 228, 240, 0.1);
+      background: rgba(5, 6, 10, 0.76);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      min-height: 76px;
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      justify-content: space-between;
+      gap: 22px;
     }
 
-    .nav-logo-text span {
-      font-weight: 300;
-      color: var(--text-secondary);
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      min-width: 198px;
+    }
+
+    .brand img {
+      width: 210px;
+      height: 52px;
+      object-fit: contain;
+      object-position: left center;
     }
 
     .nav-links {
       display: flex;
-      gap: 2.5rem;
       align-items: center;
+      gap: 28px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 600;
     }
 
     .nav-links a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: color 0.3s ease;
-      letter-spacing: 0.03em;
+      transition: color 180ms ease;
     }
 
     .nav-links a:hover {
-      color: var(--cyan);
+      color: var(--text);
     }
 
-    .nav-cta {
-      padding: 0.6rem 1.2rem;
-      border-radius: 30px;
-      background: linear-gradient(135deg, rgba(0, 82, 255, 0.15), rgba(138, 43, 226, 0.15));
-      border: 1px solid rgba(0, 229, 255, 0.3);
-      color: var(--cyan);
-      font-family: var(--font-heading);
-      font-weight: 600;
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 0 15px rgba(0, 229, 255, 0.1);
-    }
-
-    .nav-cta:hover {
-      background: linear-gradient(135deg, var(--blue), var(--accent));
-      color: #fff;
-      border-color: transparent;
-      box-shadow: 0 0 25px rgba(189, 0, 255, 0.4);
-      transform: translateY(-2px);
-    }
-
-    /* Hero Section */
-    .hero {
-      min-height: 100vh;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 8rem 2rem 4rem;
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 4rem;
+    .nav-action,
+    .button {
+      min-height: 44px;
+      display: inline-flex;
       align-items: center;
-    }
-
-    .hero-content {
-      display: flex;
-      flex-direction: column;
       justify-content: center;
-    }
-
-    .hero-tagline {
-      font-family: var(--font-heading);
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.3em;
-      color: var(--cyan);
-      margin-bottom: 1.5rem;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      padding: 0 18px;
+      color: var(--text);
+      font-size: 0.9rem;
       font-weight: 700;
-      text-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
     }
 
-    .hero-title {
-      font-family: var(--font-heading);
-      font-size: clamp(2.5rem, 5vw, 4rem);
+    .nav-action {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .nav-action:hover,
+    .button:hover {
+      transform: translateY(-1px);
+      border-color: rgba(0, 229, 255, 0.52);
+    }
+
+    .hero {
+      min-height: calc(100vh - 76px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(360px, 0.96fr);
+      align-items: center;
+      gap: 56px;
+      padding: 78px 0 58px;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      padding: 8px 11px;
+      border: 1px solid rgba(0, 229, 255, 0.26);
+      border-radius: var(--radius);
+      background: rgba(0, 229, 255, 0.055);
+      color: #c9f9ff;
+      font-size: 0.76rem;
       font-weight: 800;
-      line-height: 1.15;
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.02em;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
     }
 
-    .hero-title span {
-      background: linear-gradient(135deg, var(--cyan), var(--blue), var(--accent));
+    .eyebrow::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 18px rgba(0, 229, 255, 0.8);
+    }
+
+    h1,
+    h2,
+    h3 {
+      letter-spacing: 0;
+      line-height: 1.04;
+    }
+
+    h1 {
+      max-width: 780px;
+      font-size: clamp(3rem, 7.6vw, 6.6rem);
+      font-weight: 850;
+    }
+
+    .text-gradient {
+      background: linear-gradient(120deg, var(--silver), var(--cyan) 42%, var(--violet));
       -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
     }
 
-    .hero-description {
-      font-size: 1.05rem;
-      color: var(--text-secondary);
-      margin-bottom: 2.5rem;
-      max-width: 520px;
-      font-weight: 300;
+    .hero-copy {
+      max-width: 650px;
+      margin-top: 24px;
+      color: var(--soft);
+      font-size: clamp(1rem, 1.6vw, 1.18rem);
     }
 
     .hero-actions {
       display: flex;
-      gap: 1.2rem;
-      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 34px;
     }
 
-    .btn-gradient {
-      padding: 0.9rem 1.8rem;
-      border-radius: 30px;
-      background: linear-gradient(135deg, var(--blue), var(--accent));
-      color: white;
-      text-decoration: none;
-      font-family: var(--font-heading);
-      font-weight: 600;
-      font-size: 0.95rem;
-      box-shadow: 0 10px 25px rgba(138, 43, 226, 0.3);
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
+    .button.primary {
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--blue), var(--violet));
+      box-shadow: 0 18px 44px rgba(36, 103, 255, 0.28);
     }
 
-    .btn-gradient:hover {
-      box-shadow: 0 15px 35px rgba(0, 229, 255, 0.4);
-      transform: translateY(-3px);
+    .button.secondary {
+      background: rgba(255, 255, 255, 0.035);
+      color: var(--soft);
     }
 
-    .btn-outline {
-      padding: 0.9rem 1.8rem;
-      border-radius: 30px;
-      background: transparent;
-      color: var(--text-primary);
-      text-decoration: none;
-      font-family: var(--font-heading);
-      font-weight: 600;
-      font-size: 0.95rem;
-      border: 1px solid var(--card-border);
-      transition: all 0.3s ease;
-      cursor: pointer;
+    .proof-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      margin-top: 48px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--line);
     }
 
-    .btn-outline:hover {
-      background: rgba(226, 228, 240, 0.05);
-      border-color: var(--text-secondary);
+    .proof {
+      min-height: 96px;
+      padding: 18px;
+      background: rgba(8, 10, 16, 0.72);
     }
 
-    .hero-stats {
-      display: flex;
-      gap: 3rem;
+    .proof strong {
+      display: block;
+      color: var(--text);
+      font-size: 1.35rem;
+      line-height: 1.15;
     }
 
-    .hero-stat-item h3 {
-      font-family: var(--font-heading);
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #fff;
+    .proof span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 0.82rem;
     }
 
-    .hero-stat-item p {
-      font-size: 0.8rem;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-top: 0.2rem;
-    }
-
-    /* Interactive Aura panel */
-    .hero-visual {
+    .brand-stage {
       position: relative;
-      display: flex;
-      justify-content: center;
+      min-height: 590px;
+      display: grid;
       align-items: center;
+      isolation: isolate;
     }
 
-    .aura-panel {
-      width: 100%;
+    .brand-stage::before {
+      content: "";
+      position: absolute;
+      inset: 7% -4% 6% 8%;
+      z-index: -1;
+      border: 1px solid rgba(226, 228, 240, 0.08);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at center, rgba(0, 229, 255, 0.16), transparent 22%),
+        radial-gradient(circle at center, rgba(156, 77, 255, 0.17), transparent 46%),
+        rgba(255, 255, 255, 0.02);
+      filter: blur(0.2px);
+      animation: breathe 8s ease-in-out infinite;
+    }
+
+    .symbol-wrap {
+      position: relative;
+      width: min(520px, 100%);
+      margin-left: auto;
       aspect-ratio: 1;
-      border-radius: 24px;
-      border: 1px solid var(--card-border);
-      background: var(--card-bg);
-      backdrop-filter: blur(12px);
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-      position: relative;
+      display: grid;
+      place-items: center;
+    }
+
+    .symbol-wrap::before,
+    .symbol-wrap::after {
+      content: "";
+      position: absolute;
+      inset: 8%;
+      border: 1px solid rgba(0, 229, 255, 0.22);
+      border-radius: 50%;
+      animation: orbit 18s linear infinite;
+    }
+
+    .symbol-wrap::after {
+      inset: 19%;
+      border-color: rgba(156, 77, 255, 0.24);
+      animation-duration: 26s;
+      animation-direction: reverse;
+    }
+
+    .symbol {
+      width: 72%;
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.08),
+        0 30px 90px rgba(0, 0, 0, 0.74),
+        0 0 88px rgba(0, 229, 255, 0.16);
+    }
+
+    .signal-panel {
+      position: absolute;
+      right: 0;
+      bottom: 46px;
+      width: min(330px, 82%);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(10, 12, 20, 0.76);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
       overflow: hidden;
     }
 
-    .aura-panel::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: radial-gradient(circle at 50% 50%, rgba(138, 43, 226, 0.15), transparent 70%);
-      pointer-events: none;
-    }
-
-    .panel-header {
+    .signal-head {
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: center;
-      z-index: 10;
-    }
-
-    .panel-title {
-      font-family: var(--font-heading);
-      font-size: 0.85rem;
+      gap: 16px;
+      padding: 14px 15px;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--text-secondary);
     }
 
-    .panel-status {
+    .signal-live {
+      color: #b7fbff;
+    }
+
+    .signal-body {
+      padding: 16px;
+    }
+
+    .signal-item {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      font-size: 0.75rem;
-      background: rgba(0, 229, 255, 0.1);
-      padding: 0.25rem 0.6rem;
-      border-radius: 20px;
-      color: var(--cyan);
-      border: 1px solid rgba(0, 229, 255, 0.2);
-    }
-
-    .status-dot {
-      width: 6px;
-      height: 6px;
-      background: var(--cyan);
-      border-radius: 50%;
-      box-shadow: 0 0 8px var(--cyan);
-      animation: pulse 1.8s infinite;
-    }
-
-    @keyframes pulse {
-      0% { opacity: 0.4; }
-      50% { opacity: 1; }
-      100% { opacity: 0.4; }
-    }
-
-    .panel-content {
-      flex-grow: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      margin: 1.5rem 0;
-    }
-
-    .panel-content canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-    }
-
-    .vortex-display {
-      z-index: 2;
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      background: url('Icons/shivora_favicon.jpg') no-repeat center;
-      background-size: cover;
-      box-shadow: 
-        0 0 30px rgba(0, 82, 255, 0.3),
-        0 0 60px rgba(138, 43, 226, 0.2);
-      border: 2px solid rgba(255, 255, 255, 0.1);
-      animation: rotate-vortex 25s linear infinite;
-    }
-
-    @keyframes rotate-vortex {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    .panel-footer {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      z-index: 10;
-    }
-
-    .panel-metric {
-      background: rgba(5, 6, 10, 0.6);
-      border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 0.75rem;
-      text-align: center;
-    }
-
-    .panel-metric p {
-      font-size: 0.7rem;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .panel-metric h4 {
-      font-family: var(--font-heading);
-      font-size: 1rem;
-      font-weight: 700;
-      color: #fff;
-      margin-top: 0.2rem;
-    }
-
-    /* Section Styles */
-    .section {
-      padding: 6rem 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-header {
-      margin-bottom: 4rem;
-      max-width: 600px;
-    }
-
-    .section-tag {
-      font-family: var(--font-heading);
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.25em;
-      color: var(--cyan);
-      margin-bottom: 0.75rem;
-      display: inline-block;
-    }
-
-    .section-title {
-      font-family: var(--font-heading);
-      font-size: 2.2rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      margin-bottom: 1rem;
-    }
-
-    .section-subtitle {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-      font-weight: 300;
-    }
-
-    /* Portfolio Cards Grid */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
-
-    .app-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 18px;
-      padding: 2rem;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      display: flex;
-      flex-direction: column;
       justify-content: space-between;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .app-card::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg, rgba(0, 229, 255, 0.05), rgba(138, 43, 226, 0.05));
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      pointer-events: none;
-    }
-
-    .app-card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(138, 43, 226, 0.3);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-    }
-
-    .app-card:hover::after {
-      opacity: 1;
-    }
-
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 1.5rem;
-      z-index: 10;
-    }
-
-    .card-kicker {
-      font-family: var(--font-heading);
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--text-secondary);
-    }
-
-    .card-status {
-      font-size: 0.7rem;
-      padding: 0.2rem 0.6rem;
-      border-radius: 12px;
-      background: rgba(226, 228, 240, 0.05);
-      border: 1px solid var(--card-border);
-      color: var(--text-secondary);
-    }
-
-    .card-status.active {
-      background: rgba(0, 229, 255, 0.1);
-      color: var(--cyan);
-      border-color: rgba(0, 229, 255, 0.2);
-    }
-
-    .card-title {
-      font-family: var(--font-heading);
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 0.75rem;
-      z-index: 10;
-    }
-
-    .card-desc {
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-      margin-bottom: 2rem;
-      font-weight: 300;
-      flex-grow: 1;
-      z-index: 10;
-    }
-
-    .card-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 10;
-    }
-
-    .card-link {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--cyan);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      transition: gap 0.2s ease;
-    }
-
-    .card-link:hover {
-      gap: 0.6rem;
-    }
-
-    /* About Section */
-    .about-layout {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .about-visual {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 24px;
-      padding: 3rem;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    .principle-item {
-      display: flex;
-      gap: 1.2rem;
-    }
-
-    .principle-icon {
-      flex-shrink: 0;
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, rgba(0, 82, 255, 0.1), rgba(138, 43, 226, 0.1));
-      border: 1px solid rgba(138, 43, 226, 0.2);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: var(--cyan);
-      font-weight: 700;
-      font-family: var(--font-heading);
-    }
-
-    .principle-text h4 {
-      font-family: var(--font-heading);
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 0.3rem;
-    }
-
-    .principle-text p {
+      gap: 18px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(226, 228, 240, 0.08);
       font-size: 0.88rem;
-      color: var(--text-secondary);
-      font-weight: 300;
     }
 
-    /* Contact / Signup Section */
-    .contact-card {
-      background: 
-        radial-gradient(circle at 100% 100%, rgba(0, 229, 255, 0.05), transparent 60%),
-        radial-gradient(circle at 0% 0%, rgba(138, 43, 226, 0.08), transparent 60%),
-        var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 28px;
-      padding: 4rem 3rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    .signal-item:last-child {
+      border-bottom: 0;
     }
 
-    .contact-info h3 {
-      font-family: var(--font-heading);
-      font-size: 2.2rem;
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 1rem;
+    .signal-item span {
+      color: var(--muted);
     }
 
-    .contact-info p {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-      margin-bottom: 2rem;
-      font-weight: 300;
+    .signal-item strong {
+      color: var(--text);
     }
 
-    .contact-meta {
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-      font-size: 0.9rem;
+    section {
+      padding: 82px 0;
     }
 
-    .contact-meta span {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      color: var(--text-primary);
-    }
-
-    .contact-meta span strong {
+    .section-kicker {
       color: var(--cyan);
+      font-size: 0.76rem;
+      font-weight: 850;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
     }
 
-    .contact-form {
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(260px, 0.55fr);
+      align-items: end;
+      gap: 36px;
+      margin-bottom: 34px;
+    }
+
+    h2 {
+      margin-top: 13px;
+      font-size: clamp(2rem, 4.4vw, 4.25rem);
+      font-weight: 830;
+    }
+
+    .section-lede {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .capability-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--line);
+    }
+
+    .capability,
+    .studio-card,
+    .venture-card,
+    .contact-card {
+      background: var(--panel);
+      backdrop-filter: blur(14px);
+    }
+
+    .capability {
+      min-height: 310px;
+      padding: 26px;
       display: flex;
       flex-direction: column;
-      gap: 1.2rem;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .form-group input, .form-group textarea {
-      background: rgba(5, 6, 10, 0.6);
-      border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 0.9rem 1.2rem;
-      color: #fff;
-      font-family: var(--font-body);
-      font-size: 0.9rem;
-      transition: all 0.3s ease;
-    }
-
-    .form-group input:focus, .form-group textarea:focus {
-      outline: none;
-      border-color: var(--cyan);
-      box-shadow: 0 0 15px rgba(0, 229, 255, 0.15);
-    }
-
-    .form-group textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-
-    .submit-btn {
-      padding: 1rem;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--blue), var(--accent));
-      color: #fff;
-      border: none;
-      font-family: var(--font-heading);
-      font-weight: 600;
-      font-size: 0.95rem;
-      cursor: pointer;
-      box-shadow: 0 5px 15px rgba(138, 43, 226, 0.2);
-      transition: all 0.3s ease;
-    }
-
-    .submit-btn:hover {
-      box-shadow: 0 10px 25px rgba(0, 229, 255, 0.3);
-      transform: translateY(-2px);
-    }
-
-    /* Footer */
-    footer {
-      border-top: 1px solid var(--card-border);
-      background: #030407;
-      padding: 4rem 2rem 2rem;
-    }
-
-    .footer-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 3rem;
-    }
-
-    .footer-top {
-      display: flex;
       justify-content: space-between;
+    }
+
+    .capability-number {
+      color: rgba(226, 228, 240, 0.36);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+    }
+
+    .capability h3,
+    .venture-card h3,
+    .studio-card h3 {
+      font-size: 1.38rem;
+      font-weight: 780;
+    }
+
+    .capability p,
+    .venture-card p,
+    .studio-card p {
+      margin-top: 13px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+    }
+
+    .tag {
+      border: 1px solid rgba(226, 228, 240, 0.16);
+      border-radius: var(--radius);
+      padding: 6px 9px;
+      color: var(--soft);
+      background: rgba(255, 255, 255, 0.035);
+      font-size: 0.76rem;
+      font-weight: 650;
+    }
+
+    .studio {
+      display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+      gap: 1px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--line);
+    }
+
+    .studio-visual {
+      min-height: 530px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent),
+        #07080d;
+      overflow: hidden;
+    }
+
+    .studio-visual img {
+      width: min(82%, 390px);
+      border-radius: 50%;
+      filter: drop-shadow(0 0 48px rgba(0, 229, 255, 0.18));
+    }
+
+    .studio-visual::before {
+      content: "";
+      position: absolute;
+      width: 78%;
+      aspect-ratio: 1;
+      border: 1px solid rgba(226, 228, 240, 0.12);
+      border-radius: 50%;
+    }
+
+    .studio-stack {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--line);
+    }
+
+    .studio-card {
+      min-height: 265px;
+      padding: 28px;
+    }
+
+    .ventures {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .venture-card {
+      min-height: 280px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 20px 55px rgba(0, 0, 0, 0.22);
+    }
+
+    .venture-top {
+      display: flex;
       align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 56px;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 850;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .status {
+      border: 1px solid rgba(0, 229, 255, 0.24);
+      border-radius: var(--radius);
+      padding: 5px 8px;
+      color: #c5faff;
+      background: rgba(0, 229, 255, 0.055);
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(300px, 0.58fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .contact-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: clamp(26px, 5vw, 48px);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card h2 {
+      max-width: 780px;
+      margin-top: 0;
+    }
+
+    .contact-card p {
+      max-width: 720px;
+      margin-top: 18px;
+      color: var(--soft);
+      font-size: 1.05rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .contact-side {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      background: var(--panel-strong);
+    }
+
+    .contact-side dl {
+      display: grid;
+      gap: 19px;
+    }
+
+    .contact-side dt {
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 850;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .contact-side dd {
+      margin-top: 4px;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      padding: 30px 0;
+      color: var(--muted);
+      background: rgba(0, 0, 0, 0.22);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      font-size: 0.84rem;
     }
 
     .footer-logo {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 0.8rem;
-      text-decoration: none;
+      gap: 11px;
+      color: var(--text);
+      font-weight: 850;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
 
     .footer-logo img {
-      height: 38px;
-      width: 38px;
-      object-fit: cover;
-      display: block;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
+      object-fit: cover;
     }
 
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.8rem;
-      color: var(--text-secondary);
+    @keyframes orbit {
+      from {
+        transform: rotate(0deg) scale(1);
+      }
+      to {
+        transform: rotate(360deg) scale(1.02);
+      }
     }
 
-    .footer-links {
-      display: flex;
-      gap: 1.5rem;
+    @keyframes breathe {
+      0%,
+      100% {
+        opacity: 0.72;
+        transform: scale(0.98);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.02);
+      }
     }
 
-    .footer-links a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: color 0.3s ease;
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
     }
 
-    .footer-links a:hover {
-      color: var(--cyan);
-    }
+    @media (max-width: 960px) {
+      .nav {
+        min-height: 70px;
+      }
 
-    /* Responsive adjustments */
-    @media (max-width: 1024px) {
+      .nav-links {
+        display: none;
+      }
+
+      .brand img {
+        width: 184px;
+      }
+
       .hero {
+        min-height: auto;
         grid-template-columns: 1fr;
-        gap: 3.5rem;
-        padding-top: 7rem;
-        text-align: center;
+        padding-top: 56px;
       }
-      .hero-content {
-        align-items: center;
+
+      .brand-stage {
+        min-height: 470px;
       }
-      .hero-stats {
-        justify-content: center;
-      }
-      .hero-visual {
-        max-width: 500px;
+
+      .symbol-wrap {
         margin: 0 auto;
+        max-width: 500px;
       }
-      .about-layout {
+
+      .section-head,
+      .studio,
+      .contact-wrap {
         grid-template-columns: 1fr;
-        gap: 3rem;
       }
-      .cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .contact-card {
+
+      .capability-grid,
+      .ventures {
         grid-template-columns: 1fr;
-        gap: 3rem;
-        padding: 3rem 2rem;
+      }
+
+      .studio-stack {
+        grid-template-columns: 1fr;
       }
     }
 
     @media (max-width: 640px) {
-      .cards-grid {
-        grid-template-columns: 1fr;
+      .shell {
+        width: min(var(--max), calc(100% - 28px));
       }
-      .nav-links {
+
+      .nav-action {
         display: none;
       }
-      .hero-stats {
-        gap: 2rem;
+
+      .brand img {
+        width: 166px;
+        height: 44px;
+      }
+
+      .hero {
+        gap: 34px;
+        padding: 42px 0 34px;
+      }
+
+      .hero-actions,
+      .contact-links {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .proof-row {
+        grid-template-columns: 1fr;
+      }
+
+      .brand-stage {
+        min-height: 390px;
+      }
+
+      .signal-panel {
+        right: 50%;
+        bottom: 8px;
+        transform: translateX(50%);
+        width: 94%;
+      }
+
+      section {
+        padding: 58px 0;
+      }
+
+      .studio-visual {
+        min-height: 360px;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
       }
     }
   </style>
 </head>
 <body>
-
-  <!-- Sticky Header -->
-  <header>
-    <div class="nav-container">
-      <a href="#" class="nav-logo">
-        <img src="Icons/shivora_symbol_only.jpg" alt="Shivora Labs Logo" />
-        <div class="nav-logo-text">SHIVORA <span>LABS</span></div>
+  <header class="site-header">
+    <div class="shell nav" aria-label="Primary navigation">
+      <a class="brand" href="#" aria-label="Shivora Labs home">
+        <img src="Icons/shivora_landscape_logo.jpg" alt="Shivora Labs" />
       </a>
-      <nav class="nav-links">
-        <a href="#apps">Apps</a>
-        <a href="#about">About</a>
+      <nav class="nav-links" aria-label="Site links">
+        <a href="#work">Work</a>
+        <a href="#studio">Studio</a>
+        <a href="#ventures">Ventures</a>
+        <a href="cadens/privacy/">Privacy</a>
         <a href="#contact">Contact</a>
       </nav>
-      <button class="nav-cta" onclick="location.href='#contact'">Join Beta</button>
+      <a class="nav-action" href="mailto:support@shivoralabs.com">Contact Support</a>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-tagline">Autonomous Intelligence Studio</div>
-      <h1 class="hero-title">
-        Pragmatic AI.<br /><span>Stunning Design.</span>
-      </h1>
-      <p class="hero-description">
-        We build premium, reliable, and beautifully polished AI-native applications. No conceptual fluff—just functional intelligence built for real-world impact.
-      </p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn-gradient">Join Private Beta</a>
-        <a href="#apps" class="btn-outline">Explore Products</a>
-      </div>
-      <div class="hero-stats">
-        <div class="hero-stat-item">
-          <h3 id="stat-latency">194ms</h3>
-          <p>Avg Latency</p>
-        </div>
-        <div class="hero-stat-item">
-          <h3 id="stat-reliability">99.98%</h3>
-          <p>Uptime Rate</p>
-        </div>
-        <div class="hero-stat-item">
-          <h3>Weekly</h3>
-          <p>Deploy Cycle</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-visual">
-      <!-- Interactive Glassmorphic Observability Panel -->
-      <div class="aura-panel">
-        <div class="panel-header">
-          <span class="panel-title">System Observability</span>
-          <div class="panel-status">
-            <div class="status-dot"></div>
-            <span>Aura Core Online</span>
-          </div>
-        </div>
-
-        <div class="panel-content">
-          <canvas id="auraCanvas"></canvas>
-          <div class="vortex-display"></div>
-        </div>
-
-        <div class="panel-footer">
-          <div class="panel-metric">
-            <p>Active Nodes</p>
-            <h4 id="nodes-metric">1,024</h4>
-          </div>
-          <div class="panel-metric">
-            <p>Session Load</p>
-            <h4 id="load-metric">84.2%</h4>
-          </div>
-          <div class="panel-metric">
-            <p>Safety Index</p>
-            <h4>100%</h4>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Apps Portfolio -->
-  <section class="section" id="apps">
-    <div class="section-header">
-      <span class="section-tag">Featured Products</span>
-      <h2 class="section-title">The Shivora Suite</h2>
-      <p class="section-subtitle">A collection of highly focused AI tools, crafted with premium attention to UX, latency, and capability.</p>
-    </div>
-
-    <div class="cards-grid">
-      <!-- App 1 -->
-      <article class="app-card">
-        <div class="card-header">
-          <span class="card-kicker">Productivity</span>
-          <span class="card-status active">Beta Live</span>
-        </div>
-        <div>
-          <h3 class="card-title">Context Companion</h3>
-          <p class="card-desc">An ambient intelligent workflow assistant that links document contexts, tasks, and codebases seamlessly without chat latency.</p>
-        </div>
-        <div class="card-footer">
-          <a href="#contact" class="card-link">Request Access &rarr;</a>
-        </div>
-      </article>
-
-      <!-- App 2 -->
-      <article class="app-card">
-        <div class="card-header">
-          <span class="card-kicker">Knowledge</span>
-          <span class="card-status">In Design</span>
-        </div>
-        <div>
-          <h3 class="card-title">Narrative Learning</h3>
-          <p class="card-desc">Adapts static complex document sets into dynamic narrative-based tutorials, helping team onboarding scale efficiently.</p>
-        </div>
-        <div class="card-footer">
-          <a href="#contact" class="card-link">Join Waiting List &rarr;</a>
-        </div>
-      </article>
-
-      <!-- App 3 -->
-      <article class="app-card">
-        <div class="card-header">
-          <span class="card-kicker">Insights</span>
-          <span class="card-status">Concept</span>
-        </div>
-        <div>
-          <h3 class="card-title">Signal Analytics</h3>
-          <p class="card-desc">An AI-native diagnostics interface that surfaces critical signals from vast log pipelines, removing noise from observability.</p>
-        </div>
-        <div class="card-footer">
-          <a href="#contact" class="card-link">View Specification &rarr;</a>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- Principles & About -->
-  <section class="section" id="about">
-    <div class="about-layout">
+  <main>
+    <section class="shell hero">
       <div>
-        <span class="section-tag">Our Studio</span>
-        <h2 class="section-title">AI Crafted for Reliability</h2>
-        <p class="section-subtitle" style="margin-bottom: 2rem;">
-          Shivora Labs was founded to build digital products where design craft meets production-grade engineering. We discard the buzzwords and deliver concrete features that operate securely and run blazingly fast.
+        <div class="eyebrow">AI Product Studio</div>
+        <h1>Premium AI experiences for teams moving from idea to <span class="text-gradient">impact.</span></h1>
+        <p class="hero-copy">
+          Shivora Labs builds polished AI-powered products, internal tools, and workflow systems with a bias for clarity, reliability, and practical business value.
         </p>
         <div class="hero-actions">
-          <a href="#contact" class="btn-gradient">Collaborate With Us</a>
+          <a class="button primary" href="mailto:support@shivoralabs.com">Discuss a Build</a>
+          <a class="button secondary" href="#work">Explore Capabilities</a>
         </div>
-      </div>
-
-      <div class="about-visual">
-        <!-- Principle 1 -->
-        <div class="principle-item">
-          <div class="principle-icon">I</div>
-          <div class="principle-text">
-            <h4>Design Excellence</h4>
-            <p>UI is not an afterthought. We build modern, glassmorphic interfaces that represent high-tech systems beautifully.</p>
+        <div class="proof-row" aria-label="Shivora Labs strengths">
+          <div class="proof">
+            <strong>Product-first</strong>
+            <span>Strategy, UX, and engineering treated as one discipline.</span>
           </div>
-        </div>
-        <!-- Principle 2 -->
-        <div class="principle-item">
-          <div class="principle-icon">II</div>
-          <div class="principle-text">
-            <h4>Pragmatic Latency</h4>
-            <p>Milliseconds matter. Our dynamic data structures and model pipelines are tuned for absolute response speed.</p>
+          <div class="proof">
+            <strong>AI-native</strong>
+            <span>Agents, automations, retrieval, and decision workflows.</span>
           </div>
-        </div>
-        <!-- Principle 3 -->
-        <div class="principle-item">
-          <div class="principle-icon">III</div>
-          <div class="principle-text">
-            <h4>Observations Over Speculation</h4>
-            <p>Every node and model response is actively monitored, ensuring absolute reliability and secure guardrails.</p>
+          <div class="proof">
+            <strong>Premium polish</strong>
+            <span>Interfaces designed to feel calm, fast, and trustworthy.</span>
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Contact / Signup Form -->
-  <section class="section" id="contact">
-    <div class="contact-card">
-      <div class="contact-info">
-        <h3>Begin Your Journey</h3>
-        <p>Request access to the private beta of the Shivora Suite or get in touch for custom enterprise integration.</p>
-        <div class="contact-meta">
-          <span><strong>Email:</strong> contact@shivoralabs.com</span>
-          <span><strong>Location:</strong> Charlotte / Harrisburg, NC</span>
+      <div class="brand-stage" aria-label="Shivora Labs brand mark">
+        <div class="symbol-wrap">
+          <img class="symbol" src="Icons/shivora_symbol_only.jpg" alt="Shivora Labs symbol" />
         </div>
+        <aside class="signal-panel" aria-label="Studio signal panel">
+          <div class="signal-head">
+            <span>Build Readiness</span>
+            <span class="signal-live">Live</span>
+          </div>
+          <div class="signal-body">
+            <div class="signal-item">
+              <span>Product clarity</span>
+              <strong>High</strong>
+            </div>
+            <div class="signal-item">
+              <span>System discipline</span>
+              <strong>Built in</strong>
+            </div>
+            <div class="signal-item">
+              <span>Launch posture</span>
+              <strong>Measured</strong>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="shell" id="work">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">What We Build</div>
+          <h2>AI systems that look beautiful and hold up in real use.</h2>
+        </div>
+        <p class="section-lede">
+          We focus on lean, high-leverage products: the tools that remove repetitive work, make complex knowledge easier to use, and give teams better decisions at the point of action.
+        </p>
       </div>
 
-      <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you for requesting access! The Shivora team will reach out shortly.'); this.reset();">
-        <div class="form-group">
-          <input type="text" placeholder="Your Name" required />
-        </div>
-        <div class="form-group">
-          <input type="email" placeholder="Work Email" required />
-        </div>
-        <div class="form-group">
-          <textarea placeholder="Tell us about your AI project requirements..." required></textarea>
-        </div>
-        <button type="submit" class="submit-btn">Request Invitation</button>
-      </form>
-    </div>
-  </section>
+      <div class="capability-grid">
+        <article class="capability">
+          <div class="capability-number">01</div>
+          <div>
+            <h3>AI Workflow Products</h3>
+            <p>Custom assistants, copilots, and task systems that fit how people already work instead of adding another noisy surface.</p>
+            <div class="tags">
+              <span class="tag">Agents</span>
+              <span class="tag">Automations</span>
+              <span class="tag">Internal tools</span>
+            </div>
+          </div>
+        </article>
+        <article class="capability">
+          <div class="capability-number">02</div>
+          <div>
+            <h3>Knowledge Experiences</h3>
+            <p>Search, retrieval, learning, and documentation interfaces that transform static information into usable intelligence.</p>
+            <div class="tags">
+              <span class="tag">RAG</span>
+              <span class="tag">Training</span>
+              <span class="tag">Docs</span>
+            </div>
+          </div>
+        </article>
+        <article class="capability">
+          <div class="capability-number">03</div>
+          <div>
+            <h3>Premium Digital Interfaces</h3>
+            <p>Launch-ready websites and apps with sharp visual systems, responsive layouts, and interactions that feel considered.</p>
+            <div class="tags">
+              <span class="tag">UX systems</span>
+              <span class="tag">Web apps</span>
+              <span class="tag">Dashboards</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-container">
-      <div class="footer-top">
-        <a href="#" class="footer-logo">
-          <img src="Icons/shivora_symbol_only.jpg" alt="Shivora Labs Logo" />
-          <div class="nav-logo-text">SHIVORA <span>LABS</span></div>
-        </a>
-        <div class="footer-links">
-          <a href="#apps">Apps</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
+    <section class="shell" id="studio">
+      <div class="studio">
+        <div class="studio-visual">
+          <img src="Icons/shivora_primary_logo.jpg" alt="Shivora Labs primary logo" />
+        </div>
+        <div class="studio-stack">
+          <article class="studio-card">
+            <div class="section-kicker">01 / Clarity</div>
+            <h3>Define the job before building the tool.</h3>
+            <p>We start by narrowing the product surface, the user promise, and the measurable outcome so every feature has a reason to exist.</p>
+          </article>
+          <article class="studio-card">
+            <div class="section-kicker">02 / Craft</div>
+            <h3>Make advanced systems feel simple.</h3>
+            <p>The interface should reduce cognitive load. The AI can be powerful; the experience should feel composed.</p>
+          </article>
+          <article class="studio-card">
+            <div class="section-kicker">03 / Reliability</div>
+            <h3>Design for the moments that matter.</h3>
+            <p>Production AI needs guardrails, observability, fallbacks, and clean human handoffs from the beginning.</p>
+          </article>
+          <article class="studio-card">
+            <div class="section-kicker">04 / Momentum</div>
+            <h3>Ship focused versions, then sharpen.</h3>
+            <p>We prefer practical release cycles over overbuilt plans, learning from real usage while preserving quality.</p>
+          </article>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; <span id="year"></span> Shivora Labs. All rights reserved.</p>
-        <div class="footer-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
+    </section>
+
+    <section class="shell" id="ventures">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Product Direction</div>
+          <h2>A focused lab for intelligent products and experiments.</h2>
         </div>
+        <p class="section-lede">
+          Shivora Labs is building toward a portfolio of AI-native experiences for productivity, learning, and signal discovery.
+        </p>
       </div>
+
+      <div class="ventures">
+        <article class="venture-card">
+          <div class="venture-top">
+            <span>Productivity</span>
+            <span class="status">Private beta</span>
+          </div>
+          <h3>Context Companion</h3>
+          <p>An ambient assistant concept for connecting tasks, documents, notes, and decisions across daily work.</p>
+        </article>
+        <article class="venture-card">
+          <div class="venture-top">
+            <span>Knowledge</span>
+            <span class="status">Design</span>
+          </div>
+          <h3>Narrative Learning</h3>
+          <p>A learning engine that turns dense information into guided, adaptive, story-led experiences.</p>
+        </article>
+        <article class="venture-card">
+          <div class="venture-top">
+            <span>Insights</span>
+            <span class="status">Concept</span>
+          </div>
+          <h3>Signal Analytics</h3>
+          <p>A cleaner way to surface meaningful operational signals without overwhelming teams with dashboard noise.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="shell" id="contact">
+      <div class="contact-wrap">
+        <div class="contact-card">
+          <h2>Have an AI product, workflow, or idea worth building properly?</h2>
+          <p>
+            Let us turn it into something sharper: a focused product direction, a polished interface, and a practical path to launch.
+          </p>
+          <div class="contact-links">
+            <a class="button primary" href="mailto:support@shivoralabs.com">support@shivoralabs.com</a>
+            <a class="button secondary" href="#work">Review Capabilities</a>
+          </div>
+        </div>
+        <aside class="contact-side" aria-label="Company details">
+          <dl>
+            <div>
+              <dt>Studio</dt>
+              <dd>Shivora Labs LLC</dd>
+            </div>
+            <div>
+              <dt>Location</dt>
+              <dd>Charlotte / Harrisburg, NC</dd>
+            </div>
+            <div>
+              <dt>Focus</dt>
+              <dd>AI products, workflow systems, premium web experiences</dd>
+            </div>
+            <div>
+              <dt>Cadens</dt>
+              <dd><a href="cadens/privacy/">Privacy Policy</a> · <a href="cadens/terms/">Terms & Safety</a></dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <a class="footer-logo" href="#">
+        <img src="Icons/shivora_symbol_only.jpg" alt="" />
+        <span>Shivora Labs</span>
+      </a>
+      <p>&copy; <span id="year"></span> Shivora Labs LLC. All rights reserved.</p>
+      <p><a href="cadens/privacy/">Cadens Privacy</a> · <a href="cadens/terms/">Cadens Terms</a></p>
     </div>
   </footer>
 
-  <!-- Scripts for Interactive Particles & Metrics -->
   <script>
-    // Set Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Stats simulation
-    setInterval(() => {
-      // Random latency drift
-      const lat = (180 + Math.random() * 20).toFixed(0);
-      document.getElementById('stat-latency').innerText = `${lat}ms`;
-
-      // Random active nodes
-      const nodes = (1000 + Math.floor(Math.random() * 50)).toLocaleString();
-      document.getElementById('nodes-metric').innerText = nodes;
-
-      // Random load drift
-      const load = (80 + Math.random() * 8).toFixed(1);
-      document.getElementById('load-metric').innerText = `${load}%`;
-    }, 3000);
-
-    // Canvas Particle animation inside Aura panel
-    const canvas = document.getElementById('auraCanvas');
-    const ctx = canvas.getContext('2d');
-
-    let width = canvas.width = canvas.offsetWidth;
-    let height = canvas.height = canvas.offsetHeight;
-
-    window.addEventListener('resize', () => {
-      width = canvas.width = canvas.offsetWidth;
-      height = canvas.height = canvas.offsetHeight;
-    });
-
-    const particles = [];
-    const maxParticles = 60;
-
-    class Particle {
-      constructor() {
-        this.reset();
-      }
-
-      reset() {
-        this.x = width / 2;
-        this.y = height / 2;
-        const angle = Math.random() * Math.PI * 2;
-        const speed = 0.5 + Math.random() * 1.5;
-        this.vx = Math.cos(angle) * speed;
-        this.vy = Math.sin(angle) * speed;
-        this.radius = 1 + Math.random() * 2;
-        this.alpha = 1;
-        this.decay = 0.005 + Math.random() * 0.015;
-        this.color = Math.random() > 0.5 ? 'rgba(0, 229, 255, ' : 'rgba(138, 43, 226, ';
-      }
-
-      update() {
-        // Orbit effect pull
-        const dx = this.x - width / 2;
-        const dy = this.y - height / 2;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        
-        // Add orbital force
-        this.vx += (-dy / dist) * 0.03;
-        this.vy += (dx / dist) * 0.03;
-
-        this.x += this.vx;
-        this.y += this.vy;
-        this.alpha -= this.decay;
-
-        if (this.alpha <= 0 || this.x < 0 || this.x > width || this.y < 0 || this.y > height) {
-          this.reset();
-        }
-      }
-
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = this.color + this.alpha + ')';
-        ctx.fill();
-      }
-    }
-
-    for (let i = 0; i < maxParticles; i++) {
-      particles.push(new Particle());
-    }
-
-    function animate() {
-      ctx.clearRect(0, 0, width, height);
-      
-      // Draw background center glow
-      const grad = ctx.createRadialGradient(width/2, height/2, 10, width/2, height/2, 120);
-      grad.addColorStop(0, 'rgba(0, 82, 255, 0.06)');
-      grad.addColorStop(1, 'rgba(0,0,0,0)');
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, width, height);
-
-      particles.forEach(p => {
-        p.update();
-        p.draw();
-      });
-
-      requestAnimationFrame(animate);
-    }
-
-    animate();
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>
