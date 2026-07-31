@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shivora Labs | Premium AI Product Studio</title>
-  <meta name="description" content="Shivora Labs designs and builds premium AI-powered products, workflows, and digital experiences for teams that value clarity, reliability, and craft." />
-  <meta property="og:title" content="Shivora Labs | Premium AI Product Studio" />
-  <meta property="og:description" content="AI products and digital experiences built with precision, polish, and production discipline." />
+  <title>Shivora Labs | Apps, Websites, and Custom AI Solutions</title>
+  <meta name="description" content="Shivora Labs builds polished apps, premium websites, and practical AI-powered workflow solutions for people and teams who want software that feels clear, useful, and real." />
+  <meta property="og:title" content="Shivora Labs | Apps, Websites, and Custom AI Solutions" />
+  <meta property="og:description" content="A product studio creating practical apps, premium web experiences, and custom AI workflow systems." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="Icons/shivora_logo_refined_square.png" />
   <link rel="icon" type="image/png" href="Icons/shivora_logo_emblem_square.png" />
@@ -14,20 +14,19 @@
   <style>
     :root {
       --bg: #05060a;
-      --bg-2: #090a0f;
-      --panel: rgba(16, 18, 27, 0.74);
-      --panel-strong: rgba(23, 25, 37, 0.94);
-      --line: rgba(226, 228, 240, 0.13);
-      --line-strong: rgba(226, 228, 240, 0.24);
-      --text: #f5f7fb;
-      --muted: #a8adbd;
-      --soft: #d8dbe6;
-      --cyan: #00e5ff;
-      --blue: #2467ff;
-      --violet: #9c4dff;
+      --panel: #0d0f16;
+      --panel-2: #11141d;
+      --panel-3: #151923;
+      --line: rgba(232, 234, 241, 0.14);
+      --line-strong: rgba(232, 234, 241, 0.24);
+      --text: #f6f7fb;
+      --soft: #d9dce6;
+      --muted: #9fa5b4;
       --gold: #e4c37f;
-      --silver: #e7e9ef;
-      --shadow: 0 28px 90px rgba(0, 0, 0, 0.48);
+      --gold-2: #b28742;
+      --teal: #6bc8bb;
+      --blue: #6d8cff;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.46);
       --radius: 8px;
       --max: 1180px;
     }
@@ -45,9 +44,9 @@
     body {
       min-height: 100vh;
       background:
-        linear-gradient(180deg, rgba(5, 6, 10, 0.68), #05060a 42%),
-        radial-gradient(circle at 74% 12%, rgba(228, 195, 127, 0.13), transparent 29%),
-        radial-gradient(circle at 24% 8%, rgba(0, 229, 255, 0.13), transparent 28%),
+        linear-gradient(180deg, rgba(5, 6, 10, 0.78), #05060a 36%),
+        radial-gradient(circle at 82% 8%, rgba(228, 195, 127, 0.13), transparent 26%),
+        radial-gradient(circle at 12% 18%, rgba(107, 200, 187, 0.1), transparent 28%),
         #05060a;
       color: var(--text);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -59,21 +58,12 @@
       content: "";
       position: fixed;
       inset: 0;
-      z-index: -2;
-      background-image:
-        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
-      background-size: 72px 72px;
-      mask-image: linear-gradient(to bottom, black, transparent 72%);
-      pointer-events: none;
-    }
-
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
       z-index: -1;
-      background: linear-gradient(90deg, rgba(5, 6, 10, 0.88), transparent 45%, rgba(5, 6, 10, 0.74));
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.026) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+      background-size: 86px 86px;
+      mask-image: linear-gradient(to bottom, black, transparent 68%);
       pointer-events: none;
     }
 
@@ -96,8 +86,8 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      border-bottom: 1px solid rgba(226, 228, 240, 0.1);
-      background: rgba(5, 6, 10, 0.76);
+      border-bottom: 1px solid var(--line);
+      background: rgba(5, 6, 10, 0.82);
       backdrop-filter: blur(18px);
     }
 
@@ -106,13 +96,13 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 22px;
+      gap: 24px;
     }
 
     .brand {
       display: inline-flex;
       align-items: center;
-      min-width: 220px;
+      min-width: 222px;
     }
 
     .brand img {
@@ -128,14 +118,16 @@
       gap: 28px;
       color: var(--muted);
       font-size: 0.88rem;
-      font-weight: 600;
+      font-weight: 650;
     }
 
-    .nav-links a {
+    .nav-links a,
+    .text-link {
       transition: color 180ms ease;
     }
 
-    .nav-links a:hover {
+    .nav-links a:hover,
+    .text-link:hover {
       color: var(--text);
     }
 
@@ -148,28 +140,36 @@
       border: 1px solid var(--line-strong);
       border-radius: var(--radius);
       padding: 0 18px;
-      color: var(--text);
       font-size: 0.9rem;
-      font-weight: 700;
+      font-weight: 760;
       transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
     }
 
-    .nav-action {
+    .nav-action,
+    .button.secondary {
       background: rgba(255, 255, 255, 0.04);
+      color: var(--soft);
+    }
+
+    .button.primary {
+      border-color: transparent;
+      color: #090a0f;
+      background: linear-gradient(135deg, #f3dda9, var(--gold-2));
+      box-shadow: 0 18px 44px rgba(228, 195, 127, 0.2);
     }
 
     .nav-action:hover,
     .button:hover {
       transform: translateY(-1px);
-      border-color: rgba(0, 229, 255, 0.52);
+      border-color: rgba(228, 195, 127, 0.48);
     }
 
     .hero {
       min-height: calc(100vh - 76px);
       display: grid;
-      grid-template-columns: minmax(0, 1.04fr) minmax(360px, 0.96fr);
+      grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
       align-items: center;
-      gap: 56px;
+      gap: 58px;
       padding: 78px 0 58px;
     }
 
@@ -178,14 +178,14 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 22px;
+      margin-bottom: 24px;
       padding: 8px 11px;
-      border: 1px solid rgba(0, 229, 255, 0.26);
+      border: 1px solid rgba(228, 195, 127, 0.26);
       border-radius: var(--radius);
       background: rgba(228, 195, 127, 0.065);
       color: #f7e4b6;
-      font-size: 0.76rem;
-      font-weight: 800;
+      font-size: 0.75rem;
+      font-weight: 850;
       letter-spacing: 0.16em;
       text-transform: uppercase;
     }
@@ -207,214 +207,170 @@
     }
 
     h1 {
-      max-width: 680px;
-      font-size: clamp(2.85rem, 5.35vw, 5rem);
-      font-weight: 850;
-      line-height: 1.08;
+      max-width: 760px;
+      font-size: clamp(2.85rem, 5.2vw, 5.1rem);
+      font-weight: 860;
+      line-height: 1.07;
     }
 
     .text-gradient {
-      background: linear-gradient(120deg, var(--silver), var(--gold) 44%, var(--cyan));
+      background: linear-gradient(120deg, var(--text), var(--gold) 45%, var(--teal));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
     .hero-copy {
-      max-width: 650px;
+      max-width: 680px;
       margin-top: 24px;
       color: var(--soft);
-      font-size: clamp(1rem, 1.6vw, 1.18rem);
+      font-size: clamp(1rem, 1.5vw, 1.16rem);
     }
 
-    .hero-actions {
+    .hero-actions,
+    .contact-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 13px;
       margin-top: 34px;
     }
 
-    .button.primary {
-      border-color: transparent;
-      background: linear-gradient(135deg, #f1d79a, #a87b2e 52%, #5f7cff);
-      box-shadow: 0 18px 44px rgba(228, 195, 127, 0.2);
-    }
-
-    .button.secondary {
-      background: rgba(255, 255, 255, 0.035);
-      color: var(--soft);
-    }
-
-    .proof-row {
+    .trust-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1px;
-      margin-top: 48px;
+      margin-top: 46px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      overflow: hidden;
       background: var(--line);
+      overflow: hidden;
     }
 
-    .proof {
-      min-height: 96px;
+    .trust-item {
+      min-height: 108px;
       padding: 18px;
-      background: rgba(8, 10, 16, 0.72);
+      background: rgba(10, 12, 18, 0.76);
     }
 
-    .proof strong {
+    .trust-item strong {
       display: block;
       color: var(--text);
-      font-size: 1.35rem;
-      line-height: 1.15;
+      font-size: 1.12rem;
+      line-height: 1.18;
     }
 
-    .proof span {
+    .trust-item span {
       display: block;
-      margin-top: 7px;
+      margin-top: 8px;
       color: var(--muted);
-      font-size: 0.82rem;
+      font-size: 0.84rem;
     }
 
-    .brand-stage {
-      position: relative;
-      min-height: 590px;
+    .hero-visual {
       display: grid;
-      align-items: center;
-      isolation: isolate;
+      gap: 18px;
     }
 
-    .brand-stage::before {
-      content: "";
-      position: absolute;
-      inset: 7% -4% 6% 8%;
-      z-index: -1;
-      border: 1px solid rgba(226, 228, 240, 0.08);
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at center, rgba(228, 195, 127, 0.15), transparent 22%),
-        radial-gradient(circle at center, rgba(0, 229, 255, 0.13), transparent 46%),
-        rgba(255, 255, 255, 0.02);
-      filter: blur(0.2px);
-      animation: breathe 8s ease-in-out infinite;
-    }
-
-    .symbol-wrap {
+    .brand-card {
       position: relative;
-      width: min(540px, 100%);
-      margin-left: auto;
-      aspect-ratio: 1;
+      min-height: 520px;
       display: grid;
       place-items: center;
-    }
-
-    .symbol-wrap::before,
-    .symbol-wrap::after {
-      content: "";
-      position: absolute;
-      inset: 8%;
-      border: 1px solid rgba(228, 195, 127, 0.22);
-      border-radius: 50%;
-      animation: orbit 18s linear infinite;
-    }
-
-    .symbol-wrap::after {
-      inset: 19%;
-      border-color: rgba(0, 229, 255, 0.18);
-      animation-duration: 26s;
-      animation-direction: reverse;
-    }
-
-    .symbol {
-      width: 82%;
-      border-radius: var(--radius);
-      box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.08),
-        0 30px 90px rgba(0, 0, 0, 0.74),
-        0 0 88px rgba(228, 195, 127, 0.13);
-    }
-
-    .signal-panel {
-      position: absolute;
-      right: 0;
-      bottom: 46px;
-      width: min(330px, 82%);
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: rgba(10, 12, 20, 0.76);
-      backdrop-filter: blur(16px);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent),
+        radial-gradient(circle at center, rgba(228, 195, 127, 0.12), transparent 38%),
+        #05060a;
       box-shadow: var(--shadow);
       overflow: hidden;
     }
 
-    .signal-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 14px 15px;
-      border-bottom: 1px solid var(--line);
+    .brand-card::before,
+    .brand-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .brand-card::before {
+      width: 88%;
+      aspect-ratio: 1;
+      border: 1px solid rgba(228, 195, 127, 0.2);
+    }
+
+    .brand-card::after {
+      width: 62%;
+      aspect-ratio: 1;
+      border: 1px solid rgba(107, 200, 187, 0.16);
+    }
+
+    .brand-card img {
+      position: relative;
+      z-index: 1;
+      width: min(82%, 430px);
+      border-radius: var(--radius);
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.08),
+        0 28px 90px rgba(0, 0, 0, 0.72);
+    }
+
+    .snapshot {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--line);
+      overflow: hidden;
+    }
+
+    .snapshot div {
+      padding: 16px;
+      background: rgba(13, 15, 22, 0.86);
+    }
+
+    .snapshot span {
+      display: block;
       color: var(--muted);
-      font-size: 0.74rem;
+      font-size: 0.72rem;
       font-weight: 800;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.13em;
       text-transform: uppercase;
     }
 
-    .signal-live {
-      color: #f7e4b6;
-    }
-
-    .signal-body {
-      padding: 16px;
-    }
-
-    .signal-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 12px 0;
-      border-bottom: 1px solid rgba(226, 228, 240, 0.08);
-      font-size: 0.88rem;
-    }
-
-    .signal-item:last-child {
-      border-bottom: 0;
-    }
-
-    .signal-item span {
-      color: var(--muted);
-    }
-
-    .signal-item strong {
+    .snapshot strong {
+      display: block;
+      margin-top: 6px;
       color: var(--text);
+      font-size: 0.98rem;
     }
 
     section {
       padding: 82px 0;
     }
 
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.96fr) minmax(280px, 0.54fr);
+      align-items: end;
+      gap: 38px;
+      margin-bottom: 34px;
+    }
+
     .section-kicker {
       color: var(--gold);
-      font-size: 0.76rem;
+      font-size: 0.75rem;
       font-weight: 850;
       letter-spacing: 0.16em;
       text-transform: uppercase;
     }
 
-    .section-head {
-      display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(260px, 0.55fr);
-      align-items: end;
-      gap: 36px;
-      margin-bottom: 34px;
-    }
-
     h2 {
       margin-top: 13px;
-      font-size: clamp(2rem, 4.4vw, 4.25rem);
-      font-weight: 830;
+      font-size: clamp(2rem, 4.2vw, 4.1rem);
+      font-weight: 840;
     }
 
     .section-lede {
@@ -422,154 +378,232 @@
       font-size: 1rem;
     }
 
-    .capability-grid {
+    .services-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 1px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      overflow: hidden;
       background: var(--line);
+      overflow: hidden;
     }
 
-    .capability,
-    .studio-card,
-    .venture-card,
-    .contact-card {
-      background: var(--panel);
-      backdrop-filter: blur(14px);
+    .service-card,
+    .process-card,
+    .coming-card {
+      background: rgba(13, 15, 22, 0.82);
     }
 
-    .capability {
-      min-height: 310px;
-      padding: 26px;
+    .service-card {
+      min-height: 270px;
+      padding: 24px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
 
-    .capability-number {
-      color: rgba(226, 228, 240, 0.36);
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.16em;
-    }
-
-    .capability h3,
-    .venture-card h3,
-    .studio-card h3 {
-      font-size: 1.38rem;
-      font-weight: 780;
-    }
-
-    .capability p,
-    .venture-card p,
-    .studio-card p {
-      margin-top: 13px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 24px;
-    }
-
-    .tag {
-      border: 1px solid rgba(226, 228, 240, 0.16);
-      border-radius: var(--radius);
-      padding: 6px 9px;
-      color: var(--soft);
-      background: rgba(255, 255, 255, 0.035);
+    .card-number {
+      color: rgba(232, 234, 241, 0.38);
       font-size: 0.76rem;
-      font-weight: 650;
+      font-weight: 820;
+      letter-spacing: 0.14em;
     }
 
-    .studio {
+    .service-card h3,
+    .process-card h3,
+    .coming-card h3,
+    .product-copy h3 {
+      font-size: 1.28rem;
+      font-weight: 800;
+    }
+
+    .service-card p,
+    .process-card p,
+    .coming-card p,
+    .product-copy p {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .product-panel {
       display: grid;
-      grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+      grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
       gap: 1px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      overflow: hidden;
       background: var(--line);
+      overflow: hidden;
+      box-shadow: var(--shadow);
     }
 
-    .studio-visual {
-      min-height: 530px;
-      position: relative;
+    .product-visual {
+      min-height: 500px;
       display: grid;
       place-items: center;
+      padding: 42px;
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent),
-        #07080d;
-      overflow: hidden;
+        radial-gradient(circle at 28% 22%, rgba(107, 200, 187, 0.18), transparent 32%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent),
+        #071724;
     }
 
-    .studio-visual img {
-      width: min(84%, 420px);
+    .product-visual img {
+      width: min(100%, 620px);
       border-radius: var(--radius);
-      filter: drop-shadow(0 0 48px rgba(228, 195, 127, 0.13));
+      box-shadow: 0 22px 70px rgba(0, 0, 0, 0.42);
     }
 
-    .studio-visual::before {
-      content: "";
-      position: absolute;
-      width: 78%;
-      aspect-ratio: 1;
-      border: 1px solid rgba(226, 228, 240, 0.12);
+    .product-copy {
+      padding: clamp(28px, 5vw, 52px);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent),
+        var(--panel);
+    }
+
+    .product-title {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .product-title img {
+      width: 58px;
+      height: 58px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: var(--radius);
+      object-fit: cover;
     }
 
-    .studio-stack {
+    .product-title span {
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 840;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .product-copy h3 {
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      line-height: 1.08;
+    }
+
+    .feature-list {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1px;
-      background: var(--line);
+      gap: 12px;
+      margin: 28px 0;
+      list-style: none;
     }
 
-    .studio-card {
-      min-height: 265px;
-      padding: 28px;
+    .feature-list li {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 10px;
+      color: var(--soft);
+      font-size: 0.96rem;
     }
 
-    .ventures {
+    .feature-list li::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      margin-top: 9px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 18px rgba(107, 200, 187, 0.54);
+    }
+
+    .product-links,
+    .mini-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .mini-links {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .text-link {
+      color: var(--soft);
+      font-weight: 720;
+      text-decoration: underline;
+      text-decoration-color: rgba(228, 195, 127, 0.34);
+      text-underline-offset: 4px;
+    }
+
+    .coming-grid,
+    .process-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
 
-    .venture-card {
-      min-height: 280px;
+    .coming-card,
+    .process-card {
+      min-height: 245px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
       padding: 24px;
-      box-shadow: 0 20px 55px rgba(0, 0, 0, 0.22);
     }
 
-    .venture-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      margin-bottom: 56px;
-      color: var(--muted);
-      font-size: 0.74rem;
-      font-weight: 850;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+    .coming-card {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent),
+        var(--panel);
     }
 
     .status {
+      width: fit-content;
+      margin-bottom: 40px;
       border: 1px solid rgba(228, 195, 127, 0.28);
       border-radius: var(--radius);
       padding: 5px 8px;
       color: #f7e4b6;
       background: rgba(228, 195, 127, 0.06);
-      letter-spacing: 0;
-      text-transform: none;
+      font-size: 0.74rem;
+      font-weight: 780;
+    }
+
+    .studio-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+      gap: 1px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--line);
+      overflow: hidden;
+    }
+
+    .studio-visual {
+      min-height: 520px;
+      display: grid;
+      place-items: center;
+      padding: 38px;
+      background:
+        radial-gradient(circle at center, rgba(228, 195, 127, 0.12), transparent 42%),
+        #07080d;
+    }
+
+    .studio-visual img {
+      width: min(86%, 430px);
+      border-radius: var(--radius);
+      filter: drop-shadow(0 0 48px rgba(228, 195, 127, 0.13));
+    }
+
+    .process-grid {
+      gap: 1px;
+      background: var(--line);
+    }
+
+    .process-card {
+      border: 0;
+      border-radius: 0;
+      min-height: 260px;
     }
 
     .contact-wrap {
@@ -579,10 +613,15 @@
       align-items: stretch;
     }
 
-    .contact-card {
+    .contact-card,
+    .contact-side {
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: clamp(26px, 5vw, 48px);
+      background: rgba(13, 15, 22, 0.86);
+    }
+
+    .contact-card {
+      padding: clamp(28px, 5vw, 52px);
       box-shadow: var(--shadow);
     }
 
@@ -598,23 +637,14 @@
       font-size: 1.05rem;
     }
 
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 32px;
-    }
-
     .contact-side {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
       padding: 26px;
-      background: var(--panel-strong);
+      background: var(--panel-2);
     }
 
     .contact-side dl {
       display: grid;
-      gap: 19px;
+      gap: 20px;
     }
 
     .contact-side dt {
@@ -628,7 +658,7 @@
     .contact-side dd {
       margin-top: 4px;
       color: var(--text);
-      font-weight: 700;
+      font-weight: 720;
     }
 
     .site-footer {
@@ -663,34 +693,15 @@
       object-fit: cover;
     }
 
-    @keyframes orbit {
-      from {
-        transform: rotate(0deg) scale(1);
-      }
-      to {
-        transform: rotate(360deg) scale(1.02);
-      }
-    }
-
-    @keyframes breathe {
-      0%,
-      100% {
-        opacity: 0.72;
-        transform: scale(0.98);
-      }
-      50% {
-        opacity: 1;
-        transform: scale(1.02);
-      }
-    }
-
     @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation-duration: 0.001ms !important;
-        animation-iteration-count: 1 !important;
+      * {
         scroll-behavior: auto !important;
+      }
+    }
+
+    @media (max-width: 1040px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
@@ -713,32 +724,19 @@
         padding-top: 56px;
       }
 
-      h1 {
-        max-width: 760px;
-        font-size: clamp(2.65rem, 8vw, 4.25rem);
-      }
-
-      .brand-stage {
-        min-height: 470px;
-      }
-
-      .symbol-wrap {
-        margin: 0 auto;
-        max-width: 500px;
+      .hero-visual {
+        max-width: 620px;
       }
 
       .section-head,
-      .studio,
+      .product-panel,
+      .studio-panel,
       .contact-wrap {
         grid-template-columns: 1fr;
       }
 
-      .capability-grid,
-      .ventures {
-        grid-template-columns: 1fr;
-      }
-
-      .studio-stack {
+      .coming-grid,
+      .process-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -767,7 +765,8 @@
       }
 
       .hero-actions,
-      .contact-links {
+      .contact-actions,
+      .product-links {
         flex-direction: column;
       }
 
@@ -775,27 +774,20 @@
         width: 100%;
       }
 
-      .proof-row {
+      .trust-row,
+      .snapshot,
+      .services-grid {
         grid-template-columns: 1fr;
       }
 
-      .brand-stage {
-        min-height: 390px;
-      }
-
-      .signal-panel {
-        right: 50%;
-        bottom: 8px;
-        transform: translateX(50%);
-        width: 94%;
+      .brand-card,
+      .product-visual,
+      .studio-visual {
+        min-height: 360px;
       }
 
       section {
         padding: 58px 0;
-      }
-
-      .studio-visual {
-        min-height: 360px;
       }
 
       .footer-inner {
@@ -812,207 +804,239 @@
         <img src="Icons/shivora_logo_horizontal.png" alt="Shivora Labs" />
       </a>
       <nav class="nav-links" aria-label="Site links">
-        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+        <a href="#cadens">Cadens</a>
+        <a href="#apps">Apps</a>
         <a href="#studio">Studio</a>
-        <a href="#ventures">Ventures</a>
-        <a href="cadens/privacy/">Privacy</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a class="nav-action" href="mailto:support@shivoralabs.com">Contact Support</a>
+      <a class="nav-action" href="mailto:support@shivoralabs.com">Start a Project</a>
     </div>
   </header>
 
   <main>
     <section class="shell hero">
       <div>
-        <div class="eyebrow">AI Product Studio</div>
-        <h1>Premium AI experiences for teams moving from idea to <span class="text-gradient">impact.</span></h1>
+        <div class="eyebrow">Independent Product Studio</div>
+        <h1>Apps, websites, and AI workflows built with <span class="text-gradient">real product taste.</span></h1>
         <p class="hero-copy">
-          Shivora Labs builds polished AI-powered products, internal tools, and workflow systems with a bias for clarity, reliability, and practical business value.
+          Shivora Labs creates polished digital products for people and teams who want software that is useful on day one: thoughtful apps, premium websites, practical automations, and custom solutions shaped around the way work actually happens.
         </p>
         <div class="hero-actions">
-          <a class="button primary" href="mailto:support@shivoralabs.com">Discuss a Build</a>
-          <a class="button secondary" href="#work">Explore Capabilities</a>
+          <a class="button primary" href="mailto:support@shivoralabs.com">Talk About a Build</a>
+          <a class="button secondary" href="#cadens">See Our First App</a>
         </div>
-        <div class="proof-row" aria-label="Shivora Labs strengths">
-          <div class="proof">
-            <strong>Product-first</strong>
-            <span>Strategy, UX, and engineering treated as one discipline.</span>
+        <div class="trust-row" aria-label="Shivora Labs focus areas">
+          <div class="trust-item">
+            <strong>Real products</strong>
+            <span>Not demos dressed up as companies.</span>
           </div>
-          <div class="proof">
-            <strong>AI-native</strong>
-            <span>Agents, automations, retrieval, and decision workflows.</span>
+          <div class="trust-item">
+            <strong>Premium interfaces</strong>
+            <span>Clear, calm, responsive, and ready to show customers.</span>
           </div>
-          <div class="proof">
-            <strong>Premium polish</strong>
-            <span>Interfaces designed to feel calm, fast, and trustworthy.</span>
+          <div class="trust-item">
+            <strong>Custom solutions</strong>
+            <span>Built for your workflow instead of forcing a template.</span>
           </div>
         </div>
       </div>
 
-      <div class="brand-stage" aria-label="Shivora Labs brand mark">
-        <div class="symbol-wrap">
-          <img class="symbol" src="Icons/shivora_logo_emblem_square.png" alt="Shivora Labs emblem logo" />
+      <div class="hero-visual" aria-label="Shivora Labs brand showcase">
+        <div class="brand-card">
+          <img src="Icons/shivora_logo_emblem_square.png" alt="Shivora Labs emblem logo" />
         </div>
-        <aside class="signal-panel" aria-label="Studio signal panel">
-          <div class="signal-head">
-            <span>Build Readiness</span>
-            <span class="signal-live">Live</span>
+        <div class="snapshot">
+          <div>
+            <span>Studio</span>
+            <strong>Apps and web</strong>
           </div>
-          <div class="signal-body">
-            <div class="signal-item">
-              <span>Product clarity</span>
-              <strong>High</strong>
-            </div>
-            <div class="signal-item">
-              <span>System discipline</span>
-              <strong>Built in</strong>
-            </div>
-            <div class="signal-item">
-              <span>Launch posture</span>
-              <strong>Measured</strong>
-            </div>
+          <div>
+            <span>Product</span>
+            <strong>Cadens live</strong>
           </div>
-        </aside>
+          <div>
+            <span>Pipeline</span>
+            <strong>More coming soon</strong>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="shell" id="work">
+    <section class="shell" id="services">
       <div class="section-head">
         <div>
-          <div class="section-kicker">What We Build</div>
-          <h2>AI systems that look beautiful and hold up in real use.</h2>
+          <div class="section-kicker">What Shivora Builds</div>
+          <h2>A focused studio for product-grade digital work.</h2>
         </div>
         <p class="section-lede">
-          We focus on lean, high-leverage products: the tools that remove repetitive work, make complex knowledge easier to use, and give teams better decisions at the point of action.
+          We blend product strategy, interface design, and practical engineering so every build has a clear job, a clean experience, and a maintainable path forward.
         </p>
       </div>
 
-      <div class="capability-grid">
-        <article class="capability">
-          <div class="capability-number">01</div>
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="card-number">01</div>
           <div>
-            <h3>AI Workflow Products</h3>
-            <p>Custom assistants, copilots, and task systems that fit how people already work instead of adding another noisy surface.</p>
-            <div class="tags">
-              <span class="tag">Agents</span>
-              <span class="tag">Automations</span>
-              <span class="tag">Internal tools</span>
-            </div>
+            <h3>Consumer and utility apps</h3>
+            <p>Focused applications with simple flows, strong defaults, and polished details that make people want to keep using them.</p>
           </div>
         </article>
-        <article class="capability">
-          <div class="capability-number">02</div>
+        <article class="service-card">
+          <div class="card-number">02</div>
           <div>
-            <h3>Knowledge Experiences</h3>
-            <p>Search, retrieval, learning, and documentation interfaces that transform static information into usable intelligence.</p>
-            <div class="tags">
-              <span class="tag">RAG</span>
-              <span class="tag">Training</span>
-              <span class="tag">Docs</span>
-            </div>
+            <h3>Premium websites</h3>
+            <p>Company sites, product pages, and launch experiences that look credible, load cleanly, and make the offer easy to understand.</p>
           </div>
         </article>
-        <article class="capability">
-          <div class="capability-number">03</div>
+        <article class="service-card">
+          <div class="card-number">03</div>
           <div>
-            <h3>Premium Digital Interfaces</h3>
-            <p>Launch-ready websites and apps with sharp visual systems, responsive layouts, and interactions that feel considered.</p>
-            <div class="tags">
-              <span class="tag">UX systems</span>
-              <span class="tag">Web apps</span>
-              <span class="tag">Dashboards</span>
+            <h3>AI workflow systems</h3>
+            <p>Assistants, automation flows, knowledge tools, and internal systems that remove busywork without making the process fragile.</p>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="card-number">04</div>
+          <div>
+            <h3>Customizable solutions</h3>
+            <p>Tailored tools for teams that need dashboards, portals, forms, integrations, or decision support built around their operating model.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="shell" id="cadens">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Featured App</div>
+          <h2>Cadens is the first product in the Shivora Labs app portfolio.</h2>
+        </div>
+        <p class="section-lede">
+          Cadens represents the way we like to build: focused, calm, useful, and designed around a real daily need instead of a trend.
+        </p>
+      </div>
+
+      <div class="product-panel">
+        <div class="product-visual">
+          <img src="Icons/cadens_logo_full_wide_dark.png" alt="Cadens app logo" />
+        </div>
+        <article class="product-copy">
+          <div class="product-title">
+            <img src="Icons/cadens_icon_square_dark_512.png" alt="" />
+            <div>
+              <span>Cadens</span>
+              <h3>A simple, personal rhythm app built for consistency.</h3>
             </div>
           </div>
+          <p>
+            Cadens is a Shivora Labs app designed to help people build steadier routines and return to what matters with less friction. It is intentionally focused: a clean product, a distinct identity, and a foundation for thoughtful features over time.
+          </p>
+          <ul class="feature-list">
+            <li>Clear product identity with dedicated privacy and terms pages.</li>
+            <li>Designed as a real app brand, not a placeholder portfolio item.</li>
+            <li>Part of a growing pipeline of practical Shivora-built products.</li>
+          </ul>
+          <div class="product-links">
+            <a class="button primary" href="cadens/privacy/">Cadens Privacy</a>
+            <a class="button secondary" href="cadens/terms/">Terms and Safety</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="shell" id="apps">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Product Pipeline</div>
+          <h2>Cadens is live. More focused apps are coming soon.</h2>
+        </div>
+        <p class="section-lede">
+          The goal is not to flood the market. It is to build a small portfolio of products that each solve a clear problem and feel finished enough to trust.
+        </p>
+      </div>
+
+      <div class="coming-grid">
+        <article class="coming-card">
+          <div class="status">Live foundation</div>
+          <h3>Cadens</h3>
+          <p>A personal rhythm and consistency product with a dedicated brand system, policies, and ongoing product direction.</p>
+          <div class="mini-links">
+            <a class="text-link" href="cadens/privacy/">Privacy</a>
+            <span>/</span>
+            <a class="text-link" href="cadens/terms/">Terms</a>
+          </div>
+        </article>
+        <article class="coming-card">
+          <div class="status">Coming soon</div>
+          <h3>Productivity tools</h3>
+          <p>Small, high-leverage utilities for planning, review, knowledge capture, and focused personal workflows.</p>
+        </article>
+        <article class="coming-card">
+          <div class="status">Custom builds</div>
+          <h3>Client solutions</h3>
+          <p>Premium websites, internal apps, dashboards, and AI-enhanced workflow systems for founders and small teams.</p>
         </article>
       </div>
     </section>
 
     <section class="shell" id="studio">
-      <div class="studio">
+      <div class="studio-panel">
         <div class="studio-visual">
           <img src="Icons/shivora_logo_refined_square.png" alt="Shivora Labs refined logo" />
         </div>
-        <div class="studio-stack">
-          <article class="studio-card">
-            <div class="section-kicker">01 / Clarity</div>
-            <h3>Define the job before building the tool.</h3>
-            <p>We start by narrowing the product surface, the user promise, and the measurable outcome so every feature has a reason to exist.</p>
+        <div class="process-grid">
+          <article class="process-card">
+            <div class="section-kicker">01 / Define</div>
+            <h3>Start with the job, not the buzzword.</h3>
+            <p>We clarify the user, workflow, and business outcome before deciding what should be built.</p>
           </article>
-          <article class="studio-card">
-            <div class="section-kicker">02 / Craft</div>
-            <h3>Make advanced systems feel simple.</h3>
-            <p>The interface should reduce cognitive load. The AI can be powerful; the experience should feel composed.</p>
+          <article class="process-card">
+            <div class="section-kicker">02 / Design</div>
+            <h3>Make the product feel obvious.</h3>
+            <p>Good software reduces effort. Interfaces should be attractive, but more importantly, they should feel inevitable.</p>
           </article>
-          <article class="studio-card">
-            <div class="section-kicker">03 / Reliability</div>
-            <h3>Design for the moments that matter.</h3>
-            <p>Production AI needs guardrails, observability, fallbacks, and clean human handoffs from the beginning.</p>
+          <article class="process-card">
+            <div class="section-kicker">03 / Build</div>
+            <h3>Use the simplest durable path.</h3>
+            <p>We favor maintainable systems, native platform features, and clean implementation over unnecessary complexity.</p>
           </article>
-          <article class="studio-card">
-            <div class="section-kicker">04 / Momentum</div>
-            <h3>Ship focused versions, then sharpen.</h3>
-            <p>We prefer practical release cycles over overbuilt plans, learning from real usage while preserving quality.</p>
+          <article class="process-card">
+            <div class="section-kicker">04 / Launch</div>
+            <h3>Ship something people can trust.</h3>
+            <p>The result should be clear enough to explain, polished enough to show, and practical enough to use.</p>
+          </article>
+          <article class="process-card">
+            <div class="section-kicker">05 / Improve</div>
+            <h3>Let real use sharpen the roadmap.</h3>
+            <p>After launch, we improve what matters: usability, speed, reliability, and the features users actually need.</p>
+          </article>
+          <article class="process-card">
+            <div class="section-kicker">06 / Extend</div>
+            <h3>Build a system, not a one-off screen.</h3>
+            <p>When a product grows, we shape it into reusable patterns, components, and workflows that stay coherent.</p>
           </article>
         </div>
-      </div>
-    </section>
-
-    <section class="shell" id="ventures">
-      <div class="section-head">
-        <div>
-          <div class="section-kicker">Product Direction</div>
-          <h2>A focused lab for intelligent products and experiments.</h2>
-        </div>
-        <p class="section-lede">
-          Shivora Labs is building toward a portfolio of AI-native experiences for productivity, learning, and signal discovery.
-        </p>
-      </div>
-
-      <div class="ventures">
-        <article class="venture-card">
-          <div class="venture-top">
-            <span>Productivity</span>
-            <span class="status">Private beta</span>
-          </div>
-          <h3>Context Companion</h3>
-          <p>An ambient assistant concept for connecting tasks, documents, notes, and decisions across daily work.</p>
-        </article>
-        <article class="venture-card">
-          <div class="venture-top">
-            <span>Knowledge</span>
-            <span class="status">Design</span>
-          </div>
-          <h3>Narrative Learning</h3>
-          <p>A learning engine that turns dense information into guided, adaptive, story-led experiences.</p>
-        </article>
-        <article class="venture-card">
-          <div class="venture-top">
-            <span>Insights</span>
-            <span class="status">Concept</span>
-          </div>
-          <h3>Signal Analytics</h3>
-          <p>A cleaner way to surface meaningful operational signals without overwhelming teams with dashboard noise.</p>
-        </article>
       </div>
     </section>
 
     <section class="shell" id="contact">
       <div class="contact-wrap">
         <div class="contact-card">
-          <h2>Have an AI product, workflow, or idea worth building properly?</h2>
+          <div class="section-kicker">Start Here</div>
+          <h2>Have an app, website, or workflow that should feel more finished?</h2>
           <p>
-            Let us turn it into something sharper: a focused product direction, a polished interface, and a practical path to launch.
+            Bring the idea, the messy process, or the half-built product. Shivora Labs can help shape it into a polished digital experience with a clear path to launch.
           </p>
-          <div class="contact-links">
+          <div class="contact-actions">
             <a class="button primary" href="mailto:support@shivoralabs.com">support@shivoralabs.com</a>
-            <a class="button secondary" href="#work">Review Capabilities</a>
+            <a class="button secondary" href="#services">View Services</a>
           </div>
         </div>
         <aside class="contact-side" aria-label="Company details">
           <dl>
             <div>
-              <dt>Studio</dt>
+              <dt>Company</dt>
               <dd>Shivora Labs</dd>
             </div>
             <div>
@@ -1020,12 +1044,12 @@
               <dd>Charlotte / Harrisburg, NC</dd>
             </div>
             <div>
-              <dt>Focus</dt>
-              <dd>AI products, workflow systems, premium web experiences</dd>
+              <dt>Work</dt>
+              <dd>Apps, websites, custom workflow systems, and practical AI solutions</dd>
             </div>
             <div>
-              <dt>Cadens</dt>
-              <dd><a href="cadens/privacy/">Privacy Policy</a> · <a href="cadens/terms/">Terms & Safety</a></dd>
+              <dt>Product</dt>
+              <dd><a class="text-link" href="cadens/privacy/">Cadens Privacy</a> · <a class="text-link" href="cadens/terms/">Cadens Terms</a></dd>
             </div>
           </dl>
         </aside>
@@ -1040,7 +1064,7 @@
         <span>Shivora Labs</span>
       </a>
       <p>&copy; <span id="year"></span> Shivora Labs. All rights reserved.</p>
-      <p><a href="cadens/privacy/">Cadens Privacy</a> · <a href="cadens/terms/">Cadens Terms</a></p>
+      <p><a class="text-link" href="cadens/privacy/">Cadens Privacy</a> · <a class="text-link" href="cadens/terms/">Cadens Terms</a></p>
     </div>
   </footer>
 
