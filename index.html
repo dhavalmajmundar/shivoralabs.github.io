@@ -103,14 +103,29 @@
     .brand {
       display: inline-flex;
       align-items: center;
-      min-width: 222px;
+      gap: 10px;
+      min-width: 190px;
+      color: var(--text);
+      font-weight: 760;
+      white-space: nowrap;
     }
 
     .brand img {
-      width: 236px;
-      height: 58px;
-      object-fit: contain;
-      object-position: left center;
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius);
+      object-fit: cover;
+      filter: drop-shadow(0 0 12px rgba(228, 195, 127, 0.16));
+    }
+
+    .brand span {
+      font-size: 0.98rem;
+      letter-spacing: 0;
+    }
+
+    .brand strong {
+      color: var(--gold);
+      font-weight: 760;
     }
 
     .nav-links {
@@ -269,53 +284,37 @@
 
     .hero-visual {
       display: grid;
-      gap: 18px;
+      gap: 16px;
       padding-top: 0;
     }
 
     .brand-card {
       position: relative;
-      min-height: 430px;
+      min-height: 408px;
       display: grid;
       place-items: center;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
+      border: 0;
+      border-radius: 0;
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent),
-        radial-gradient(circle at center, rgba(228, 195, 127, 0.12), transparent 38%),
-        #05060a;
-      box-shadow: var(--shadow);
-      overflow: hidden;
+        radial-gradient(circle at center, rgba(228, 195, 127, 0.12), transparent 50%),
+        transparent;
+      box-shadow: none;
+      overflow: visible;
     }
 
     .brand-card::before,
     .brand-card::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .brand-card::before {
-      width: 88%;
-      aspect-ratio: 1;
-      border: 1px solid rgba(228, 195, 127, 0.2);
-    }
-
-    .brand-card::after {
-      width: 62%;
-      aspect-ratio: 1;
-      border: 1px solid rgba(107, 200, 187, 0.16);
+      display: none;
     }
 
     .brand-card img {
       position: relative;
       z-index: 1;
-      width: min(82%, 430px);
+      width: min(100%, 510px);
       border-radius: var(--radius);
       box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.08),
-        0 28px 90px rgba(0, 0, 0, 0.72);
+        0 22px 72px rgba(0, 0, 0, 0.44),
+        0 0 46px rgba(228, 195, 127, 0.1);
     }
 
     .snapshot {
@@ -717,7 +716,8 @@
       }
 
       .brand img {
-        width: 204px;
+        width: 40px;
+        height: 40px;
       }
 
       .hero {
@@ -754,8 +754,8 @@
       }
 
       .brand img {
-        width: 178px;
-        height: 48px;
+        width: 38px;
+        height: 38px;
       }
 
       .hero {
@@ -804,7 +804,8 @@
   <header class="site-header">
     <div class="shell nav" aria-label="Primary navigation">
       <a class="brand" href="#" aria-label="Shivora Labs home">
-        <img src="Icons/shivora_logo_horizontal.png" alt="Shivora Labs" />
+        <img src="Icons/favicon-120.png" alt="" />
+        <span>Shivora <strong>Labs</strong></span>
       </a>
       <nav class="nav-links" aria-label="Site links">
         <a href="#services">Services</a>

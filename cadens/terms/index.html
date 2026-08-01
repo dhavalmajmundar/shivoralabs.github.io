@@ -16,6 +16,7 @@
       --text: #f5f7fb;
       --muted: #a8adbd;
       --soft: #d8dbe6;
+      --gold: #e4c37f;
       --cyan: #00e5ff;
       --radius: 14px;
       --max: 920px;
@@ -52,11 +53,31 @@
     }
 
     .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       color: var(--text);
-      font-weight: 900;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      font-weight: 760;
+      white-space: nowrap;
       text-decoration: none;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      object-fit: cover;
+      filter: drop-shadow(0 0 12px rgba(228, 195, 127, 0.16));
+    }
+
+    .brand span {
+      font-size: 0.98rem;
+      letter-spacing: 0;
+    }
+
+    .brand strong {
+      color: var(--gold);
+      font-weight: 760;
     }
 
     .back {
@@ -148,7 +169,10 @@
 <body>
   <main class="shell">
     <header>
-      <a class="brand" href="../../">Shivora Labs</a>
+      <a class="brand" href="../../" aria-label="Shivora Labs home">
+        <img src="../../Icons/favicon-120.png" alt="" />
+        <span>Shivora <strong>Labs</strong></span>
+      </a>
       <a class="back" href="../../contact/">Contact Shivora Labs</a>
     </header>
 
