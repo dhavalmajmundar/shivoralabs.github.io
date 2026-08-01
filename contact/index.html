@@ -349,6 +349,10 @@
       margin-top: 4px;
     }
 
+    .hidden-field {
+      display: none;
+    }
+
     .site-footer {
       border-top: 1px solid var(--line);
       padding: 30px 0;
@@ -465,7 +469,12 @@
       </section>
 
       <section class="form-card" aria-label="Contact form">
-        <form id="contact-form">
+        <form id="contact-form" action="https://formsubmit.co/ajax/support@shivoralabs.com" method="POST">
+          <input class="hidden-field" type="text" name="_honey" tabindex="-1" autocomplete="off" />
+          <input type="hidden" name="_subject" value="New project inquiry from Shivora Labs website" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+
           <div class="field">
             <label for="name">Name</label>
             <input id="name" name="name" autocomplete="name" required />
@@ -494,11 +503,11 @@
           </div>
 
           <p class="form-note">
-            This site is hosted statically, so Send Message via Email opens your email app with the message prepared. Use Copy Message if you prefer to paste it yourself.
+            Send a project note directly to support@shivoralabs.com. Use Copy Message if you prefer to keep a copy for yourself.
           </p>
 
           <div class="actions">
-            <button class="button primary" type="submit">Send Message via Email</button>
+            <button class="button primary" type="submit" id="send-message">Send Message</button>
             <button class="button secondary" type="button" id="copy-message">Copy Message</button>
             <button class="button secondary" type="button" data-copy="support@shivoralabs.com">Copy Email</button>
           </div>
@@ -524,6 +533,7 @@
 
     const supportEmail = "support@shivoralabs.com";
     const status = document.getElementById("form-status");
+    const sendButton = document.getElementById("send-message");
     let statusTimer;
 
     function showStatus(message) {
@@ -552,10 +562,10 @@
     });
 
     function buildEmailContent(form) {
-      const name = form.name.value.trim();
-      const email = form.email.value.trim();
-      const project = form.project.value;
-      const message = form.message.value.trim();
+      const name = form.elements.name.value.trim();
+      const email = form.elements.email.value.trim();
+      const project = form.elements.project.value;
+      const message = form.elements.message.value.trim();
 
       return {
         subject: "Project inquiry from " + name,
@@ -584,12 +594,49 @@
     document.getElementById("contact-form").addEventListener("submit", function (event) {
       event.preventDefault();
 
-      const content = buildEmailContent(event.currentTarget);
-      showStatus("Opening your email app with the message prepared.");
-      window.location.href =
-        "mailto:" + supportEmail +
-        "?subject=" + encodeURIComponent(content.subject) +
-        "&body=" + encodeURIComponent(content.body);
+      const form = event.currentTarget;
+      if (!form.reportValidity()) return;
+
+      sendButton.disabled = true;
+      sendButton.textContent = "Sending...";
+
+      const content = buildEmailContent(form);
+      const data = {
+        name: form.elements.name.value.trim(),
+        email: form.elements.email.value.trim(),
+        project: form.elements.project.value,
+        message: form.elements.message.value.trim(),
+        _subject: content.subject,
+        _template: "table",
+        _captcha: "false",
+        _honey: form.elements._honey.value
+      };
+
+      fetch(form.action, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(data)
+      })
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error("Form service returned " + response.status);
+          }
+          return response.json();
+        })
+        .then(function () {
+          form.reset();
+          showStatus("Message sent. We will reply from " + supportEmail + ".");
+        })
+        .catch(function () {
+          showStatus("The send service did not accept the message yet. Please use Copy Message and send it to " + supportEmail + ".");
+        })
+        .finally(function () {
+          sendButton.disabled = false;
+          sendButton.textContent = "Send Message";
+        });
     });
   </script>
 </body>
