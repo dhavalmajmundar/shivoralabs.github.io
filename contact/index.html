@@ -150,9 +150,9 @@
 
     .contact-layout {
       display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(340px, 1.1fr);
-      gap: 22px;
-      align-items: start;
+      grid-template-columns: minmax(0, 0.92fr) minmax(360px, 1.08fr);
+      gap: 24px;
+      align-items: stretch;
     }
 
     .eyebrow {
@@ -241,6 +241,7 @@
 
     .form-card {
       padding: clamp(22px, 3.2vw, 32px);
+      align-self: stretch;
     }
 
     form {
@@ -472,11 +473,11 @@
           </div>
 
           <p class="form-note">
-            This site is hosted statically, so Send Email opens your email app with the message prepared. Use Copy Message if you prefer to paste it yourself.
+            This site is hosted statically, so Send Message opens your email app with the message prepared. Use Copy Message if you prefer to paste it yourself.
           </p>
 
           <div class="actions">
-            <button class="button primary" type="submit">Send Email</button>
+            <button class="button primary" type="submit">Send Message</button>
             <button class="button secondary" type="button" id="copy-message">Copy Message</button>
             <button class="button secondary" type="button" data-copy="support@shivoralabs.com">Copy Email</button>
           </div>
