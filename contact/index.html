@@ -628,10 +628,10 @@
         })
         .then(function () {
           form.reset();
-          showStatus("Message sent. We will reply from " + supportEmail + ".");
+          showStatus("Thank you. Your message has been received, and Shivora Labs will follow up shortly.");
         })
         .catch(function () {
-          showStatus("The send service did not accept the message yet. Please use Copy Message and send it to " + supportEmail + ".");
+          showStatus("Your message could not be sent at this moment. Please use Copy Message and send it to " + supportEmail + ".");
         })
         .finally(function () {
           sendButton.disabled = false;
