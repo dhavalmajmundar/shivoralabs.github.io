@@ -184,9 +184,16 @@
       min-height: auto;
       display: grid;
       grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
-      align-items: start;
+      align-items: stretch;
       gap: 42px;
       padding: 52px 0 42px;
+    }
+
+    .hero-content,
+    .hero-visual {
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+      gap: 22px;
     }
 
     .eyebrow {
@@ -255,7 +262,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1px;
-      margin-top: 30px;
+      margin-top: 0;
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background: var(--line);
@@ -282,22 +289,14 @@
       font-size: 0.84rem;
     }
 
-    .hero-visual {
-      display: grid;
-      gap: 16px;
-      padding-top: 0;
-    }
-
     .brand-card {
       position: relative;
-      min-height: 408px;
+      min-height: 0;
       display: grid;
       place-items: center;
       border: 0;
       border-radius: 0;
-      background:
-        radial-gradient(circle at center, rgba(228, 195, 127, 0.12), transparent 50%),
-        transparent;
+      background: transparent;
       box-shadow: none;
       overflow: visible;
     }
@@ -310,11 +309,11 @@
     .brand-card img {
       position: relative;
       z-index: 1;
-      width: min(100%, 510px);
-      border-radius: var(--radius);
-      box-shadow:
-        0 22px 72px rgba(0, 0, 0, 0.44),
-        0 0 46px rgba(228, 195, 127, 0.1);
+      width: min(100%, 530px);
+      border-radius: 0;
+      filter:
+        drop-shadow(0 26px 58px rgba(0, 0, 0, 0.5))
+        drop-shadow(0 0 34px rgba(228, 195, 127, 0.12));
     }
 
     .snapshot {
@@ -328,6 +327,7 @@
     }
 
     .snapshot div {
+      min-height: 92px;
       padding: 16px;
       background: rgba(13, 15, 22, 0.86);
     }
@@ -820,15 +820,17 @@
 
   <main>
     <section class="shell hero">
-      <div>
-        <div class="eyebrow">Independent Product Studio</div>
-        <h1>Apps, websites, and AI workflows built with <span class="text-gradient">real product taste.</span></h1>
-        <p class="hero-copy">
-          Shivora Labs creates polished digital products for people and teams who want software that is useful on day one: thoughtful apps, premium websites, practical automations, and custom solutions shaped around the way work actually happens.
-        </p>
-        <div class="hero-actions">
-          <a class="button primary" href="contact/">Talk About a Build</a>
-          <a class="button secondary" href="#cadens">See Our First App</a>
+      <div class="hero-content">
+        <div>
+          <div class="eyebrow">Independent Product Studio</div>
+          <h1>Apps, websites, and AI workflows built with <span class="text-gradient">real product taste.</span></h1>
+          <p class="hero-copy">
+            Shivora Labs creates polished digital products for people and teams who want software that is useful on day one: thoughtful apps, premium websites, practical automations, and custom solutions shaped around the way work actually happens.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="contact/">Talk About a Build</a>
+            <a class="button secondary" href="#cadens">See Our First App</a>
+          </div>
         </div>
         <div class="trust-row" aria-label="Shivora Labs focus areas">
           <div class="trust-item">
@@ -848,7 +850,7 @@
 
       <div class="hero-visual" aria-label="Shivora Labs brand showcase">
         <div class="brand-card">
-          <img src="Icons/shivora_logo_emblem_square.png" alt="Shivora Labs emblem logo" />
+          <img src="Icons/shivora_logo_emblem_transparent.png" alt="Shivora Labs emblem logo" />
         </div>
         <div class="snapshot">
           <div>
