@@ -472,11 +472,12 @@
           </div>
 
           <p class="form-note">
-            This site is hosted statically, so submitting copies a ready-to-send message and shows the email address. A fully silent send flow would require adding a form service.
+            This site is hosted statically, so Send Email opens your email app with the message prepared. Use Copy Message if you prefer to paste it yourself.
           </p>
 
           <div class="actions">
-            <button class="button primary" type="submit">Copy Message</button>
+            <button class="button primary" type="submit">Send Email</button>
+            <button class="button secondary" type="button" id="copy-message">Copy Message</button>
             <button class="button secondary" type="button" data-copy="support@shivoralabs.com">Copy Email</button>
           </div>
           <p class="status-message" id="form-status" role="status"></p>
@@ -501,10 +502,16 @@
 
     const supportEmail = "support@shivoralabs.com";
     const status = document.getElementById("form-status");
+    let statusTimer;
 
     function showStatus(message) {
+      window.clearTimeout(statusTimer);
       status.textContent = message;
       status.classList.add("is-visible");
+      statusTimer = window.setTimeout(function () {
+        status.classList.remove("is-visible");
+        status.textContent = "";
+      }, 4000);
     }
 
     async function copyText(text, successMessage) {
@@ -522,23 +529,45 @@
       });
     });
 
-    document.getElementById("contact-form").addEventListener("submit", function (event) {
-      event.preventDefault();
-
-      const form = event.currentTarget;
+    function buildEmailContent(form) {
       const name = form.name.value.trim();
       const email = form.email.value.trim();
       const project = form.project.value;
       const message = form.message.value.trim();
-      const preparedMessage =
+
+      return {
+        subject: "Project inquiry from " + name,
+        body:
+          "Name: " + name + "\n" +
+          "Email: " + email + "\n" +
+          "Project type: " + project + "\n\n" +
+          "Project notes:\n" + message,
+        clipboard:
         "To: " + supportEmail + "\n" +
         "Subject: Project inquiry from " + name + "\n\n" +
         "Name: " + name + "\n" +
         "Email: " + email + "\n" +
         "Project type: " + project + "\n\n" +
-        "Project notes:\n" + message;
+        "Project notes:\n" + message
+      };
+    }
 
-      copyText(preparedMessage, "Copied your prepared message. Send it to " + supportEmail + ".");
+    document.getElementById("copy-message").addEventListener("click", function () {
+      const form = document.getElementById("contact-form");
+      if (!form.reportValidity()) return;
+      const content = buildEmailContent(form);
+      copyText(content.clipboard, "Copied your prepared message. Send it to " + supportEmail + ".");
+    });
+
+    document.getElementById("contact-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const content = buildEmailContent(event.currentTarget);
+      showStatus("Opening your email app with the message prepared.");
+      window.location.href =
+        "mailto:" + supportEmail +
+        "?subject=" + encodeURIComponent(content.subject) +
+        "&body=" + encodeURIComponent(content.body);
     });
   </script>
 </body>
