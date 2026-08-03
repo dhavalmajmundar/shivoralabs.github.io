@@ -4,473 +4,273 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Shivora Labs | Apps, Websites, and Custom Solutions</title>
+  
   <meta name="description" content="Contact Shivora Labs about apps, premium websites, custom workflow systems, and practical AI-powered digital products." />
   <meta property="og:title" content="Contact Shivora Labs" />
   <meta property="og:description" content="Start a conversation about an app, website, workflow, or custom product build." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="../Icons/shivora_logo_refined_square.png" />
+  
+  <!-- Favicon References -->
   <link rel="icon" href="../Icons/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="../Icons/favicon-32.png" sizes="32x32" />
   <link rel="apple-touch-icon" href="../Icons/favicon-180.png" />
+  
+  <!-- Premium Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- External Stylesheets -->
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../animations.css" />
+  
   <style>
-    :root {
-      --bg: #05060a;
-      --panel: #0d0f16;
-      --panel-2: #11141d;
-      --line: rgba(232, 234, 241, 0.14);
-      --line-strong: rgba(232, 234, 241, 0.24);
-      --text: #f6f7fb;
-      --soft: #d9dce6;
-      --muted: #9fa5b4;
-      --gold: #e4c37f;
-      --gold-2: #b28742;
-      --teal: #6bc8bb;
-      --shadow: 0 24px 80px rgba(0, 0, 0, 0.46);
-      --radius: 8px;
-      --max: 1120px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      min-height: 100vh;
-      background:
-        linear-gradient(180deg, rgba(5, 6, 10, 0.78), #05060a 36%),
-        radial-gradient(circle at 82% 8%, rgba(228, 195, 127, 0.13), transparent 26%),
-        radial-gradient(circle at 12% 18%, rgba(107, 200, 187, 0.1), transparent 28%),
-        #05060a;
-      color: var(--text);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.6;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      background-image:
-        linear-gradient(rgba(255, 255, 255, 0.026) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
-      background-size: 86px 86px;
-      mask-image: linear-gradient(to bottom, black, transparent 68%);
-      pointer-events: none;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    .shell {
-      width: min(var(--max), calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      border-bottom: 1px solid var(--line);
-      background: rgba(5, 6, 10, 0.82);
-      backdrop-filter: blur(18px);
-    }
-
-    .nav {
-      min-height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--text);
-      font-weight: 760;
-      white-space: nowrap;
-    }
-
-    .brand img {
-      width: 42px;
-      height: 42px;
-      border-radius: var(--radius);
-      object-fit: cover;
-      filter: drop-shadow(0 0 12px rgba(228, 195, 127, 0.16));
-    }
-
-    .brand span {
-      font-size: 0.98rem;
-      letter-spacing: 0;
-    }
-
-    .brand strong {
-      color: var(--gold);
-      font-weight: 760;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      color: var(--muted);
-      font-size: 0.88rem;
-      font-weight: 650;
-    }
-
-    .nav-links a:hover,
-    .text-link:hover {
-      color: var(--text);
-    }
-
-    .button {
-      min-height: 44px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--line-strong);
-      border-radius: var(--radius);
-      padding: 0 18px;
-      font-size: 0.9rem;
-      font-weight: 760;
-      transition: transform 180ms ease, border-color 180ms ease;
-    }
-
-    .button.primary {
-      border-color: transparent;
-      color: #090a0f;
-      background: linear-gradient(135deg, #f3dda9, var(--gold-2));
-      box-shadow: 0 18px 44px rgba(228, 195, 127, 0.2);
-    }
-
-    .button.secondary {
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--soft);
-    }
-
-    .button:hover {
-      transform: translateY(-1px);
-      border-color: rgba(228, 195, 127, 0.48);
-    }
-
-    main {
-      padding: 42px 0;
-    }
-
+    /* Specific styles for the Contact layout */
     .contact-layout {
       display: grid;
-      grid-template-columns: minmax(0, 0.92fr) minmax(360px, 1.08fr);
-      gap: 24px;
-      align-items: stretch;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 40px;
+      align-items: start;
+      padding: 60px 0 100px;
     }
-
-    .eyebrow {
-      width: fit-content;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 16px;
-      padding: 8px 11px;
-      border: 1px solid rgba(228, 195, 127, 0.26);
-      border-radius: var(--radius);
-      background: rgba(228, 195, 127, 0.065);
-      color: #f7e4b6;
-      font-size: 0.75rem;
-      font-weight: 850;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
+    
+    .contact-intro {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
-
-    .eyebrow::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--gold);
-      box-shadow: 0 0 18px rgba(228, 195, 127, 0.82);
+    
+    .contact-intro h1 {
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
     }
-
-    h1,
-    h2,
-    h3 {
-      letter-spacing: 0;
-      line-height: 1.06;
-    }
-
-    h1 {
-      font-size: clamp(2.35rem, 4.2vw, 4rem);
-      font-weight: 860;
-    }
-
-    .lede {
-      margin-top: 16px;
+    
+    .contact-intro p {
       color: var(--soft);
-      font-size: 1.08rem;
+      font-size: 1.1rem;
+      line-height: 1.6;
     }
-
-    .info-card,
-    .form-card {
+    
+    .contact-info-card {
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: rgba(13, 15, 22, 0.86);
-      box-shadow: var(--shadow);
+      background: rgba(13, 15, 22, 0.4);
+      padding: 30px;
+      backdrop-filter: blur(10px);
+      margin-top: 20px;
     }
-
-    .info-card {
-      margin-top: 24px;
-      padding: 22px;
-    }
-
-    .info-grid {
+    
+    .contact-info-card dl {
       display: grid;
-      gap: 16px;
+      gap: 20px;
     }
-
-    .info-grid dt {
-      color: var(--muted);
-      font-size: 0.75rem;
-      font-weight: 850;
-      letter-spacing: 0.14em;
+    
+    .contact-info-card dt {
+      color: var(--cosmic-cyan);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
     }
-
-    .info-grid dd {
-      margin-top: 4px;
+    
+    .contact-info-card dd {
       color: var(--text);
-      font-weight: 720;
+      font-weight: 600;
+      font-size: 1rem;
+      margin-top: 4px;
     }
-
-    .text-link {
-      color: var(--soft);
-      font-weight: 720;
-      text-decoration: underline;
-      text-decoration-color: rgba(228, 195, 127, 0.34);
-      text-underline-offset: 4px;
+    
+    .form-panel {
+      padding: 40px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: rgba(13, 15, 22, 0.4);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
     }
-
-    .form-card {
-      padding: clamp(22px, 3.2vw, 32px);
-      align-self: stretch;
-    }
-
+    
     form {
       display: grid;
-      gap: 14px;
+      gap: 20px;
     }
-
+    
     .field {
-      display: grid;
+      display: flex;
+      flex-direction: column;
       gap: 8px;
     }
-
+    
     label {
       color: var(--soft);
-      font-size: 0.9rem;
-      font-weight: 760;
+      font-size: 0.88rem;
+      font-weight: 600;
     }
-
+    
     input,
     select,
     textarea {
       width: 100%;
-      border: 1px solid var(--line);
+      border: 1px solid var(--line-strong);
       border-radius: var(--radius);
-      padding: 11px 13px;
+      padding: 12px 16px;
       color: var(--text);
-      background: rgba(5, 6, 10, 0.62);
-      font: inherit;
+      background: rgba(5, 6, 10, 0.6);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: all 0.2s;
     }
-
+    
     textarea {
-      min-height: 126px;
+      min-height: 140px;
       resize: vertical;
     }
-
+    
     input:focus,
     select:focus,
     textarea:focus {
       outline: none;
-      border-color: rgba(228, 195, 127, 0.6);
-      box-shadow: 0 0 0 3px rgba(228, 195, 127, 0.1);
+      border-color: var(--cosmic-cyan);
+      box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.1);
     }
-
+    
     .form-note {
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
+      line-height: 1.5;
     }
-
-    .copy-link {
-      border: 0;
-      padding: 0;
-      color: var(--soft);
-      background: transparent;
-      font: inherit;
-      font-weight: 720;
+    
+    .copy-link-btn {
+      background: none;
+      border: none;
+      color: var(--cosmic-cyan);
+      font-weight: 600;
       text-decoration: underline;
-      text-decoration-color: rgba(228, 195, 127, 0.34);
-      text-underline-offset: 4px;
+      text-underline-offset: 3px;
       cursor: pointer;
+      font-family: inherit;
+      font-size: inherit;
+      padding: 0;
+      display: inline;
     }
-
-    .copy-link:hover {
+    
+    .copy-link-btn:hover {
       color: var(--text);
     }
-
-    .status-message {
-      display: none;
-      border: 1px solid rgba(107, 200, 187, 0.28);
-      border-radius: var(--radius);
-      padding: 12px 14px;
-      color: var(--soft);
-      background: rgba(107, 200, 187, 0.08);
-      font-size: 0.9rem;
-    }
-
-    .status-message.is-visible {
-      display: block;
-    }
-
-    .actions {
+    
+    .form-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
       align-items: center;
-      margin-top: 4px;
+      margin-top: 8px;
     }
-
-    .hidden-field {
+    
+    .status-msg-box {
       display: none;
-    }
-
-    .site-footer {
-      border-top: 1px solid var(--line);
-      padding: 30px 0;
-      color: var(--muted);
-      background: rgba(0, 0, 0, 0.22);
-    }
-
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      font-size: 0.84rem;
-    }
-
-    .footer-logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 11px;
-      color: var(--text);
-      font-weight: 850;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .footer-logo img {
-      width: 38px;
-      height: 38px;
+      border: 1px solid var(--line-strong);
       border-radius: var(--radius);
-      object-fit: cover;
+      padding: 14px;
+      color: var(--text);
+      background: rgba(0, 229, 255, 0.05);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      grid-column: span 1;
     }
-
-    @media (max-width: 860px) {
-      .nav-links {
-        display: none;
-      }
-
+    
+    .status-msg-box.is-visible {
+      display: block;
+    }
+    
+    @media (max-width: 900px) {
       .contact-layout {
         grid-template-columns: 1fr;
+        padding-top: 30px;
       }
-    }
-
-    @media (max-width: 640px) {
-      .shell {
-        width: min(var(--max), calc(100% - 28px));
-      }
-
-      .brand img {
-        width: 38px;
-        height: 38px;
-      }
-
-      main {
-        padding: 34px 0;
-      }
-
-      .actions {
-        flex-direction: column;
-      }
-
-      .button {
-        width: 100%;
-      }
-
-      .footer-inner {
-        align-items: flex-start;
-        flex-direction: column;
+      
+      .form-panel {
+        padding: 24px;
       }
     }
   </style>
 </head>
 <body>
+
+  <!-- Background Auroras -->
+  <div class="aurora-bg">
+    <div class="aurora-1"></div>
+    <div class="aurora-2"></div>
+  </div>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="../#services">Services</a>
+    <a href="../#cadens">Cadens</a>
+    <a href="../#apps">Pipeline</a>
+    <a href="../#studio">Studio</a>
+    <a href="../">Back Home</a>
+  </div>
+
+  <!-- Navigation Header -->
   <header class="site-header">
     <div class="shell nav" aria-label="Primary navigation">
       <a class="brand" href="../" aria-label="Shivora Labs home">
-        <img src="../Icons/favicon-120.png" alt="" />
+        <img src="../Icons/favicon-120.png" alt="Shivora Labs logo mark" />
         <span>Shivora <strong>Labs</strong></span>
       </a>
+      
       <nav class="nav-links" aria-label="Site links">
         <a href="../#services">Services</a>
         <a href="../#cadens">Cadens</a>
-        <a href="../#apps">Apps</a>
+        <a href="../#apps">Pipeline</a>
         <a href="../#studio">Studio</a>
       </nav>
+      
       <a class="button secondary" href="../">Back Home</a>
+      
+      <!-- Mobile hamburger toggle button -->
+      <button class="hamburger" aria-label="Toggle Navigation menu" aria-controls="mobileDrawer">
+        <svg viewBox="0 0 24 24">
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
     </div>
   </header>
 
   <main>
-    <div class="shell contact-layout">
-      <section>
-        <div class="eyebrow">Contact Shivora Labs</div>
-        <h1>Tell us what you want to build.</h1>
-        <p class="lede">
-          Share the rough idea, the current challenge, or the product you would like to improve. Shivora Labs reviews every inquiry carefully and responds from <button class="copy-link" type="button" data-copy="support@shivoralabs.com">support@shivoralabs.com</button>.
+    <div class="shell contact-layout reveal hero-enter">
+      <!-- Intro Info Column -->
+      <section class="contact-intro">
+        <div class="eyebrow stagger-1">Contact Shivora Labs</div>
+        <h1 class="stagger-2">Tell us what you want to build.</h1>
+        <p class="stagger-3">
+          Share the rough idea, the current challenges, or the product screens you want to refine. Shivora Labs reviews every inquiry carefully and responds from <button class="copy-link-btn" type="button" onclick="window.copyEmailHelper('support@shivoralabs.com', 'Copied: support@shivoralabs.com', 'form-status')">support@shivoralabs.com</button>.
         </p>
-
-        <aside class="info-card" aria-label="Contact details">
-          <dl class="info-grid">
+        
+        <aside class="contact-info-card stagger-4" aria-label="Contact details">
+          <dl>
             <div>
-              <dt>Email</dt>
-              <dd><button class="copy-link" type="button" data-copy="support@shivoralabs.com">support@shivoralabs.com</button></dd>
+              <dt>Email Inquiry</dt>
+              <dd>
+                <button class="copy-link-btn" type="button" onclick="window.copyEmailHelper('support@shivoralabs.com', 'Copied: support@shivoralabs.com', 'form-status')">support@shivoralabs.com</button>
+              </dd>
             </div>
             <div>
-              <dt>Good fits</dt>
-              <dd>Apps, websites, workflow tools, dashboards, automations, and AI-assisted product systems.</dd>
+              <dt>Ideal Projects</dt>
+              <dd>Apps, premium websites, dashboards, automations, and AI workflow tools.</dd>
             </div>
             <div>
-              <dt>Location</dt>
+              <dt>Studio Location</dt>
               <dd>Charlotte / Harrisburg, NC</dd>
             </div>
           </dl>
         </aside>
       </section>
 
-      <section class="form-card" aria-label="Contact form">
+      <!-- Form Column -->
+      <section class="form-panel stagger-3" aria-label="Contact form">
         <form id="contact-form" action="https://formsubmit.co/ajax/b00fd784d95751b980b581f88b628447" method="POST">
-          <input class="hidden-field" type="text" name="_honey" tabindex="-1" autocomplete="off" />
+          <!-- Honeypot -->
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
           <input type="hidden" name="_subject" value="New project inquiry from Shivora Labs website" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_captcha" value="false" />
@@ -503,110 +303,79 @@
           </div>
 
           <p class="form-note">
-            Your message will be sent to Shivora Labs for review. Use Copy Message if you would like to keep a copy for your records.
+            Your message will be sent directly to our studio dashboard. Use **Copy Message** if you want to keep a backup.
           </p>
 
-          <div class="actions">
+          <div class="form-actions">
             <button class="button primary" type="submit" id="send-message">Send Message</button>
             <button class="button secondary" type="button" id="copy-message">Copy Message</button>
-            <button class="button secondary" type="button" data-copy="support@shivoralabs.com">Copy Email</button>
           </div>
-          <p class="status-message" id="form-status" role="status"></p>
+          
+          <p class="status-msg-box" id="form-status" role="status"></p>
         </form>
       </section>
     </div>
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
-    <div class="shell footer-inner">
-      <a class="footer-logo" href="../">
-        <img src="../Icons/shivora_logo_emblem_square.png" alt="" />
-        <span>Shivora Labs</span>
-      </a>
+    <div class="shell footer-bottom">
       <p>&copy; <span id="year"></span> Shivora Labs. All rights reserved.</p>
-      <p><a class="text-link" href="../cadens/privacy/">Cadens Privacy</a> · <a class="text-link" href="../cadens/terms/">Cadens Terms</a></p>
+      <div class="footer-legal">
+        <a href="../cadens/privacy/">Privacy Policy</a>
+        <a href="../cadens/terms/">Terms and Safety</a>
+      </div>
+      <button class="back-to-top" aria-label="Scroll back to top">
+        <span>Back to top</span>
+      </button>
     </div>
   </footer>
 
+  <script src="../script.js"></script>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    const supportEmail = "support@shivoralabs.com";
-    const status = document.getElementById("form-status");
+    const form = document.getElementById("contact-form");
     const sendButton = document.getElementById("send-message");
-    let statusTimer;
+    const statusBox = document.getElementById("form-status");
 
-    function showStatus(message) {
-      window.clearTimeout(statusTimer);
-      status.textContent = message;
-      status.classList.add("is-visible");
-      statusTimer = window.setTimeout(function () {
-        status.classList.remove("is-visible");
-        status.textContent = "";
+    function showLocalStatus(msg, success = true) {
+      statusBox.textContent = msg;
+      statusBox.classList.add("is-visible");
+      statusBox.style.borderColor = success ? "var(--cosmic-cyan)" : "rgba(220, 53, 69, 0.4)";
+      setTimeout(() => {
+        statusBox.classList.remove("is-visible");
       }, 4000);
     }
 
-    async function copyText(text, successMessage) {
-      try {
-        await navigator.clipboard.writeText(text);
-        showStatus(successMessage);
-      } catch (error) {
-        showStatus("Copy was blocked by the browser. Please copy this email manually: " + supportEmail);
-      }
-    }
-
-    document.querySelectorAll("[data-copy]").forEach(function (button) {
-      button.addEventListener("click", function () {
-        copyText(button.getAttribute("data-copy"), "Copied: " + button.getAttribute("data-copy"));
-      });
-    });
-
-    function buildEmailContent(form) {
+    function buildEmailContent() {
       const name = form.elements.name.value.trim();
       const email = form.elements.email.value.trim();
       const project = form.elements.project.value;
       const message = form.elements.message.value.trim();
 
-      return {
-        subject: "Project inquiry from " + name,
-        body:
-          "Name: " + name + "\n" +
-          "Email: " + email + "\n" +
-          "Project type: " + project + "\n\n" +
-          "Project notes:\n" + message,
-        clipboard:
-        "To: " + supportEmail + "\n" +
-        "Subject: Project inquiry from " + name + "\n\n" +
-        "Name: " + name + "\n" +
-        "Email: " + email + "\n" +
-        "Project type: " + project + "\n\n" +
-        "Project notes:\n" + message
-      };
+      return "To: support@shivoralabs.com\n\nName: " + name + "\nEmail: " + email + "\nProject type: " + project + "\n\nProject notes:\n" + message;
     }
 
-    document.getElementById("copy-message").addEventListener("click", function () {
-      const form = document.getElementById("contact-form");
+    document.getElementById("copy-message").addEventListener("click", () => {
       if (!form.reportValidity()) return;
-      const content = buildEmailContent(form);
-      copyText(content.clipboard, "Copied your prepared message. Send it to " + supportEmail + ".");
+      const content = buildEmailContent();
+      navigator.clipboard.writeText(content).then(() => {
+        showLocalStatus("Copied your prepared message. Send it to support@shivoralabs.com.");
+      });
     });
 
-    document.getElementById("contact-form").addEventListener("submit", function (event) {
-      event.preventDefault();
-
-      const form = event.currentTarget;
-      if (!form.reportValidity()) return;
-
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
       sendButton.disabled = true;
       sendButton.textContent = "Sending...";
 
-      const content = buildEmailContent(form);
       const data = {
         name: form.elements.name.value.trim(),
         email: form.elements.email.value.trim(),
         project: form.elements.project.value,
         message: form.elements.message.value.trim(),
-        _subject: content.subject,
+        _subject: "New project inquiry from " + form.elements.name.value.trim(),
         _template: "table",
         _captcha: "false",
         _honey: form.elements._honey.value
@@ -620,23 +389,21 @@
         },
         body: JSON.stringify(data)
       })
-        .then(function (response) {
-          if (!response.ok) {
-            throw new Error("Form service returned " + response.status);
-          }
-          return response.json();
-        })
-        .then(function () {
-          form.reset();
-          showStatus("Thank you for reaching out. Your message has been received, and Shivora Labs will be in touch shortly.");
-        })
-        .catch(function () {
-          showStatus("Your message could not be sent at this moment. Please use Copy Message and send it to " + supportEmail + ".");
-        })
-        .finally(function () {
-          sendButton.disabled = false;
-          sendButton.textContent = "Send Message";
-        });
+      .then(response => {
+        if (!response.ok) throw new Error();
+        return response.json();
+      })
+      .then(() => {
+        form.reset();
+        showLocalStatus("Thank you for reaching out. Your message has been received.");
+      })
+      .catch(() => {
+        showLocalStatus("Your message could not be sent. Please copy and email support@shivoralabs.com directly.", false);
+      })
+      .finally(() => {
+        sendButton.disabled = false;
+        sendButton.textContent = "Send Message";
+      });
     });
   </script>
 </body>
