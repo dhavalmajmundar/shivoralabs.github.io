@@ -308,7 +308,7 @@ img {
   grid-template-columns: 1.15fr 0.85fr;
   align-items: center;
   gap: 60px;
-  padding: 80px 0 100px;
+  padding: 40px 0 60px;
 }
 
 .hero-content {
@@ -476,13 +476,13 @@ h1 {
 
 /* Global Section Layout */
 section {
-  padding: 100px 0;
+  padding: 60px 0;
   position: relative;
 }
 
 .section-head {
   max-width: 800px;
-  margin-bottom: 50px;
+  margin-bottom: 36px;
 }
 
 .section-kicker {
