@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadens Weekly Report Screen</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { margin: 0; padding: 0; background: transparent; overflow: hidden; }
+  .phone { width: 100%; height: 100%; overflow-y: auto; background: #0A1A2F; scrollbar-width: none; }
+  .phone::-webkit-scrollbar { display: none; }
+  .status-bar { height: 54px; padding: 14px 28px 0; display: flex; align-items: center; justify-content: space-between; background: #0A1A2F; }
+  .status-bar .time { font-family: system-ui; font-size: 15px; font-weight: 600; color: #f6f7fb; }
+  .app-header { padding: 8px 20px 16px; background: #0A1A2F; }
+  .header-row { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+  .header-title { font-family: 'Space Grotesk', system-ui; font-size: 20px; font-weight: 700; color: #f6f7fb; }
+  .share-btn { width: 36px; height: 36px; border-radius: 10px; background: rgba(60,199,183,0.12); display: flex; align-items: center; justify-content: center; }
+  .subtitle { font-family: 'Manrope', system-ui; font-size: 13px; color: #9fa5b4; }
+  .content { padding: 0 16px 30px; background: linear-gradient(180deg, #0A1A2F, #0D1B2A); font-family: 'Manrope', system-ui; }
+  .week-nav { display: flex; align-items: center; justify-content: center; gap: 16px; padding: 6px 0 16px; }
+  .nav-btn { width: 32px; height: 32px; border-radius: 8px; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; }
+  .week-label { font-size: 15px; font-weight: 700; color: #f6f7fb; }
+  .card { border-radius: 20px; padding: 20px; margin-bottom: 12px; border: 1px solid rgba(255,255,255,0.06); }
+  .hero-card { background: linear-gradient(135deg, rgba(15,95,90,0.15), rgba(13,27,42,0.9)); border-color: rgba(60,199,183,0.12); padding: 22px; position: relative; overflow: hidden; }
+  .hero-glow { position: absolute; top: -20px; right: -20px; width: 120px; height: 120px; background: radial-gradient(circle, rgba(60,199,183,0.08), transparent); }
+  .stat-label { font-size: 11px; font-weight: 700; letter-spacing: 1.2px; color: #9fa5b4; text-transform: uppercase; }
+  .hero-value { margin-top: 8px; display: flex; align-items: baseline; gap: 6px; }
+  .hero-num { font-family: 'Space Grotesk', system-ui; font-size: 48px; font-weight: 900; color: #3CC7B7; line-height: 1; letter-spacing: -2px; }
+  .hero-unit { font-size: 20px; font-weight: 600; color: #9fa5b4; }
+  .hero-sub { margin-top: 6px; font-size: 13px; color: #9fa5b4; }
+  .default-card { background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(13,27,42,0.8)); }
+  .bars-container { display: flex; align-items: flex-end; gap: 6px; height: 80px; }
+  .bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 5px; }
+  .bar { width: 100%; border-radius: 5px; background: linear-gradient(to top, #0F5F5A, #3CC7B7); }
+  .bar-label { font-size: 10px; color: #9fa5b4; font-weight: 600; }
+  .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+  .metric-card { background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(13,27,42,0.8)); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 16px; }
+  .metric-label { font-size: 10px; font-weight: 700; letter-spacing: 1px; color: #9fa5b4; text-transform: uppercase; }
+  .metric-value { margin-top: 6px; font-family: 'Space Grotesk', system-ui; font-size: 24px; font-weight: 800; color: #f6f7fb; }
+  .metric-accent { font-size: 11px; color: #3CC7B7; font-weight: 600; margin-top: 2px; }
+  .breakdown-bar { display: flex; gap: 3px; height: 8px; border-radius: 4px; overflow: hidden; }
+  .legend { display: flex; gap: 14px; margin-top: 10px; flex-wrap: wrap; }
+  .legend-item { font-size: 11px; color: #9fa5b4; display: flex; align-items: center; gap: 5px; }
+  .legend-dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
+  .highlight { display: flex; align-items: center; gap: 12px; border-radius: 16px; padding: 14px 16px; margin-bottom: 8px; }
+  .highlight-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .highlight-title { font-size: 14px; font-weight: 700; color: #f6f7fb; }
+  .highlight-sub { font-size: 12px; color: #9fa5b4; }
+  .bottom-nav { height: 82px; background: #0A1726; border-top: 1px solid rgba(255,255,255,0.06); display: flex; align-items: flex-start; padding-top: 10px; justify-content: space-around; }
+  .nav-item { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+  .nav-item-label { font-size: 10px; font-weight: 600; }
+  .home-indicator { height: 20px; display: flex; justify-content: center; padding-top: 8px; background: #0A1726; }
+  .home-indicator div { width: 134px; height: 5px; border-radius: 3px; background: rgba(255,255,255,0.15); }
+</style>
+</head>
+<body>
+<div class="phone">
+
+  <!-- Status bar -->
+  <div class="status-bar">
+    <span class="time">9:41</span>
+    <div style="display:flex;gap:6px;align-items:center;">
+      <svg width="17" height="12" viewBox="0 0 17 12"><path d="M1 7h2v5H1zM5 4h2v8H5zM9 2h2v10H9zM13 0h2v12h-2z" fill="#f6f7fb"/></svg>
+      <svg width="16" height="12" viewBox="0 0 16 12"><path d="M8 3.5C6 3.5 4.2 4.3 3 5.5L1.5 4C3.1 2.4 5.4 1.5 8 1.5s4.9.9 6.5 2.5L13 5.5c-1.2-1.2-3-2-5-2z" fill="#f6f7fb"/><path d="M8 7c-1.1 0-2.1.5-2.8 1.2L8 11l2.8-2.8C10.1 7.5 9.1 7 8 7z" fill="#f6f7fb"/></svg>
+      <div style="width:25px;height:12px;border-radius:3px;border:1px solid rgba(255,255,255,0.35);display:flex;align-items:center;padding:1px;">
+        <div style="width:70%;height:100%;background:#34C759;border-radius:1.5px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- App header -->
+  <div class="app-header">
+    <div class="header-row">
+      <svg width="10" height="18" viewBox="0 0 10 18"><path d="M9 1L1 9l8 8" stroke="#3CC7B7" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="header-title">Weekly Report</span>
+      <div style="flex:1;"></div>
+      <div class="share-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13" stroke="#3CC7B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+    <span class="subtitle">Jul 28 – Aug 3</span>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+
+    <!-- Week nav -->
+    <div class="week-nav">
+      <div class="nav-btn"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M9 2L4 7l5 5" stroke="#9fa5b4" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+      <span class="week-label">Jul 28 – Aug 3</span>
+      <div class="nav-btn"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M5 2l5 5-5 5" stroke="#9fa5b4" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+    </div>
+
+    <!-- Hero stat -->
+    <div class="card hero-card">
+      <div class="hero-glow"></div>
+      <div class="stat-label">Total Distance</div>
+      <div class="hero-value">
+        <span class="hero-num">42.8</span>
+        <span class="hero-unit">km</span>
+      </div>
+      <div class="hero-sub">7 sessions · 4h 38m</div>
+    </div>
+
+    <!-- Daily bars -->
+    <div class="card default-card">
+      <div class="stat-label" style="margin-bottom:14px;">Daily Activity</div>
+      <div class="bars-container">
+        <div class="bar-col"><div class="bar" style="height:28px;opacity:0.7;"></div><span class="bar-label">M</span></div>
+        <div class="bar-col"><div class="bar" style="height:52px;"></div><span class="bar-label">T</span></div>
+        <div class="bar-col"><div class="bar" style="height:18px;opacity:0.5;"></div><span class="bar-label">W</span></div>
+        <div class="bar-col"><div class="bar" style="height:62px;"></div><span class="bar-label">T</span></div>
+        <div class="bar-col"><div class="bar" style="height:80px;box-shadow:0 0 14px rgba(60,199,183,0.25);"></div><span class="bar-label">F</span></div>
+        <div class="bar-col"><div class="bar" style="height:44px;opacity:0.8;"></div><span class="bar-label">S</span></div>
+        <div class="bar-col"><div class="bar" style="height:36px;opacity:0.7;"></div><span class="bar-label">S</span></div>
+      </div>
+    </div>
+
+    <!-- Metrics grid -->
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-label">Active Time</div>
+        <div class="metric-value">4h 38m</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Calories</div>
+        <div style="margin-top:6px;display:flex;align-items:baseline;gap:3px;">
+          <span class="metric-value" style="margin:0;">2,340</span>
+          <span style="font-size:12px;color:#9fa5b4;">cal</span>
+        </div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Sessions</div>
+        <div class="metric-value">7</div>
+        <div class="metric-accent">Perfect week</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Consistency</div>
+        <div class="metric-value" style="color:#F2C94C;">96%</div>
+        <div class="metric-accent">+4% vs avg</div>
+      </div>
+    </div>
+
+    <!-- Sport breakdown -->
+    <div class="card default-card">
+      <div class="stat-label" style="margin-bottom:12px;">Sport Breakdown</div>
+      <div class="breakdown-bar">
+        <div style="flex:42;background:#3CC7B7;border-radius:4px 0 0 4px;"></div>
+        <div style="flex:28;background:#F2C94C;"></div>
+        <div style="flex:17;background:#8B7CF7;"></div>
+        <div style="flex:13;background:#E8825A;border-radius:0 4px 4px 0;"></div>
+      </div>
+      <div class="legend">
+        <span class="legend-item"><span class="legend-dot" style="background:#3CC7B7;"></span>Run 42%</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#F2C94C;"></span>Cycle 28%</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#8B7CF7;"></span>Strength 17%</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#E8825A;"></span>HIIT 13%</span>
+      </div>
+    </div>
+
+    <!-- Highlights -->
+    <div class="highlight" style="background:rgba(242,201,76,0.06);border:1px solid rgba(242,201,76,0.12);">
+      <div class="highlight-icon" style="background:rgba(242,201,76,0.12);">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z" fill="#F2C94C"/></svg>
+      </div>
+      <div>
+        <div class="highlight-title">Longest session</div>
+        <div class="highlight-sub">13.2 km run on Friday</div>
+      </div>
+    </div>
+    <div class="highlight" style="background:rgba(60,199,183,0.06);border:1px solid rgba(60,199,183,0.12);">
+      <div class="highlight-icon" style="background:rgba(60,199,183,0.12);">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#3CC7B7"/></svg>
+      </div>
+      <div>
+        <div class="highlight-title">Perfect week</div>
+        <div class="highlight-sub">Active every single day</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom nav -->
+  <div class="bottom-nav">
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="#9fa5b4" stroke-width="1.8"/></svg>
+      <span class="nav-item-label" style="color:#9fa5b4;">Home</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#9fa5b4" stroke-width="1.8"/><path d="M12 6v6l4 2" stroke="#9fa5b4" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <span class="nav-item-label" style="color:#9fa5b4;">Track</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18" stroke="#3CC7B7" stroke-width="2" stroke-linecap="round"/><path d="M7 14l4-4 4 4 5-6" stroke="#3CC7B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="nav-item-label" style="color:#3CC7B7;font-weight:700;">History</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="#9fa5b4" stroke-width="1.8"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" stroke="#9fa5b4" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <span class="nav-item-label" style="color:#9fa5b4;">Workouts</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z" stroke="#9fa5b4" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <span class="nav-item-label" style="color:#9fa5b4;">Profile</span>
+    </div>
+  </div>
+
+  <div class="home-indicator"><div></div></div>
+</div>
+</body>
+</html>
