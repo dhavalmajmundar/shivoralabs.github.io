@@ -621,7 +621,7 @@ h2 {
 }
 
 .product-copy {
-  padding: 40px;
+  padding: 24px 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -655,12 +655,12 @@ h2 {
   font-size: clamp(1.8rem, 3vw, 2.4rem);
   font-weight: 800;
   line-height: 1.2;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .product-copy p {
   color: var(--muted);
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   font-size: 1rem;
 }
 
@@ -671,7 +671,7 @@ h2 {
   font-size: 0.84rem;
   color: var(--cosmic-cyan);
   font-weight: 600;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .status-dot {
@@ -684,7 +684,7 @@ h2 {
 .feature-list {
   display: grid;
   gap: 12px;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   list-style: none;
 }
 
@@ -714,7 +714,7 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px;
+  padding: 16px;
   border-left: 1px solid var(--line);
   position: relative;
   overflow: hidden;
@@ -731,8 +731,8 @@ h2 {
 
 /* CSS Phone Frame */
 .phone-mockup {
-  width: 270px;
-  height: 540px;
+  width: 250px;
+  height: 500px;
   background: #090a0f;
   border: 10px solid #1a1e29;
   border-radius: 40px;
