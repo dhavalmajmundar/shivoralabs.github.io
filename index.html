@@ -27,409 +27,448 @@
 </head>
 <body>
 
-  <!-- Mobile nav toggle button -->
-  <button class="mobile-nav-toggle" aria-label="Toggle Navigation Sidebar" id="mobileNavToggle">
-    <svg viewBox="0 0 24 24">
-      <path d="M4 6h16M4 12h16M4 18h16" />
-    </svg>
-  </button>
+  <!-- Background Auroras -->
+  <div class="aurora-bg">
+    <div class="aurora-1"></div>
+    <div class="aurora-2"></div>
+  </div>
 
-  <div class="app-container">
-    
-    <!-- Sidebar Navigation -->
-    <aside class="sidebar" id="appSidebar">
-      <div class="sidebar-top">
-        <a class="brand" href="#" aria-label="Shivora Labs home">
-          <img src="Icons/favicon-120.png" alt="Shivora Labs logo mark" />
-          <span>Shivora <strong>Labs</strong></span>
-        </a>
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="#services">Services</a>
+    <a href="#cadens">Cadens</a>
+    <a href="#apps">Pipeline</a>
+    <a href="#studio">Studio</a>
+    <a href="#contact">Contact</a>
+    <a class="button primary" style="margin-top: 16px;" href="#contact">Start a Project</a>
+  </div>
+
+  <!-- Navigation Header -->
+  <header class="site-header">
+    <div class="shell nav" aria-label="Primary navigation">
+      <a class="brand" href="#" aria-label="Shivora Labs home">
+        <img src="Icons/favicon-120.png" alt="Shivora Labs logo mark" />
+        <span>Shivora <strong>Labs</strong></span>
+      </a>
+      
+      <nav class="nav-links" aria-label="Site links">
+        <a href="#services">Services</a>
+        <a href="#cadens">Cadens</a>
+        <a href="#apps">Pipeline</a>
+        <a href="#studio">Studio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      
+      <a class="button secondary" style="display: inline-flex;" href="#contact">Start a Project</a>
+      
+      <!-- Mobile hamburger toggle button -->
+      <button class="hamburger" aria-label="Toggle Navigation menu" aria-controls="mobileDrawer">
+        <svg viewBox="0 0 24 24">
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="shell hero reveal hero-enter">
+      <div class="hero-content">
+        <div>
+          <div class="eyebrow stagger-1">Independent Product Studio</div>
+          <h1 class="stagger-2">Apps, websites, and AI workflows built with <span class="text-gradient">real product taste.</span></h1>
+          <p class="hero-copy stagger-3">
+            Shivora Labs creates polished digital products for teams who want software that is useful on day one: thoughtful apps, premium websites, practical automations, and custom solutions shaped around the way work actually happens.
+          </p>
+          <div class="hero-actions stagger-4">
+            <a class="button primary" href="#contact">Talk About a Build</a>
+            <a class="button secondary" href="#cadens">See Our Featured App</a>
+          </div>
+        </div>
         
-        <div class="eyebrow">Studio Dashboard</div>
-        
-        <nav aria-label="Sidebar navigation">
-          <ul class="nav-list">
+        <div class="trust-row stagger-5" aria-label="Shivora Labs focus areas">
+          <div class="trust-item">
+            <strong>Real products</strong>
+            <span>Not demos dressed up as companies.</span>
+          </div>
+          <div class="trust-item">
+            <strong>Premium interfaces</strong>
+            <span>Clear, responsive, and ready to show customers.</span>
+          </div>
+          <div class="trust-item">
+            <strong>Custom solutions</strong>
+            <span>Built for your workflow instead of forcing templates.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual stagger-3" aria-label="Shivora Labs brand showcase">
+        <div class="brand-card">
+          <div class="glow-sphere"></div>
+          <img class="animate-logo-glow" src="Icons/shivora_logo_emblem_transparent.png" alt="Shivora Labs emblem logo" />
+        </div>
+        <div class="snapshot">
+          <div>
+            <span>Studio</span>
+            <strong>Apps & Web</strong>
+          </div>
+          <div>
+            <span>Product</span>
+            <strong>Cadens Beta</strong>
+          </div>
+          <div>
+            <span>Pipeline</span>
+            <strong>2 in Dev</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="shell" id="services">
+      <div class="section-head reveal">
+        <span class="section-kicker">What Shivora Builds</span>
+        <h2>A focused studio for product-grade digital work.</h2>
+        <p class="section-lede">
+          We blend product strategy, interface design, and practical engineering so every build has a clear job, a clean experience, and a maintainable path forward.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card reveal stagger-1">
+          <div class="card-top">
+            <svg class="service-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <rect x="5" y="2" width="14" height="20" rx="2" />
+              <path d="M12 18h.01" />
+            </svg>
+            <div class="card-number">01</div>
+          </div>
+          <div>
+            <h3>Consumer and utility apps</h3>
+            <p>Focused applications with simple flows, strong defaults, and polished details that make people want to keep using them.</p>
+          </div>
+        </article>
+
+        <article class="service-card featured reveal stagger-2">
+          <div class="card-top">
+            <svg class="service-icon" style="color: var(--neon-purple);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="4" width="18" height="16" rx="2" />
+              <path d="M3 9h18M9 21V9" />
+            </svg>
+            <div class="card-number" style="color: var(--neon-purple);">02</div>
+          </div>
+          <div>
+            <h3>Premium websites</h3>
+            <p>Company sites, product pages, and launch experiences that look credible, load cleanly, and make the offer easy to understand.</p>
+          </div>
+        </article>
+
+        <article class="service-card reveal stagger-3">
+          <div class="card-top">
+            <svg class="service-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path d="M9.5 14.5a3 3 0 100-6 3 3 0 000 6zM14.5 15.5a3 3 0 100-6 3 3 0 000 6z" />
+              <path d="M12 4v4M12 16v4M4 12h4M16 12h4" />
+            </svg>
+            <div class="card-number">03</div>
+          </div>
+          <div>
+            <h3>AI workflow systems</h3>
+            <p>Assistants, automation flows, knowledge tools, and internal systems that remove busywork without making the process fragile.</p>
+          </div>
+        </article>
+
+        <article class="service-card reveal stagger-4">
+          <div class="card-top">
+            <svg class="service-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+            </svg>
+            <div class="card-number">04</div>
+          </div>
+          <div>
+            <h3>Customizable solutions</h3>
+            <p>Tailored tools for teams that need dashboards, portals, forms, integrations, or decision support built around their operating model.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Cadens Section -->
+    <section class="shell" id="cadens">
+      <div class="section-head reveal">
+        <span class="section-kicker">Featured App</span>
+        <h2>Cadens represents the way we like to build.</h2>
+        <p class="section-lede">
+          A personal consistency rhythm app designed to help people build steadier routines and return to what matters with less friction. Focused, calm, and practical.
+        </p>
+      </div>
+
+      <div class="product-panel reveal">
+        <article class="product-copy">
+          <div class="product-title">
+            <img src="Icons/cadens_icon_square_dark_512.png" alt="Cadens app logo icon" />
+            <div>
+              <span>Featured App</span>
+              <h3>Cadens Rhythm</h3>
+            </div>
+          </div>
+          
+          <div class="status-indicator">
+            <span class="status-dot pulse-dot"></span>
+            <span>Coming Soon — Launching Soon</span>
+          </div>
+
+          <p>
+            Cadens is built around a simple daily need instead of a trend. It features natural language habit entries, sports tracking presets, and beautiful progress insights with zero user tracking or data selling. Currently in active development and coming soon to the Apple App Store and Google Play.
+          </p>
+
+          <ul class="feature-list">
             <li>
-              <button class="nav-item-btn active" data-target="services">
-                <svg viewBox="0 0 24 24"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
-                <span>Services</span>
-              </button>
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>11 preset sports and fitness logs</span>
             </li>
             <li>
-              <button class="nav-item-btn" data-target="cadens">
-                <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" /><path d="M12 18h.01" /></svg>
-                <span>Featured App</span>
-              </button>
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Intelligent natural language tracker inputs</span>
             </li>
             <li>
-              <button class="nav-item-btn" data-target="pipeline">
-                <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" /></svg>
-                <span>Pipeline</span>
-              </button>
-            </li>
-            <li>
-              <button class="nav-item-btn" data-target="studio">
-                <svg viewBox="0 0 24 24"><path d="M9 22V12h6v10M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" /></svg>
-                <span>Process</span>
-              </button>
-            </li>
-            <li>
-              <button class="nav-item-btn" data-target="contact">
-                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><path d="M22 6l-10 7L2 6" /></svg>
-                <span>Start a Project</span>
-              </button>
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Dedicated offline privacy and safety</span>
             </li>
           </ul>
-        </nav>
+
+          <div class="product-links">
+            <a class="button primary" href="cadens/privacy/">Privacy Policy</a>
+            <a class="button secondary" href="cadens/terms/">Terms and Safety</a>
+          </div>
+        </article>
+
+        <!-- Premium Phone Mockup with Live HTML Vector render inside -->
+        <div class="product-visual">
+          <div class="phone-mockup float-mockup" style="padding: 0; display: block; overflow: hidden; position: relative;">
+            <div class="phone-notch" style="z-index: 10;"></div>
+            <iframe src="cadens_screen_weekly_report.html" style="width: 100%; height: 100%; border: none; display: block; background: #0A1A2F;" scrolling="no"></iframe>
+          </div>
+        </div>
       </div>
-      
-      <div class="sidebar-bottom">
-        <span>Charlotte / Harrisburg, NC</span>
-        <span>&copy; <span id="year"></span> Shivora Labs.</span>
-        <span><a href="cadens/privacy/">Privacy Policy</a> &middot; <a href="cadens/terms/">Terms</a></span>
+    </section>
+
+    <!-- Product Pipeline Section -->
+    <section class="shell" id="apps">
+      <div class="section-head reveal">
+        <span class="section-kicker">Product Pipeline</span>
+        <h2>What's Next for Shivora Labs</h2>
+        <p class="section-lede">
+          We maintain a slow, high-quality production schedule. The goal is to build a small portfolio of useful, trusted utilities that each solve a single daily problem perfectly.
+        </p>
       </div>
-    </aside>
-    
-    <!-- Main Dashboard Viewport -->
-    <main class="main-viewport">
-      
-      <!-- Services tab panel (Active by default) -->
-      <section class="tab-panel active" id="panel-services">
-        <div class="section-head">
-          <span class="section-kicker">What Shivora Builds</span>
-          <h1>A focused studio for <span class="text-gradient">product-grade</span> digital work.</h1>
-          <p class="lede">
-            We blend product strategy, interface design, and practical engineering so every build has a clear job, a clean experience, and a maintainable path forward.
-          </p>
-        </div>
-        
-        <div class="services-grid">
-          <article class="service-card">
-            <div class="card-top">
-              <svg class="service-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                <rect x="5" y="2" width="14" height="20" rx="2" />
-                <path d="M12 18h.01" />
-              </svg>
-              <div class="card-number">01</div>
-            </div>
-            <div>
-              <h3>Consumer and utility apps</h3>
-              <p>Focused applications with simple flows, strong defaults, and polished details that make people want to keep using them.</p>
-            </div>
-          </article>
 
-          <article class="service-card featured">
-            <div class="card-top">
-              <svg class="service-icon" style="color: var(--neon-purple);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                <rect x="3" y="4" width="18" height="16" rx="2" />
-                <path d="M3 9h18M9 21V9" />
-              </svg>
-              <div class="card-number" style="color: var(--neon-purple);">02</div>
-            </div>
-            <div>
-              <h3>Premium websites</h3>
-              <p>Company sites, product pages, and launch experiences that look credible, load cleanly, and make the offer easy to understand.</p>
-            </div>
-          </article>
-
-          <article class="service-card">
-            <div class="card-top">
-              <svg class="service-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                <path d="M9.5 14.5a3 3 0 100-6 3 3 0 000 6zM14.5 15.5a3 3 0 100-6 3 3 0 000 6z" />
-                <path d="M12 4v4M12 16v4M4 12h4M16 12h4" />
-              </svg>
-              <div class="card-number">03</div>
-            </div>
-            <div>
-              <h3>AI workflow systems</h3>
-              <p>Assistants, automation flows, knowledge tools, and internal systems that remove busywork without making the process fragile.</p>
-            </div>
-          </article>
-
-          <article class="service-card">
-            <div class="card-top">
-              <svg class="service-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                <path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-              </svg>
-              <div class="card-number">04</div>
-            </div>
-            <div>
-              <h3>Customizable solutions</h3>
-              <p>Tailored tools for teams that need dashboards, portals, forms, integrations, or decision support built around their operating model.</p>
-            </div>
-          </article>
-        </div>
-      </section>
-      
-      <!-- Featured App (Cadens) tab panel -->
-      <section class="tab-panel" id="panel-cadens">
-        <div class="section-head">
-          <span class="section-kicker">Featured App</span>
-          <h1>Cadens represents the way we like to build.</h1>
-          <p class="lede">
-            A personal consistency rhythm app designed to help people build steadier routines and return to what matters with less friction. Focused, calm, and practical.
-          </p>
-        </div>
-        
-        <div class="product-layout">
-          <article class="product-copy">
-            <div class="product-title">
-              <img src="Icons/cadens_icon_square_dark_512.png" alt="Cadens app logo icon" />
-              <div>
-                <span>Featured App</span>
-                <h3>Cadens Rhythm</h3>
-              </div>
-            </div>
-            
-            <div class="status-indicator">
-              <span class="status-dot pulse-dot"></span>
-              <span>Coming Soon — Launching Soon</span>
-            </div>
-
-            <p>
-              Cadens is built around a simple daily need instead of a trend. It features natural language habit entries, sports tracking presets, and beautiful progress insights with zero user tracking or data selling. Currently in active development and coming soon to the Apple App Store and Google Play.
-            </p>
-
-            <ul class="feature-list">
-              <li>
-                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>11 preset sports and fitness logs</span>
-              </li>
-              <li>
-                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>Intelligent natural language tracker inputs</span>
-              </li>
-              <li>
-                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>Dedicated offline privacy and safety</span>
-              </li>
-            </ul>
-
-            <div class="product-links">
-              <a class="button primary" href="cadens/privacy/">Privacy Policy</a>
-              <a class="button secondary" href="cadens/terms/">Terms and Safety</a>
-            </div>
-          </article>
-          
-          <div class="product-visual">
-            <div class="phone-mockup float-mockup" style="padding: 0; display: block; overflow: hidden; position: relative; width: 320px; height: 650px;">
-              <div class="phone-notch" style="z-index: 10;"></div>
-              <iframe src="cadens_screen_weekly_report.html" style="width: 100%; height: 100%; border: none; display: block; background: #0A1A2F;" scrolling="no"></iframe>
-            </div>
+      <div class="coming-grid">
+        <article class="coming-card reveal stagger-1">
+          <span class="status-pill">Beta</span>
+          <h3>Cadens Rhythm</h3>
+          <p>A personal consistency and routine mapping tool with offline privacy. Not yet deployed to the Google Play Store; iOS release planned for a later phase.</p>
+          <div class="mini-links">
+            <a href="cadens/privacy/">Privacy Policy</a>
+            <span>/</span>
+            <a href="cadens/terms/">Terms</a>
           </div>
-        </div>
-      </section>
-      
-      <!-- Product Pipeline tab panel -->
-      <section class="tab-panel" id="panel-pipeline">
-        <div class="section-head">
-          <span class="section-kicker">Product Pipeline</span>
-          <h1>What's Next for Shivora Labs</h1>
-          <p class="lede">
-            We maintain a slow, high-quality production schedule. The goal is to build a small portfolio of useful, trusted utilities that each solve a single daily problem perfectly.
-          </p>
-        </div>
-        
-        <div class="coming-grid">
-          <article class="coming-card">
-            <span class="status-pill">Beta</span>
-            <h3>Cadens Rhythm</h3>
-            <p>A personal consistency and routine mapping tool with offline privacy. Not yet deployed to the Google Play Store; iOS release planned for a later phase.</p>
-            <div class="mini-links">
-              <a href="cadens/privacy/">Privacy Policy</a>
-              <span>/</span>
-              <a href="cadens/terms/">Terms</a>
-            </div>
-          </article>
+        </article>
 
-          <article class="coming-card">
-            <span class="status-pill" style="color:var(--neon-purple); border-color:rgba(138,43,226,0.2); background:rgba(138,43,226,0.05)">In Design</span>
-            <h3>Logos &amp; Ledger</h3>
-            <p>A minimal personal finance tracker designed for builders, contractors, and freelancers who need cash flow transparency with zero bank scraping APIs.</p>
-          </article>
+        <article class="coming-card reveal stagger-2">
+          <span class="status-pill" style="color:var(--neon-purple); border-color:rgba(138,43,226,0.2); background:rgba(138,43,226,0.05)">In Design</span>
+          <h3>Logos &amp; Ledger</h3>
+          <p>A minimal personal finance tracker designed for builders, contractors, and freelancers who need cash flow transparency with zero bank scraping APIs.</p>
+        </article>
 
-          <article class="coming-card">
-            <span class="status-pill">Custom Build</span>
-            <h3>Studio Systems</h3>
-            <p>Premium websites, customized workflow pipelines, dashboards, and automated AI assistance integrations designed for small teams and founders.</p>
-          </article>
+        <article class="coming-card reveal stagger-3">
+          <span class="status-pill">Custom Build</span>
+          <h3>Studio Systems</h3>
+          <p>Premium websites, customized workflow pipelines, dashboards, and automated AI assistance integrations designed for small teams and founders.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Studio Process Section -->
+    <section class="shell" id="studio">
+      <div class="section-head reveal">
+        <span class="section-kicker">Studio Process</span>
+        <h2>A predictable, high-taste engineering roadmap.</h2>
+        <p class="section-lede">
+          We build with transparent design-focused steps to deliver applications and web pages that feel clear, fast, and durable.
+        </p>
+      </div>
+
+      <div class="process-grid-timeline reveal">
+        <div class="process-step stagger-1">
+          <div class="process-badge">01</div>
+          <h3>Define</h3>
+          <p>We clarify the real job, user profile, and business workflow before choosing any code stacks or frameworks.</p>
         </div>
-      </section>
-      
-      <!-- Studio Process tab panel -->
-      <section class="tab-panel" id="panel-studio">
-        <div class="section-head">
-          <span class="section-kicker">Studio Process</span>
-          <h1>A predictable, high-taste engineering roadmap.</h1>
-          <p class="lede">
-            We build with transparent design-focused steps to deliver applications and web pages that feel clear, fast, and durable.
-          </p>
+
+        <div class="process-step stagger-2">
+          <div class="process-badge">02</div>
+          <h3>Design</h3>
+          <p>We craft interfaces that feel obvious, clean, and interactive. Aesthetic details signal code and brand quality.</p>
         </div>
-        
-        <div class="process-grid-timeline">
-          <div class="process-step">
-            <div class="process-badge">01</div>
-            <h3>Define</h3>
-            <p>We clarify the real job, user profile, and business workflow before choosing any code stacks or frameworks.</p>
-          </div>
 
-          <div class="process-step">
-            <div class="process-badge">02</div>
-            <h3>Design</h3>
-            <p>We craft interfaces that feel obvious, clean, and interactive. Aesthetic details signal code and brand quality.</p>
-          </div>
-
-          <div class="process-step">
-            <div class="process-badge">03</div>
-            <h3>Build</h3>
-            <p>We choose the simplest, most durable implementation path to ensure low latencies, high reliability, and speed.</p>
-          </div>
-
-          <div class="process-step">
-            <div class="process-badge">04</div>
-            <h3>Refine</h3>
-            <p>We run real tests to sharpen the layout details, transitions, mobile speeds, and copy clarity prior to launch.</p>
-          </div>
+        <div class="process-step stagger-3">
+          <div class="process-badge">03</div>
+          <h3>Build</h3>
+          <p>We choose the simplest, most durable implementation path to ensure low latencies, high reliability, and speed.</p>
         </div>
-      </section>
-      
-      <!-- Contact tab panel -->
-      <section class="tab-panel" id="panel-contact">
-        <div class="section-head">
+
+        <div class="process-step stagger-4">
+          <div class="process-badge">04</div>
+          <h3>Refine</h3>
+          <p>We run real tests to sharpen the layout details, transitions, mobile speeds, and copy clarity prior to launch.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="shell" id="contact">
+      <div class="contact-wrap reveal">
+        <div class="contact-card">
           <span class="section-kicker">Start Here</span>
-          <h1>Have a project that should feel more finished?</h1>
-          <p class="lede">
+          <h2>Have a project that should feel more finished?</h2>
+          <p>
             Bring the idea, the messy spreadsheet workflow, or the half-built product concept. Shivora Labs can help shape it into a polished digital experience.
           </p>
-        </div>
-        
-        <div class="contact-layout">
-          <div class="contact-card">
-            <!-- Form Submission -->
-            <form class="contact-mini-form" action="https://formsubmit.co/ajax/b00fd784d95751b980b581f88b628447" method="POST">
-              <!-- Honeypot -->
-              <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
-              <input type="hidden" name="_subject" value="New inline inquiry from Shivora Labs website" />
-              <input type="hidden" name="_template" value="table" />
-              <input type="hidden" name="_captcha" value="false" />
 
-              <div class="field">
-                <label for="inline-name">Name</label>
-                <input id="inline-name" name="name" autocomplete="name" required />
-              </div>
+          <!-- Inline Form for Low Friction -->
+          <form class="contact-mini-form" action="https://formsubmit.co/ajax/b00fd784d95751b980b581f88b628447" method="POST">
+            <!-- Honeypot -->
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+            <input type="hidden" name="_subject" value="New inline inquiry from Shivora Labs website" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
 
-              <div class="field">
-                <label for="inline-email">Email</label>
-                <input id="inline-email" name="email" type="email" autocomplete="email" required />
-              </div>
-
-              <div class="field full-width">
-                <label for="inline-project">What are you building?</label>
-                <select id="inline-project" name="project" required>
-                  <option value="">Select an option</option>
-                  <option>App or product idea</option>
-                  <option>Website or landing page</option>
-                  <option>Custom workflow system</option>
-                  <option>AI automation or assistant</option>
-                  <option>Something else</option>
-                </select>
-              </div>
-
-              <div class="field full-width">
-                <label for="inline-message">Project notes</label>
-                <textarea id="inline-message" name="message" placeholder="A few sentences is enough: what you need, who it is for, and your ideal timeline." required></textarea>
-              </div>
-
-              <div class="actions" style="display: flex; gap: 12px; align-items: center;">
-                <button class="button primary" type="submit" id="inline-submit">Send Message</button>
-                <button class="button secondary" type="button" id="inline-copy-message">Copy Message</button>
-              </div>
-              
-              <p id="inline-form-status" style="display: none; grid-column: span 2; border: 1px solid var(--line-strong); padding: 12px; border-radius: var(--radius); margin-top: 12px; font-size: 0.85rem; background: rgba(0, 229, 255, 0.05); color: var(--text);"></p>
-            </form>
-          </div>
-
-          <aside class="contact-side" aria-label="Company details">
-            <dl>
-              <div>
-                <dt>Location</dt>
-                <dd>Charlotte / Harrisburg, NC</dd>
-              </div>
-              <div>
-                <dt>Good fits</dt>
-                <dd>Apps, premium websites, dashboards, automations, and AI workflow integrations.</dd>
-              </div>
-              <div>
-                <dt>Inquiries</dt>
-                <dd>
-                  <button onclick="window.copyEmailHelper('support@shivoralabs.com', 'Email copied to clipboard!', 'inline-form-status')" class="button secondary" style="min-height:36px; padding: 0 12px; font-size:0.85rem; margin-top:6px;" type="button">
-                    Copy support@shivoralabs.com
-                  </button>
-                </dd>
-              </div>
-            </dl>
-            
-            <div style="font-size:0.8rem; color:var(--muted); border-top: 1px solid var(--line); padding-top:16px; margin-top:16px;">
-              Shivora Labs reviews inquiries daily.
+            <div class="field">
+              <label for="inline-name">Name</label>
+              <input id="inline-name" name="name" autocomplete="name" required />
             </div>
-          </aside>
+
+            <div class="field">
+              <label for="inline-email">Email</label>
+              <input id="inline-email" name="email" type="email" autocomplete="email" required />
+            </div>
+
+            <div class="field full-width">
+              <label for="inline-project">What are you building?</label>
+              <select id="inline-project" name="project" required>
+                <option value="">Select an option</option>
+                <option>App or product idea</option>
+                <option>Website or landing page</option>
+                <option>Custom workflow system</option>
+                <option>AI automation or assistant</option>
+                <option>Something else</option>
+              </select>
+            </div>
+
+            <div class="field full-width">
+              <label for="inline-message">Project notes</label>
+              <textarea id="inline-message" name="message" placeholder="A few sentences is enough: what you need, who it is for, and your ideal timeline." required></textarea>
+            </div>
+
+            <div class="actions" style="display: flex; gap: 12px; align-items: center;">
+              <button class="button primary" type="submit" id="inline-submit">Send Message</button>
+              <button class="button secondary" type="button" id="inline-copy-message">Copy Message</button>
+            </div>
+            
+            <p id="inline-form-status" style="display: none; grid-column: span 2; border: 1px solid var(--line-strong); padding: 12px; border-radius: var(--radius); margin-top: 12px; font-size: 0.85rem; background: rgba(0, 229, 255, 0.05); color: var(--text);"></p>
+          </form>
         </div>
-      </section>
-      
-    </main>
-  </div>
+
+        <aside class="contact-side" aria-label="Company details">
+          <dl>
+            <div>
+              <dt>Location</dt>
+              <dd>Charlotte / Harrisburg, NC</dd>
+            </div>
+            <div>
+              <dt>Good fits</dt>
+              <dd>Apps, premium websites, dashboards, automations, and AI workflow integrations.</dd>
+            </div>
+            <div>
+              <dt>Inquiries</dt>
+              <dd>
+                <button onclick="window.copyEmailHelper('support@shivoralabs.com', 'Email copied to clipboard!', 'inline-form-status')" class="button secondary" style="min-height:36px; padding: 0 12px; font-size:0.8rem; margin-top:6px;" type="button">
+                  Copy support@shivoralabs.com
+                </button>
+              </dd>
+            </div>
+          </dl>
+          
+          <div style="font-size:0.8rem; color:var(--muted); border-top: 1px solid var(--line); padding-top:20px; margin-top:20px;">
+            Shivora Labs reviews inquiries daily.
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- Sleek 3-Column Footer -->
+  <footer class="site-footer">
+    <div class="shell">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="#" aria-label="Shivora Labs home">
+            <img src="Icons/favicon-120.png" alt="Shivora Labs logo mark" />
+            <span>Shivora <strong>Labs</strong></span>
+          </a>
+          <p class="footer-desc">
+            An independent product studio crafting high-taste digital products, premium web experiences, and tailored workflows.
+          </p>
+        </div>
+
+        <div class="footer-links-col">
+          <h4>Studio</h4>
+          <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#cadens">Cadens</a></li>
+            <li><a href="#apps">Product Pipeline</a></li>
+            <li><a href="#studio">Our Process</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <h4>Featured App</h4>
+          <ul>
+            <li><a href="cadens/privacy/">Cadens Privacy</a></li>
+            <li><a href="cadens/terms/">Terms and Safety</a></li>
+            <li><a href="#contact">Inquiry form</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> Shivora Labs. All rights reserved.</p>
+        
+        <div class="footer-legal">
+          <a href="cadens/privacy/">Privacy Policy</a>
+          <a href="cadens/terms/">Terms and Safety</a>
+        </div>
+
+        <button class="back-to-top" aria-label="Scroll back to top">
+          <span>Back to top</span>
+          <svg style="width:14px; height:14px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round" viewBox="0 0 24 24">
+            <path d="M5 15l7-7 7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </footer>
 
   <!-- Include Core Javascript -->
   <script src="script.js"></script>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Tab switcher logic
-    const navButtons = document.querySelectorAll(".nav-item-btn");
-    const panels = document.querySelectorAll(".tab-panel");
-
-    navButtons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        const target = btn.getAttribute("data-target");
-
-        // Remove active class from all buttons and panels
-        navButtons.forEach(b => b.classList.remove("active"));
-        panels.forEach(p => p.classList.remove("active"));
-
-        // Add active class to clicked button and targeted panel
-        btn.classList.add("active");
-        document.getElementById(`panel-${target}`).classList.add("active");
-
-        // Close sidebar on mobile after clicking
-        const sidebar = document.getElementById("appSidebar");
-        if (sidebar && sidebar.classList.contains("open")) {
-          sidebar.classList.remove("open");
-        }
-      });
-    });
-
-    // Mobile nav sidebar toggle
-    const toggleBtn = document.getElementById("mobileNavToggle");
-    const sidebar = document.getElementById("appSidebar");
-
-    if (toggleBtn && sidebar) {
-      toggleBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        sidebar.classList.toggle("open");
-      });
-
-      // Close sidebar if clicking outside of it on mobile
-      document.addEventListener("click", (e) => {
-        if (sidebar.classList.contains("open") && !sidebar.contains(e.target) && e.target !== toggleBtn) {
-          sidebar.classList.remove("open");
-        }
-      });
-    }
 
     // Inline Form Submission Interactivity
     const inlineForm = document.querySelector(".contact-mini-form");
