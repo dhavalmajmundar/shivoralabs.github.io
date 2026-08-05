@@ -485,7 +485,7 @@
         const message = inlineForm.elements.message.value.trim();
         const bodyText = `To: support@shivoralabs.com\n\nName: ${name}\nEmail: ${email}\nProject type: ${project}\n\nProject notes:\n${message}`;
         
-        window.copyEmailHelper(bodyText, "Copied your prepared message! You can paste and email support@shivoralabs.com.", "inline-form-status");
+        window.copyEmailHelper(bodyText, "Your prepared message has been copied. You can send it to support@shivoralabs.com.", "inline-form-status");
       });
     }
 
@@ -520,7 +520,7 @@
         })
         .then(() => {
           inlineForm.reset();
-          inlineStatus.textContent = "Thank you! Your message was sent successfully. We will follow up soon.";
+          inlineStatus.textContent = "Thank you for reaching out. Your message has been received, and Shivora Labs will be in touch shortly.";
           inlineStatus.style.display = "block";
           inlineStatus.style.borderColor = "var(--cosmic-cyan)";
         })
