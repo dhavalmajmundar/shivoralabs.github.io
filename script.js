@@ -277,6 +277,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   assistantClose.addEventListener("click", () => assistantRoot.classList.remove("is-open"));
 
+  document.addEventListener("click", (event) => {
+    if (!assistantRoot.classList.contains("is-open")) return;
+    if (assistantRoot.contains(event.target)) return;
+    assistantRoot.classList.remove("is-open");
+  });
+
   assistantForm.addEventListener("submit", (event) => {
     event.preventDefault();
     answerAssistantQuestion(assistantInput.value);
