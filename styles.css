@@ -628,6 +628,64 @@ h2 {
   line-height: 1.6;
 }
 
+/* About Trust */
+.about-trust {
+  padding-top: 24px;
+}
+
+.about-panel {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: clamp(28px, 4vw, 44px);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)),
+    rgba(13, 15, 22, 0.42);
+  box-shadow: var(--shadow);
+}
+
+.about-panel h2 {
+  max-width: 780px;
+}
+
+.about-panel > p {
+  max-width: 880px;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.35vw, 1.08rem);
+}
+
+.about-proof {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin-top: 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--line);
+}
+
+.about-proof div {
+  min-height: 118px;
+  padding: 20px;
+  background: rgba(7, 9, 16, 0.68);
+}
+
+.about-proof strong,
+.about-proof span {
+  display: block;
+}
+
+.about-proof strong {
+  color: var(--text);
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.about-proof span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
 /* Product Panel & CSS Phone Mockup */
 .product-panel {
   display: grid;
@@ -1106,6 +1164,20 @@ h2 {
   font-size: 0.82rem;
 }
 
+.footer-legal-block {
+  display: grid;
+  gap: 4px;
+}
+
+.footer-legal-block strong {
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.footer-legal-block span {
+  color: var(--muted);
+}
+
 .footer-legal {
   display: flex;
   gap: 24px;
@@ -1579,6 +1651,7 @@ h2 {
   
   .services-grid,
   .coming-grid,
+  .about-proof,
   .process-grid-timeline {
     grid-template-columns: 1fr;
   }

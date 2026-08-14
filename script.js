@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
       id: "contact",
       label: "How do I contact Shivora Labs?",
       keywords: ["contact", "email", "support", "message", "reach", "talk"],
-      answer: 'You can use the Start a Project form on this page or email support@shivoralabs.com. If this conversation is useful, you can also send the transcript from this assistant.'
+      answer: 'You can use the Request a Quote form on this page or email support@shivoralabs.com. If this conversation is useful, you can also send the transcript from this assistant.'
     },
     {
       id: "privacy",
@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </form>
         <div class="assistant-actions">
           <button class="assistant-secondary" type="button" id="assistant-send-transcript">Send conversation</button>
-          <button class="assistant-secondary" type="button" id="assistant-start-project">Start a project</button>
+          <button class="assistant-secondary" type="button" id="assistant-start-project">Request a quote</button>
         </div>
         <form class="assistant-handoff" id="assistant-handoff" action="https://formsubmit.co/ajax/support@shivoralabs.com" method="POST">
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
