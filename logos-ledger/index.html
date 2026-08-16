@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logos & Ledger | Minimal Personal Finance Tracker</title>
+  
+  <meta name="description" content="A premium, private-first personal finance tracker with zero bank scraping APIs. Built for freelancers, contractors, and builders." />
+  <meta property="og:title" content="Logos & Ledger | Zero-Scrape Finance Tracker" />
+  <meta property="og:description" content="A functional, local-first finance dashboard designed and built by Shivora Labs LLC." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="../Icons/shivora_logo_refined_square.png" />
+
+  <!-- Favicon References -->
+  <link rel="icon" href="../Icons/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="../Icons/favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="../Icons/favicon-180.png" />
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Background Auroras -->
+  <div class="aurora-bg">
+    <div class="aurora-1"></div>
+    <div class="aurora-2"></div>
+  </div>
+
+  <!-- Header Nav -->
+  <header class="app-header">
+    <div class="shell header-inner">
+      <a class="brand" href="../">
+        <img src="../Icons/favicon-120.png" alt="Shivora Labs logo mark" />
+        <span>Shivora <strong>Labs</strong></span>
+      </a>
+      <div class="app-title-badge">
+        <span>Product Showcase</span>
+        <strong>Logos &amp; Ledger</strong>
+      </div>
+      <a class="button secondary back-btn" href="../#apps">Back to Site</a>
+    </div>
+  </header>
+
+  <main class="app-container shell">
+    <!-- Intro Banner -->
+    <header class="dashboard-banner">
+      <span class="eyebrow">Zero Bank-Scraping APIs &bull; 100% Client-Side Privacy</span>
+      <h1>Logos &amp; Ledger</h1>
+      <p class="lede">
+        A private, premium finance dashboard designed for builders, contractors, and freelancers. Track your cash flow, log expenses, and manage client invoices locally with absolute data ownership.
+      </p>
+    </header>
+
+    <!-- Key Metrics Grid -->
+    <section class="metrics-grid">
+      <div class="metric-card card-flow">
+        <span class="card-label">Net Cash Flow (Profit)</span>
+        <h2 id="metric-net">$0.00</h2>
+        <span class="card-note">Total earnings minus expenses</span>
+      </div>
+      <div class="metric-card card-income">
+        <span class="card-label">Total Cash In</span>
+        <h2 id="metric-income">$0.00</h2>
+        <span class="card-note" id="income-count">0 transactions logged</span>
+      </div>
+      <div class="metric-card card-expense">
+        <span class="card-label">Total Cash Out</span>
+        <h2 id="metric-expense">$0.00</h2>
+        <span class="card-note" id="expense-count">0 transactions logged</span>
+      </div>
+      <div class="metric-card card-receivables">
+        <span class="card-label">Accounts Receivable</span>
+        <h2 id="metric-receivables">$0.00</h2>
+        <span class="card-note" id="invoice-count">0 unpaid invoices</span>
+      </div>
+    </section>
+
+    <!-- Charts & Analytics Section -->
+    <section class="dashboard-section main-layout">
+      <div class="left-panel">
+        
+        <!-- Transaction Logging Card -->
+        <div class="app-card">
+          <h3>Log a Transaction</h3>
+          <form id="transaction-form">
+            <div class="form-row">
+              <div class="field">
+                <label for="t-type">Type</label>
+                <select id="t-type" required>
+                  <option value="income">Income (Cash In)</option>
+                  <option value="expense">Expense (Cash Out)</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="t-amount">Amount ($)</label>
+                <input type="number" id="t-amount" min="0.01" step="0.01" placeholder="0.00" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="t-description">Description</label>
+                <input type="text" id="t-description" placeholder="Client payment, software, materials..." required />
+              </div>
+              <div class="field">
+                <label for="t-category">Category</label>
+                <select id="t-category" required>
+                  <!-- Populated dynamically based on type -->
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="t-date">Date</label>
+                <input type="date" id="t-date" required />
+              </div>
+              <div class="field">
+                <label for="t-client">Client / Project (Optional)</label>
+                <input type="text" id="t-client" placeholder="e.g. Shivora Labs" />
+              </div>
+            </div>
+
+            <button type="submit" class="button primary full-width">Add Transaction</button>
+          </form>
+        </div>
+
+        <!-- Invoicing & Accounts Receivable -->
+        <div class="app-card">
+          <h3>Issue / Track Invoice</h3>
+          <form id="invoice-form">
+            <div class="form-row">
+              <div class="field">
+                <label for="inv-number">Invoice Number</label>
+                <input type="text" id="inv-number" placeholder="INV-2026-001" required />
+              </div>
+              <div class="field">
+                <label for="inv-client">Client Name</label>
+                <input type="text" id="inv-client" placeholder="e.g. Acme Corp" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="inv-amount">Invoice Amount ($)</label>
+                <input type="number" id="inv-amount" min="0.01" step="0.01" placeholder="0.00" required />
+              </div>
+              <div class="field">
+                <label for="inv-due">Due Date</label>
+                <input type="date" id="inv-due" required />
+              </div>
+            </div>
+
+            <button type="submit" class="button secondary full-width">Log Invoice</button>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="right-panel">
+        <!-- SVG Visualizer Chart -->
+        <div class="app-card chart-card">
+          <div class="chart-header">
+            <h3>Monthly Cash Flow Trend</h3>
+            <span class="chart-legend">
+              <span class="legend-in">Cash In</span>
+              <span class="legend-out">Cash Out</span>
+            </span>
+          </div>
+          <div class="svg-container" id="chart-container">
+            <!-- Rendered Dynamically -->
+            <svg id="trend-chart" viewBox="0 0 500 220" width="100%" height="100%">
+              <!-- Baseline Grid Lines -->
+              <line x1="40" y1="20" x2="480" y2="20" stroke="var(--line)" stroke-width="1" />
+              <line x1="40" y1="80" x2="480" y2="80" stroke="var(--line)" stroke-width="1" />
+              <line x1="40" y1="140" x2="480" y2="140" stroke="var(--line)" stroke-width="1" />
+              <line x1="40" y1="200" x2="480" y2="200" stroke="var(--line-strong)" stroke-width="1" />
+              <text x="450" y="215" fill="var(--muted)" font-size="9" text-anchor="middle">Time</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Ledger controls & Export/Import -->
+        <div class="app-card storage-card">
+          <h3>Ledger Data Controls</h3>
+          <p class="card-desc">No accounts, no third-party scrapers, no trackers. Export your ledger to work in Excel or import to restore.</p>
+          <div class="storage-actions">
+            <button class="button secondary" id="export-json">Export JSON</button>
+            <button class="button secondary" id="export-csv">Export CSV</button>
+            <button class="button secondary" id="import-btn">Import Data</button>
+            <input type="file" id="import-file" style="display: none;" accept=".json" />
+            <button class="button danger-outline" id="clear-data">Reset Ledger</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ledger Lists (Tables / Lists) -->
+    <section class="ledger-tables">
+      <!-- Active Invoices -->
+      <div class="app-card full-width">
+        <div class="card-title-row">
+          <h3>Accounts Receivable (Invoices)</h3>
+          <span class="badge-count" id="invoice-badge">0 active</span>
+        </div>
+        <div class="table-wrap">
+          <table class="ledger-table" id="invoices-table">
+            <thead>
+              <tr>
+                <th>Invoice #</th>
+                <th>Client</th>
+                <th>Amount</th>
+                <th>Due Date</th>
+                <th>Status</th>
+                <th style="text-align: right;">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Populated dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Transaction History -->
+      <div class="app-card full-width">
+        <div class="card-title-row">
+          <h3>Transaction History</h3>
+          <div class="filter-bar">
+            <select id="filter-type">
+              <option value="all">All Types</option>
+              <option value="income">Income Only</option>
+              <option value="expense">Expenses Only</option>
+            </select>
+            <select id="filter-category">
+              <option value="all">All Categories</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="table-wrap">
+          <table class="ledger-table" id="transactions-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Client / Project</th>
+                <th>Amount</th>
+                <th style="text-align: right;">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Populated dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    <div class="shell">
+      <p>&copy; 2026 Shivora Labs LLC. Designed as a premium portfolio showcase. 100% private.</p>
+    </div>
+  </footer>
+
+  <!-- Script links -->
+  <script src="app.js"></script>
+</body>
+</html>
