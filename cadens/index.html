@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadens — Adaptive Fitness Tracking</title>
+  <meta name="description" content="Cadens is an adaptive training plan and activity tracker that adjusts to your fatigue, pain, and recovery. Dog Walk, Lawn Care, and AI Coach included." />
+  <meta property="og:title" content="Cadens — Adaptive Fitness Tracking" />
+  <meta property="og:description" content="Training plans that adapt to how you actually feel. Now in beta on Android." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="../Icons/cadens_logo_full_wide_dark.png" />
+  <link rel="icon" href="../Icons/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="../Icons/favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="../Icons/favicon-180.png" />
+  <style>
+    :root {
+      --bg: #05060a;
+      --panel: #0d0f16;
+      --panel-2: #11141d;
+      --line: rgba(232, 234, 241, 0.14);
+      --line-strong: rgba(232, 234, 241, 0.24);
+      --text: #f6f7fb;
+      --soft: #d9dce6;
+      --muted: #9fa5b4;
+      --teal: #6bc8bb;
+      --teal-dim: rgba(107, 200, 187, 0.15);
+      --gold: #e4c37f;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.46);
+      --radius: 10px;
+      --max: 1080px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--teal); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── NAV ─────────────────────────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(5, 6, 10, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      gap: 16px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-logo img { width: 28px; height: 28px; border-radius: 6px; }
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-links a { color: var(--muted); font-size: 0.9rem; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--teal);
+      color: #05060a !important;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: opacity 0.15s;
+    }
+    .nav-cta:hover { opacity: 0.85; text-decoration: none; }
+
+    /* ── HERO ────────────────────────────────────────────────────────────── */
+    .hero {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 80px 24px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--teal-dim);
+      border: 1px solid rgba(107, 200, 187, 0.3);
+      color: var(--teal);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+    .hero-badge::before { content: '●'; font-size: 0.5rem; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    h1 em { font-style: normal; color: var(--teal); }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--soft);
+      max-width: 480px;
+      margin-bottom: 32px;
+      line-height: 1.65;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--teal);
+      color: #05060a;
+      font-weight: 800;
+      font-size: 0.95rem;
+      padding: 14px 24px;
+      border-radius: 10px;
+      transition: opacity 0.15s, transform 0.15s;
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); text-decoration: none; }
+    .btn-primary svg { width: 20px; height: 20px; }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--soft);
+      font-size: 0.9rem;
+      padding: 14px 20px;
+      border: 1px solid var(--line-strong);
+      border-radius: 10px;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .btn-ghost:hover { border-color: var(--teal); color: var(--teal); text-decoration: none; }
+    .hero-note { margin-top: 14px; font-size: 0.8rem; color: var(--muted); }
+    .hero-note a { color: var(--gold); }
+
+    /* hero phone mockup */
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 16px;
+      perspective: 1000px;
+    }
+    .phone-frame {
+      background: var(--panel);
+      border: 1px solid var(--line-strong);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      flex-shrink: 0;
+    }
+    .phone-frame.main { width: 200px; transform: rotateY(-6deg) rotateX(2deg); }
+    .phone-frame.side { width: 160px; transform: rotateY(-6deg) rotateX(2deg) translateY(24px); opacity: 0.75; }
+    .phone-frame img { width: 100%; display: block; }
+
+    /* ── FEATURES ────────────────────────────────────────────────────────── */
+    .section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .section-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 12px;
+    }
+    h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      color: var(--soft);
+      font-size: 1rem;
+      max-width: 560px;
+      margin-bottom: 52px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .feat-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: border-color 0.2s;
+    }
+    .feat-card:hover { border-color: var(--line-strong); }
+    .feat-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--teal-dim);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+    }
+    .feat-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .feat-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── SCREENSHOTS ─────────────────────────────────────────────────────── */
+    .screenshots-section {
+      background: var(--panel);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .screenshots-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .screenshots-scroll {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--line-strong) transparent;
+    }
+    .screenshots-scroll::-webkit-scrollbar { height: 4px; }
+    .screenshots-scroll::-webkit-scrollbar-track { background: transparent; }
+    .screenshots-scroll::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 2px; }
+    .screenshot-item {
+      flex-shrink: 0;
+      width: 200px;
+    }
+    .screenshot-frame {
+      background: var(--panel-2);
+      border: 1px solid var(--line-strong);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+    .screenshot-frame img { width: 100%; display: block; }
+    .screenshot-label { font-size: 0.8rem; color: var(--muted); text-align: center; }
+
+    /* ── UNIQUE FEATURES ─────────────────────────────────────────────────── */
+    .unique-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .unique-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .unique-card .emoji { font-size: 2rem; }
+    .unique-card h3 { font-size: 1.15rem; font-weight: 800; }
+    .unique-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
+    .unique-tag {
+      display: inline-block;
+      background: var(--teal-dim);
+      color: var(--teal);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 100px;
+      margin-top: 4px;
+      width: fit-content;
+    }
+
+    /* ── BETA INVITE ─────────────────────────────────────────────────────── */
+    .invite-section {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 80px 24px;
+      text-align: center;
+    }
+    .invite-section .section-label { display: block; text-align: center; }
+    .invite-section h2 { margin-bottom: 16px; }
+    .invite-section p { color: var(--soft); margin-bottom: 32px; font-size: 1rem; line-height: 1.65; }
+    .invite-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+    .reward-note {
+      margin-top: 20px;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .reward-note strong { color: var(--gold); }
+
+    /* ── FOOTER ──────────────────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 32px 24px;
+    }
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .footer-logo {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--soft);
+    }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.85rem; color: var(--muted); }
+    .footer-links a:hover { color: var(--text); text-decoration: none; }
+    .footer-copy { font-size: 0.8rem; color: var(--muted); width: 100%; margin-top: 8px; }
+
+    /* ── RESPONSIVE ──────────────────────────────────────────────────────── */
+    @media (max-width: 700px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 48px 20px 40px;
+        gap: 40px;
+        text-align: center;
+      }
+      .hero-sub { max-width: 100%; }
+      .hero-actions { justify-content: center; }
+      .hero-visual { justify-content: center; }
+      .phone-frame.side { display: none; }
+      .nav-links { display: none; }
+      .invite-section { padding: 60px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="/cadens/">
+      <img src="../Icons/favicon-32.png" alt="Cadens icon" />
+      Cadens
+    </a>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#screenshots">Screenshots</a>
+      <a href="#beta">Beta</a>
+      <a href="/cadens/privacy/">Privacy</a>
+      <a href="/cadens/terms/">Terms</a>
+      <a class="nav-cta" href="https://play.google.com/apps/testing/com.cadens.app" target="_blank" rel="noopener">
+        Join Beta
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section>
+  <div class="hero">
+    <div class="hero-text">
+      <div class="hero-badge">Android Beta — Open Now</div>
+      <h1>Training plans that <em>adapt</em> to how you feel</h1>
+      <p class="hero-sub">
+        Cadens builds your workout schedule around your recovery, fatigue, and pain levels — not a rigid calendar. GPS tracking, adaptive AI coaching, and activity modes you won't find anywhere else.
+      </p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="https://play.google.com/apps/testing/com.cadens.app" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76a2 2 0 0 0 2.78-.78l9.7-16.8-2.2-2.2-10.28 17.8a2 2 0 0 0 0 2zm17.44-11.38-3.5-2-3.5 2 3.5 6.04 3.5-6.04zm-9-9-3.5 2 3.5 6.04L15.12 5.38l-3.5-2zM3.5 1.24a2 2 0 0 0-2 0 2 2 0 0 0-1 1.74v17.04l3.5-6.04-2.5-1.44V3.98l2 1.16 3.5-6.04A2 2 0 0 0 3.5 1.24z"/></svg>
+          Get it on Google Play
+        </a>
+        <a class="btn-ghost" href="#features">See features ↓</a>
+      </div>
+      <p class="hero-note">Free during beta. <a href="#beta">Active testers get lifetime Pro access.</a></p>
+    </div>
+    <div class="hero-visual">
+      <div class="phone-frame main">
+        <img src="assets/screenshot_1_home.png" alt="Cadens home screen" loading="eager" />
+      </div>
+      <div class="phone-frame side">
+        <img src="assets/screenshot_2_plan.png" alt="Cadens plan screen" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section" id="features">
+  <div class="section-label">What makes Cadens different</div>
+  <h2>Built around recovery,<br/>not rigid schedules</h2>
+  <p class="section-sub">Most apps track what you did. Cadens tracks how you're doing — and adjusts what comes next.</p>
+
+  <div class="features-grid">
+    <div class="feat-card">
+      <div class="feat-icon">🧠</div>
+      <h3>Adaptive Training Plans</h3>
+      <p>Daily recovery check-ins feed an AI coach that reshuffles your week when you're sore, tired, or under the weather.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">📍</div>
+      <h3>GPS Activity Tracking</h3>
+      <p>Accurate GPS for runs, walks, cycles, and hikes. Live pace, distance, and elevation — with auto-pause when you stop.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">⏱</div>
+      <h3>Interval Workouts</h3>
+      <p>Build custom HIIT, Tabata, and rest-interval sequences with audio coaching cues and live countdown overlays.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">📊</div>
+      <h3>Weekly Progress Reports</h3>
+      <p>Shareable weekly summaries with distance, calories, active minutes, and trend comparisons to the prior week.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">⌚</div>
+      <h3>Health Connect Sync</h3>
+      <p>Reads steps, floors, heart rate, and sleep from Health Connect — including Samsung Health and Fitbit data.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🎽</div>
+      <h3>Gear Tracker</h3>
+      <p>Log shoes, vests, and equipment. Set mileage alerts so you know exactly when to replace your running shoes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SCREENSHOTS -->
+<section class="screenshots-section" id="screenshots">
+  <div class="screenshots-inner">
+    <div class="section-label">Inside the app</div>
+    <h2>See every screen</h2>
+    <p class="section-sub" style="margin-bottom: 36px;">Real screenshots from the current beta build.</p>
+    <div class="screenshots-scroll">
+      <div class="screenshot-item">
+        <div class="screenshot-frame">
+          <img src="assets/screenshot_1_home.png" alt="Home dashboard" loading="lazy" />
+        </div>
+        <div class="screenshot-label">Home dashboard</div>
+      </div>
+      <div class="screenshot-item">
+        <div class="screenshot-frame">
+          <img src="assets/screenshot_2_plan.png" alt="Adaptive training plan" loading="lazy" />
+        </div>
+        <div class="screenshot-label">Adaptive plan</div>
+      </div>
+      <div class="screenshot-item">
+        <div class="screenshot-frame">
+          <img src="assets/screenshot_3_workouts.png" alt="Activity tracking" loading="lazy" />
+        </div>
+        <div class="screenshot-label">Activity tracking</div>
+      </div>
+      <div class="screenshot-item">
+        <div class="screenshot-frame">
+          <img src="assets/screenshot_4_dogwalk.png" alt="Dog Walk mode" loading="lazy" />
+        </div>
+        <div class="screenshot-label">Dog Walk mode</div>
+      </div>
+      <div class="screenshot-item">
+        <div class="screenshot-frame">
+          <img src="assets/screenshot_5_complete.png" alt="Activity complete" loading="lazy" />
+        </div>
+        <div class="screenshot-label">Activity complete</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UNIQUE FEATURES -->
+<section class="section">
+  <div class="section-label">Only in Cadens</div>
+  <h2>Activity modes built for real life</h2>
+  <p class="section-sub">Not every workout happens on a track. We built dedicated modes for the things people actually do.</p>
+
+  <div class="unique-grid">
+    <div class="unique-card">
+      <div class="emoji">🐾</div>
+      <h3>Dog Walk Mode</h3>
+      <p>Tracks sniff stops, leash pull events, and walking rhythm — giving you a picture of how your dog is doing alongside your own activity data.</p>
+      <span class="unique-tag">Beta exclusive</span>
+    </div>
+    <div class="unique-card">
+      <div class="emoji">🚜</div>
+      <h3>Lawn Care Tracking</h3>
+      <p>GPS-mapped coverage area, equipment profile (brand, model, fuel type), and calorie burn — so your yard work actually counts toward your weekly totals.</p>
+      <span class="unique-tag">Beta exclusive</span>
+    </div>
+    <div class="unique-card">
+      <div class="emoji">🏃</div>
+      <h3>Treadmill Mode</h3>
+      <p>Step-counted distance when GPS isn't available. Set your speed manually or let the pedometer handle it. Includes interval overlays and audio coaching.</p>
+      <span class="unique-tag">New in beta</span>
+    </div>
+  </div>
+</section>
+
+<!-- BETA INVITE -->
+<section id="beta">
+  <div class="invite-section">
+    <span class="section-label">Private beta</span>
+    <h2>Help shape what Cadens becomes</h2>
+    <p>We're accepting Android testers now. Try the app free, report what feels off, and get credit for every piece of feedback that makes it into the product.</p>
+    <div class="invite-actions">
+      <a class="btn-primary" href="https://play.google.com/apps/testing/com.cadens.app" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76a2 2 0 0 0 2.78-.78l9.7-16.8-2.2-2.2-10.28 17.8a2 2 0 0 0 0 2zm17.44-11.38-3.5-2-3.5 2 3.5 6.04 3.5-6.04zm-9-9-3.5 2 3.5 6.04L15.12 5.38l-3.5-2zM3.5 1.24a2 2 0 0 0-2 0 2 2 0 0 0-1 1.74v17.04l3.5-6.04-2.5-1.44V3.98l2 1.16 3.5-6.04A2 2 0 0 0 3.5 1.24z"/></svg>
+        Join the Beta
+      </a>
+      <a class="btn-ghost" href="mailto:support@shivoralabs.com">
+        Contact us
+      </a>
+    </div>
+    <p class="reward-note">
+      <strong>Active beta testers receive free lifetime Pro access</strong> when Cadens launches publicly.
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Cadens by Shivora Labs</div>
+    <div class="footer-links">
+      <a href="/cadens/privacy/">Privacy Policy</a>
+      <a href="/cadens/terms/">Terms of Service</a>
+      <a href="mailto:support@shivoralabs.com">Support</a>
+      <a href="https://play.google.com/apps/testing/com.cadens.app" target="_blank" rel="noopener">Google Play</a>
+    </div>
+    <div class="footer-copy">
+      &copy; 2026 Shivora Labs. All rights reserved. Cadens is currently in private beta.
+      <!-- Screenshots: copy Beta/assets/*.png → cadens/assets/ to display correctly. -->
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
