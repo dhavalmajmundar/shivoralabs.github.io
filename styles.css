@@ -707,6 +707,7 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-height: max-content;
 }
 
 .product-title {
@@ -906,7 +907,8 @@ h2 {
 
 .mini-links {
   display: flex;
-  gap: 12px;
+  flex-wrap: wrap;
+  gap: 8px 12px;
   font-size: 0.85rem;
   color: var(--muted);
   margin-top: auto;
@@ -915,6 +917,7 @@ h2 {
 .mini-links a {
   text-decoration: underline;
   text-underline-offset: 3px;
+  white-space: nowrap;
 }
 
 .mini-links a:hover {
