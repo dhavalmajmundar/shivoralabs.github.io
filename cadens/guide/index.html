@@ -377,6 +377,32 @@
       .signal {
         grid-template-columns: 1fr;
       }
+
+      .button {
+        display: none;
+      }
+    }
+
+    .button {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 8px;
+      padding: 0 14px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.04);
+      font-size: 0.85rem;
+      font-weight: 750;
+      transition: transform 180ms ease, border-color 180ms ease;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      border-color: rgba(60, 199, 183, 0.48);
+      color: var(--text);
     }
   </style>
 </head>
@@ -393,6 +419,7 @@
         <a href="../terms/">Terms</a>
         <a href="../../contact/">Support</a>
       </div>
+      <a class="button" href="../../">Back to Shivora Labs</a>
     </nav>
   </header>
 
