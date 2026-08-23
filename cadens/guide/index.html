@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cadens User Guide | Shivora Labs</title>
+  <meta name="description" content="Cadens beta user guide for tracking workouts, adaptive plans, privacy controls, widgets, and Early Access features." />
+  <link rel="icon" href="../../Icons/favicon-32.png" sizes="32x32" />
+  <style>
+    :root {
+      color-scheme: dark;
+      --navy: #071727;
+      --navy-2: #0A1A2F;
+      --panel: rgba(13, 31, 49, 0.82);
+      --panel-2: rgba(21, 48, 69, 0.72);
+      --line: rgba(168, 240, 214, 0.18);
+      --text: #F6FAFF;
+      --muted: #B8C5CF;
+      --teal: #3CC7B7;
+      --mint: #A8F0D6;
+      --gold: #F2C94C;
+      --coral: #FF6F61;
+      --shadow: 0 28px 90px rgba(0, 0, 0, 0.42);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--navy);
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 78% 14%, rgba(60, 199, 183, 0.18), transparent 28rem),
+        radial-gradient(circle at 10% 24%, rgba(242, 201, 76, 0.09), transparent 24rem),
+        linear-gradient(145deg, #07111f 0%, #0A1A2F 48%, #071727 100%);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; }
+
+    .shell {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 17, 31, 0.74);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand img {
+      width: 34px;
+      height: 34px;
+      border-radius: 11px;
+    }
+
+    .navlinks {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.94rem;
+      font-weight: 700;
+    }
+
+    .navlinks a {
+      text-decoration: none;
+    }
+
+    .navlinks a:hover {
+      color: var(--mint);
+    }
+
+    .hero {
+      padding: 74px 0 42px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border: 1px solid rgba(60, 199, 183, 0.28);
+      border-radius: 999px;
+      background: rgba(60, 199, 183, 0.09);
+      color: var(--mint);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 24px 0 18px;
+      font-size: clamp(3rem, 8vw, 6.9rem);
+      line-height: 0.92;
+      letter-spacing: -0.075em;
+    }
+
+    .lead {
+      max-width: 730px;
+      color: var(--muted);
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+    }
+
+    .hero-card {
+      position: relative;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      background:
+        linear-gradient(145deg, rgba(13, 36, 53, 0.96), rgba(10, 26, 47, 0.74)),
+        radial-gradient(circle at 100% 0%, rgba(60, 199, 183, 0.22), transparent 22rem);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-card:after {
+      content: "";
+      position: absolute;
+      inset: auto -20% -35% 16%;
+      height: 120px;
+      background: radial-gradient(circle, rgba(242, 201, 76, 0.18), transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-logo {
+      width: min(100%, 340px);
+      display: block;
+      margin: 10px auto 24px;
+      filter: drop-shadow(0 16px 48px rgba(60, 199, 183, 0.22));
+    }
+
+    .quick {
+      display: grid;
+      gap: 12px;
+    }
+
+    .quick a {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 15px 17px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 750;
+    }
+
+    .quick a:hover {
+      border-color: rgba(168, 240, 214, 0.32);
+      color: var(--text);
+      background: rgba(60, 199, 183, 0.08);
+    }
+
+    .notice {
+      margin: 0 0 34px;
+      padding: 18px 20px;
+      border: 1px solid rgba(242, 201, 76, 0.24);
+      border-radius: 24px;
+      background: rgba(242, 201, 76, 0.10);
+      color: #F7E7A6;
+      font-weight: 700;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 28px;
+      align-items: start;
+      padding-bottom: 78px;
+    }
+
+    .toc {
+      position: sticky;
+      top: 86px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(8, 22, 36, 0.76);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.22);
+    }
+
+    .toc strong {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .toc a {
+      display: block;
+      padding: 8px 0;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .toc a:hover {
+      color: var(--mint);
+    }
+
+    main {
+      display: grid;
+      gap: 18px;
+    }
+
+    section {
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background:
+        linear-gradient(145deg, rgba(11, 28, 45, 0.86), rgba(10, 26, 47, 0.62)),
+        radial-gradient(circle at 100% 0%, rgba(60, 199, 183, 0.12), transparent 20rem);
+      box-shadow: 0 18px 70px rgba(0, 0, 0, 0.18);
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: clamp(1.55rem, 3vw, 2.35rem);
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+    }
+
+    h3 {
+      margin: 22px 0 8px;
+      font-size: 1.05rem;
+      color: var(--mint);
+      letter-spacing: 0.01em;
+    }
+
+    p {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
+
+    ul, ol {
+      margin: 12px 0 0;
+      padding-left: 1.1rem;
+      color: var(--muted);
+    }
+
+    li + li { margin-top: 7px; }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .chip {
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(168, 240, 214, 0.16);
+      background: rgba(255, 255, 255, 0.045);
+      color: var(--text);
+      font-weight: 800;
+      font-size: 0.92rem;
+    }
+
+    .callout {
+      margin-top: 16px;
+      padding: 16px;
+      border-left: 4px solid var(--teal);
+      border-radius: 16px;
+      background: rgba(60, 199, 183, 0.09);
+      color: var(--mint);
+      font-weight: 750;
+    }
+
+    .signal {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .signal div {
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--muted);
+      font-weight: 750;
+    }
+
+    .green { color: var(--mint); }
+    .yellow { color: var(--gold); }
+    .red { color: var(--coral); }
+
+    .footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(5, 12, 22, 0.54);
+      padding: 28px 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .footer .shell {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer a {
+      color: var(--mint);
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .toc {
+        position: relative;
+        top: 0;
+      }
+
+      .navlinks {
+        display: none;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .shell {
+        width: min(100% - 24px, 1120px);
+      }
+
+      .hero {
+        padding-top: 46px;
+      }
+
+      section,
+      .hero-card {
+        padding: 22px;
+        border-radius: 24px;
+      }
+
+      .signal {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="shell nav" aria-label="Primary navigation">
+      <a class="brand" href="../">
+        <img src="../../Icons/cadens_icon_square_dark_512.png" alt="" />
+        <span>Cadens</span>
+      </a>
+      <div class="navlinks">
+        <a href="../">Overview</a>
+        <a href="../privacy/">Privacy</a>
+        <a href="../terms/">Terms</a>
+        <a href="../../contact/">Support</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="shell hero">
+    <div>
+      <span class="eyebrow">Early Access Guide</span>
+      <h1>Find your rhythm. Track it clearly.</h1>
+      <p class="lead">A practical guide for Cadens beta testers: account setup, workout tracking, adaptive plans, sharing, widgets, privacy controls, and known beta limits.</p>
+    </div>
+    <aside class="hero-card" aria-label="Cadens quick links">
+      <img class="hero-logo" src="../../Icons/cadens_logo_full_wide_dark.png" alt="Cadens logo" />
+      <div class="quick">
+        <a href="#track"><span>Start tracking</span><span>→</span></a>
+        <a href="#coach"><span>Use Cadens AI Coach</span><span>→</span></a>
+        <a href="#privacy"><span>Privacy and deletion</span><span>→</span></a>
+      </div>
+    </aside>
+  </div>
+
+  <div class="shell notice">
+    Cadens is not medical, fitness, veterinary, or safety advice. Stop activity if you feel pain, dizziness, unusual fatigue, or unsafe conditions.
+  </div>
+
+  <div class="shell grid">
+    <aside class="toc" aria-label="Guide sections">
+      <strong>Guide sections</strong>
+      <a href="#account">Account</a>
+      <a href="#home">Home</a>
+      <a href="#track">Track</a>
+      <a href="#finish">Finish and save</a>
+      <a href="#coach">Cadens AI Coach</a>
+      <a href="#programs">Programs</a>
+      <a href="#modes">Dog Walk and Lawn Care</a>
+      <a href="#history">History and widgets</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#feedback">Feedback</a>
+    </aside>
+
+    <main>
+      <section id="account">
+        <h2>1. Create and verify your account</h2>
+        <ol>
+          <li>Open Cadens.</li>
+          <li>Tap <strong>Create Account</strong>.</li>
+          <li>Enter display name, email, and password.</li>
+          <li>Agree to the Terms & Health Notice.</li>
+          <li>Confirm your account from email.</li>
+        </ol>
+        <div class="callout">Confirmation may open in browser first. After confirmation, return to Cadens and sign in.</div>
+      </section>
+
+      <section id="home">
+        <h2>2. Home screen</h2>
+        <p>Home gives you the fast daily read: greeting, Beta badge, walking momentum, weather intelligence, this-week totals, and a live workout banner when a session is active.</p>
+      </section>
+
+      <section id="track">
+        <h2>3. Track a workout</h2>
+        <p>Tap <strong>Track</strong>, choose activity, then start. Outdoor activities use location when available. Indoor or low-GPS activities can still track time and manually entered values.</p>
+        <div class="chips">
+          <span class="chip">Walk</span><span class="chip">Run</span><span class="chip">Cycling</span><span class="chip">Swimming</span>
+          <span class="chip">Hiking</span><span class="chip">Trekking</span><span class="chip">Strength</span><span class="chip">Yoga</span>
+          <span class="chip">Treadmill</span><span class="chip">Dog Walk</span><span class="chip">Lawn Care</span><span class="chip">Manual Entry</span>
+        </div>
+        <h3>GPS signal</h3>
+        <div class="signal">
+          <div><strong class="green">Green</strong><br />Good signal</div>
+          <div><strong class="yellow">Yellow</strong><br />Fair signal</div>
+          <div><strong class="red">Red</strong><br />Poor or waiting</div>
+        </div>
+      </section>
+
+      <section id="finish">
+        <h2>4. Finish, save, and review</h2>
+        <p>When a workout is complete, tap <strong>Finish</strong>, review the summary, then save it. Very short accidental sessions may be filtered from history so test entries do not clutter your stats.</p>
+        <p>Saved workout sessions appear in <strong>History</strong>. Custom interval routines appear under <strong>Workouts</strong>.</p>
+      </section>
+
+      <section id="coach">
+        <h2>5. Cadens AI Coach</h2>
+        <p>Open <strong>Workouts</strong> → <strong>Adaptive training plan</strong>. Cadens AI Coach is currently rule-based beta guidance. It looks at selected activity, schedule, recent completion, and safe progression rules to suggest the next best step.</p>
+        <p>Adjust or skip workouts when tired, sore, sick, injured, or short on time.</p>
+      </section>
+
+      <section id="programs">
+        <h2>6. Guided programs</h2>
+        <p>Open <strong>Workouts</strong> → <strong>Guided programs</strong>. Programs are multi-week plans grouped by activity type. Completed or skipped sessions should move the plan forward based on calendar date and completion history.</p>
+      </section>
+
+      <section id="modes">
+        <h2>7. Dog Walk and Lawn Care</h2>
+        <p><strong>Dog Walk</strong> helps track walks with a pet and can separate normal walking from stop-and-go patterns. Pet-related insights are estimates only and are not veterinary advice.</p>
+        <p><strong>Lawn Care</strong> tracks mowing and yard movement. Keep children and pets away from active mowing and follow mower manufacturer guidance.</p>
+      </section>
+
+      <section id="history">
+        <h2>8. History, sharing, and widgets</h2>
+        <p>History shows daily rhythm summaries, workouts by date, route previews when GPS exists, and core metrics like distance, time, steps, calories, pace, and elevation when available.</p>
+        <p>Use share cards to create clean recap images. If route data exists, Cadens shows a small map preview. If no route was captured, it shows a clean fallback.</p>
+        <p>Widgets may refresh after opening Cadens or after Android refreshes background widget data.</p>
+      </section>
+
+      <section id="privacy">
+        <h2>9. Privacy, export, and deletion</h2>
+        <p>Open <strong>Profile</strong> → <strong>Settings & Tools</strong> for Privacy Policy, Terms & Health Notice, Export My Data, and Delete Account.</p>
+        <p>Delete Account removes your Cadens account and associated app data from Cadens systems, subject to operational, legal, security, and backup-retention requirements described in the Privacy Policy.</p>
+      </section>
+
+      <section id="feedback">
+        <h2>10. Feedback</h2>
+        <p>During beta, feedback shapes the app. Email <a href="mailto:support@shivoralabs.com">support@shivoralabs.com</a> with device model, Android version, activity type, expected result, actual result, and screenshots if safe to share.</p>
+        <div class="callout">Thank you for helping shape Cadens.</div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="shell">
+      <span>© 2026 Shivora Labs. Cadens Early Access.</span>
+      <span><a href="../privacy/">Privacy</a> · <a href="../terms/">Terms</a> · <a href="mailto:support@shivoralabs.com">Support</a></span>
+    </div>
+  </footer>
+</body>
+</html>
