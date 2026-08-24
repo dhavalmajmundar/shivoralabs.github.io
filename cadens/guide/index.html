@@ -28,7 +28,6 @@
     html {
       scroll-behavior: smooth;
       background: var(--navy);
-      scroll-padding-top: 100px;
     }
 
     body {
@@ -101,7 +100,7 @@
     }
 
     .hero {
-      padding: 64px 0 36px;
+      padding: 56px 0 32px;
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
       gap: 42px;
@@ -196,10 +195,10 @@
 
     .grid {
       display: grid;
-      grid-template-columns: 270px 1fr;
+      grid-template-columns: 280px minmax(0, 1fr);
       gap: 32px;
       align-items: start;
-      padding-bottom: 40px;
+      padding-bottom: 60px;
     }
 
     .toc {
@@ -208,7 +207,7 @@
       padding: 18px;
       border: 1px solid var(--line);
       border-radius: 22px;
-      background: rgba(8, 22, 36, 0.85);
+      background: rgba(8, 22, 36, 0.88);
       backdrop-filter: blur(16px);
       box-shadow: 0 18px 60px rgba(0, 0, 0, 0.22);
     }
@@ -226,14 +225,15 @@
 
     .toc a {
       display: block;
-      padding: 8px 12px;
+      padding: 9px 12px;
       border-radius: 10px;
       color: var(--muted);
       text-decoration: none;
       font-size: 0.92rem;
       font-weight: 600;
       transition: all 0.15s ease;
-      margin-bottom: 2px;
+      margin-bottom: 3px;
+      cursor: pointer;
     }
 
     .toc a:hover {
@@ -248,54 +248,97 @@
     }
 
     main {
-      display: grid;
-      gap: 24px;
-      padding-bottom: 50vh; /* allows lower sections to scroll to top cleanly */
+      min-height: 480px;
     }
 
-    section {
-      padding: 32px;
+    .guide-section {
+      display: none;
+      padding: 36px;
       border: 1px solid var(--line);
       border-radius: 24px;
       background:
-        linear-gradient(145deg, rgba(11, 28, 45, 0.86), rgba(10, 26, 47, 0.62)),
+        linear-gradient(145deg, rgba(11, 28, 45, 0.92), rgba(10, 26, 47, 0.76)),
         radial-gradient(circle at 100% 0%, rgba(60, 199, 183, 0.12), transparent 20rem);
-      box-shadow: 0 18px 70px rgba(0, 0, 0, 0.18);
-      scroll-margin-top: 100px;
+      box-shadow: 0 18px 70px rgba(0, 0, 0, 0.24);
+      animation: fadeIn 0.22s ease-out;
+    }
+
+    .guide-section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .guide-nav-bar {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 36px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .guide-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .guide-nav-btn:hover {
+      border-color: var(--teal);
+      background: rgba(60, 199, 183, 0.12);
+      color: var(--mint);
     }
 
     h2 {
-      margin: 0 0 12px;
-      font-size: clamp(1.45rem, 2.5vw, 2.1rem);
+      margin: 0 0 16px;
+      font-size: clamp(1.6rem, 2.8vw, 2.2rem);
       line-height: 1.15;
       letter-spacing: -0.025em;
     }
 
     h3 {
-      margin: 22px 0 8px;
-      font-size: 1.05rem;
+      margin: 24px 0 10px;
+      font-size: 1.1rem;
       color: var(--mint);
       letter-spacing: 0.01em;
     }
 
     p {
-      margin: 0 0 14px;
-      color: var(--muted);
+      margin: 0 0 16px;
+      color: var(--soft);
+      font-size: 1rem;
+      line-height: 1.7;
     }
 
     ul, ol {
-      margin: 12px 0 0;
-      padding-left: 1.1rem;
-      color: var(--muted);
+      margin: 14px 0 0;
+      padding-left: 1.2rem;
+      color: var(--soft);
     }
 
-    li + li { margin-top: 7px; }
+    li {
+      margin: 8px 0;
+    }
 
     .chips {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 14px;
+      margin-top: 16px;
     }
 
     .chip {
@@ -309,25 +352,25 @@
     }
 
     .callout {
-      margin-top: 16px;
-      padding: 16px;
+      margin-top: 20px;
+      padding: 16px 20px;
       border-left: 4px solid var(--teal);
       border-radius: 14px;
       background: rgba(60, 199, 183, 0.09);
       color: var(--mint);
       font-weight: 700;
-      font-size: 0.92rem;
+      font-size: 0.95rem;
     }
 
     .signal {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 14px;
+      gap: 12px;
+      margin-top: 16px;
     }
 
     .signal div {
-      padding: 14px;
+      padding: 16px;
       border-radius: 14px;
       background: rgba(255, 255, 255, 0.045);
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -403,6 +446,12 @@
       .button {
         display: none;
       }
+      .guide-section {
+        padding: 24px;
+      }
+      .guide-nav-bar {
+        flex-direction: column;
+      }
     }
 
     @media (max-width: 560px) {
@@ -414,7 +463,6 @@
         padding-top: 46px;
       }
 
-      section,
       .hero-card {
         padding: 20px;
         border-radius: 20px;
@@ -452,9 +500,9 @@
     <aside class="hero-card" aria-label="Cadens quick links">
       <img class="hero-logo" src="../../Icons/cadens_logo_full_wide_dark.png" alt="Cadens logo" />
       <div class="quick">
-        <a href="#track"><span>Start tracking</span><span>→</span></a>
-        <a href="#coach"><span>Use Cadens AI Coach</span><span>→</span></a>
-        <a href="#privacy"><span>Privacy and deletion</span><span>→</span></a>
+        <a href="#track"><span>Start tracking</span><span>&rarr;</span></a>
+        <a href="#coach"><span>Use Cadens AI Coach</span><span>&rarr;</span></a>
+        <a href="#privacy"><span>Privacy and deletion</span><span>&rarr;</span></a>
       </div>
     </aside>
   </div>
@@ -463,10 +511,10 @@
     Cadens is not medical, fitness, veterinary, or safety advice. Stop activity if you feel pain, dizziness, unusual fatigue, or unsafe conditions.
   </div>
 
-  <div class="shell grid">
+  <div class="shell grid" id="guide-viewer">
     <aside class="toc" aria-label="Guide sections">
       <strong>Guide Sections</strong>
-      <a href="#account">1. Account</a>
+      <a href="#account" class="active">1. Account</a>
       <a href="#home">2. Home</a>
       <a href="#track">3. Track</a>
       <a href="#finish">4. Finish and save</a>
@@ -479,7 +527,8 @@
     </aside>
 
     <main>
-      <section id="account">
+      <!-- Section 1: Account -->
+      <section class="guide-section active" id="account">
         <h2>1. Create and verify your account</h2>
         <ol>
           <li>Open Cadens.</li>
@@ -489,14 +538,24 @@
           <li>Confirm your account from email.</li>
         </ol>
         <div class="callout">Confirmation may open in browser first. After confirmation, return to Cadens and sign in.</div>
+        <div class="guide-nav-bar">
+          <div></div>
+          <a class="guide-nav-btn" href="#home">Next: 2. Home &rarr;</a>
+        </div>
       </section>
 
-      <section id="home">
+      <!-- Section 2: Home -->
+      <section class="guide-section" id="home">
         <h2>2. Home screen</h2>
         <p>Home gives you the fast daily read: greeting, Beta badge, walking momentum, weather intelligence, this-week totals, and a live workout banner when a session is active.</p>
+        <div class="guide-nav-bar">
+          <a class="guide-nav-btn" href="#account">&larr; Previous: 1. Account</a>
+          <a class="guide-nav-btn" href="#track">Next: 3. Track &rarr;</a>
+        </div>
       </section>
 
-      <section id="track">
+      <!-- Section 3: Track -->
+      <section class="guide-section" id="track">
         <h2>3. Track a workout</h2>
         <p>Tap <strong>Track</strong>, choose activity, then start. Outdoor activities use location when available. Indoor or low-GPS activities can still track time and manually entered values.</p>
         <div class="chips">
@@ -504,54 +563,93 @@
           <span class="chip">Hiking</span><span class="chip">Trekking</span><span class="chip">Strength</span><span class="chip">Yoga</span>
           <span class="chip">Treadmill</span><span class="chip">Dog Walk</span><span class="chip">Lawn Care</span><span class="chip">Manual Entry</span>
         </div>
-        <h3>GPS signal</h3>
+        <h3>GPS signal indicators</h3>
         <div class="signal">
           <div><strong class="green">Green</strong><br />Good signal</div>
           <div><strong class="yellow">Yellow</strong><br />Fair signal</div>
           <div><strong class="red">Red</strong><br />Poor or waiting</div>
         </div>
+        <div class="guide-nav-bar">
+          <a class="guide-nav-btn" href="#home">&larr; Previous: 2. Home</a>
+          <a class="guide-nav-btn" href="#finish">Next: 4. Finish &amp; save &rarr;</a>
+        </div>
       </section>
 
-      <section id="finish">
+      <!-- Section 4: Finish -->
+      <section class="guide-section" id="finish">
         <h2>4. Finish, save, and review</h2>
         <p>When a workout is complete, tap <strong>Finish</strong>, review the summary, then save it. Very short accidental sessions may be filtered from history so test entries do not clutter your stats.</p>
         <p>Saved workout sessions appear in <strong>History</strong>. Custom interval routines appear under <strong>Workouts</strong>.</p>
+        <div class="guide-nav-bar">
+          <a class="guide-nav-btn" href="#track">&larr; Previous: 3. Track</a>
+          <a class="guide-nav-btn" href="#coach">Next: 5. Cadens AI Coach &rarr;</a>
+        </div>
       </section>
 
-      <section id="coach">
+      <!-- Section 5: Coach -->
+      <section class="guide-section" id="coach">
         <h2>5. Cadens AI Coach</h2>
         <p>Open <strong>Workouts</strong> &rarr; <strong>Adaptive training plan</strong>. Cadens AI Coach is currently rule-based beta guidance. It looks at selected activity, schedule, recent completion, and safe progression rules to suggest the next best step.</p>
         <p>Adjust or skip workouts when tired, sore, sick, injured, or short on time.</p>
+        <div class="guide-nav-bar">
+          <a class="guide-nav-btn" href="#finish">&larr; Previous: 4. Finish &amp; save</a>
+          <a class="guide-nav-btn" href="#programs">Next: 6. Programs &rarr;</a>
+        </div>
       </section>
 
-      <section id="programs">
+      <!-- Section 6: Programs -->
+      <section class="guide-section" id="programs">
         <h2>6. Guided programs</h2>
         <p>Open <strong>Workouts</strong> &rarr; <strong>Guided programs</strong>. Programs are multi-week plans grouped by activity type. Completed or skipped sessions should move the plan forward based on calendar date and completion history.</p>
+        <div class="guide-nav-bar">
+          <a class="guide-nav-btn" href="#coach">&larr; Previous: 5. AI Coach</a>
+          <a class="guide-nav-btn" href="#modes">Next: 7. Dog Walk &amp; Lawn Care &rarr;</a>
+        </div>
       </section>
 
-      <section id="modes">
+      <!-- Section 7: Modes -->
+      <section class="guide-section" id="modes">
         <h2>7. Dog Walk and Lawn Care</h2>
         <p><strong>Dog Walk</strong> helps track walks with a pet and can separate normal walking from stop-and-go patterns. Pet-related insights are estimates only and are not veterinary advice.</p>
         <p><strong>Lawn Care</strong> tracks mowing and yard movement. Keep children and pets away from active mowing and follow mower manufacturer guidance.</p>
+        <div class="guide-nav-bar">
+          <a class="guide-nav-btn" href="#programs">&larr; Previous: 6. Programs</a>
+          <a class="guide-nav-btn" href="#history">Next: 8. History &amp; widgets &rarr;</a>
+        </div>
       </section>
 
-      <section id="history">
+      <!-- Section 8: History -->
+      <section class="guide-section" id="history">
         <h2>8. History, sharing, and widgets</h2>
         <p>History shows daily rhythm summaries, workouts by date, route previews when GPS exists, and core metrics like distance, time, steps, calories, pace, and elevation when available.</p>
         <p>Use share cards to create clean recap images. If route data exists, Cadens shows a small map preview. If no route was captured, it shows a clean fallback.</p>
         <p>Widgets may refresh after opening Cadens or after Android refreshes background widget data.</p>
+        <div class="guide-nav-bar">
+          <a class="guide-nav-btn" href="#modes">&larr; Previous: 7. Dog Walk &amp; Lawn Care</a>
+          <a class="guide-nav-btn" href="#privacy">Next: 9. Privacy &rarr;</a>
+        </div>
       </section>
 
-      <section id="privacy">
+      <!-- Section 9: Privacy -->
+      <section class="guide-section" id="privacy">
         <h2>9. Privacy, export, and deletion</h2>
         <p>Open <strong>Profile</strong> &rarr; <strong>Settings &amp; Tools</strong> for Privacy Policy, Terms &amp; Health Notice, Export My Data, and Delete Account.</p>
         <p>Delete Account removes your Cadens account and associated app data from Cadens systems, subject to operational, legal, security, and backup-retention requirements described in the Privacy Policy.</p>
+        <div class="guide-nav-bar">
+          <a class="guide-nav-btn" href="#history">&larr; Previous: 8. History</a>
+          <a class="guide-nav-btn" href="#feedback">Next: 10. Feedback &rarr;</a>
+        </div>
       </section>
 
-      <section id="feedback">
+      <!-- Section 10: Feedback -->
+      <section class="guide-section" id="feedback">
         <h2>10. Feedback</h2>
-        <p>During beta, feedback shapes the app. Email <a href="mailto:support@shivoralabs.com">support@shivoralabs.com</a> with device model, Android version, activity type, expected result, actual result, and screenshots if safe to share.</p>
+        <p>During beta, feedback shapes the app. Email <a href="mailto:support@shivoralabs.com" style="color:var(--mint); text-decoration:underline;">support@shivoralabs.com</a> with device model, Android version, activity type, expected result, actual result, and screenshots if safe to share.</p>
         <div class="callout">Thank you for helping shape Cadens.</div>
+        <div class="guide-nav-bar">
+          <a class="guide-nav-btn" href="#privacy">&larr; Previous: 9. Privacy</a>
+          <div></div>
+        </div>
       </section>
     </main>
   </div>
@@ -564,26 +662,56 @@
   </footer>
 
   <script>
-    // Active link scrollspy
-    const sections = document.querySelectorAll("main section");
-    const navLinks = document.querySelectorAll(".toc a");
+    // Tabbed view switcher with URL hash routing
+    function showGuideSection(targetId, shouldScroll = false) {
+      const cleanId = (targetId || '').replace('#', '') || 'account';
+      const targetSection = document.getElementById(cleanId);
+      if (!targetSection) return;
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute("id");
-          navLinks.forEach(link => {
-            if (link.getAttribute("href") === `#${id}`) {
-              link.classList.add("active");
-            } else {
-              link.classList.remove("active");
-            }
-          });
-        }
+      // Toggle active class on sections
+      document.querySelectorAll('.guide-section').forEach(sec => {
+        sec.classList.toggle('active', sec.id === cleanId);
       });
-    }, { rootMargin: "-100px 0px -60% 0px", threshold: 0 });
 
-    sections.forEach(sec => observer.observe(sec));
+      // Toggle active class on TOC links
+      document.querySelectorAll('.toc a').forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${cleanId}`);
+      });
+
+      if (shouldScroll) {
+        const viewer = document.getElementById('guide-viewer');
+        if (viewer) {
+          const y = viewer.getBoundingClientRect().top + window.pageYOffset - 90;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }
+    }
+
+    // Attach click handlers to all anchor links targeting guide sections
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('a[href^="#"]');
+      if (!link) return;
+      const href = link.getAttribute('href');
+      if (href && document.getElementById(href.replace('#', ''))) {
+        e.preventDefault();
+        history.pushState(null, null, href);
+        showGuideSection(href, true);
+      }
+    });
+
+    // Handle hash change on browser back/forward
+    window.addEventListener('hashchange', () => {
+      showGuideSection(location.hash, true);
+    });
+
+    // Initial load
+    window.addEventListener('DOMContentLoaded', () => {
+      if (location.hash) {
+        showGuideSection(location.hash, true);
+      } else {
+        showGuideSection('account', false);
+      }
+    });
   </script>
 </body>
 </html>
