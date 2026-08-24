@@ -28,7 +28,7 @@
     html {
       scroll-behavior: smooth;
       background: var(--navy);
-      scroll-padding-top: 110px;
+      scroll-padding-top: 100px;
     }
 
     body {
@@ -54,7 +54,7 @@
       top: 0;
       z-index: 20;
       backdrop-filter: blur(18px);
-      background: rgba(7, 17, 31, 0.74);
+      background: rgba(7, 17, 31, 0.85);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
@@ -93,6 +93,7 @@
 
     .navlinks a {
       text-decoration: none;
+      transition: color 0.15s ease;
     }
 
     .navlinks a:hover {
@@ -100,7 +101,7 @@
     }
 
     .hero {
-      padding: 74px 0 42px;
+      padding: 64px 0 36px;
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
       gap: 42px;
@@ -123,23 +124,23 @@
     }
 
     h1 {
-      margin: 24px 0 18px;
-      font-size: clamp(3rem, 8vw, 6.9rem);
-      line-height: 0.92;
-      letter-spacing: -0.075em;
+      margin: 20px 0 16px;
+      font-size: clamp(2.6rem, 6vw, 5.2rem);
+      line-height: 0.96;
+      letter-spacing: -0.06em;
     }
 
     .lead {
       max-width: 730px;
       color: var(--muted);
-      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      font-size: clamp(1.05rem, 1.8vw, 1.25rem);
     }
 
     .hero-card {
       position: relative;
       padding: 28px;
       border: 1px solid var(--line);
-      border-radius: 32px;
+      border-radius: 28px;
       background:
         linear-gradient(145deg, rgba(13, 36, 53, 0.96), rgba(10, 26, 47, 0.74)),
         radial-gradient(circle at 100% 0%, rgba(60, 199, 183, 0.22), transparent 22rem);
@@ -147,114 +148,127 @@
       overflow: hidden;
     }
 
-    .hero-card:after {
-      content: "";
-      position: absolute;
-      inset: auto -20% -35% 16%;
-      height: 120px;
-      background: radial-gradient(circle, rgba(242, 201, 76, 0.18), transparent 70%);
-      pointer-events: none;
-    }
-
     .hero-logo {
-      width: min(100%, 340px);
+      width: min(100%, 300px);
       display: block;
-      margin: 10px auto 24px;
+      margin: 6px auto 20px;
       filter: drop-shadow(0 16px 48px rgba(60, 199, 183, 0.22));
     }
 
     .quick {
       display: grid;
-      gap: 12px;
+      gap: 10px;
     }
 
     .quick a {
       display: flex;
       justify-content: space-between;
       gap: 16px;
-      padding: 15px 17px;
+      padding: 13px 16px;
       border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 18px;
+      border-radius: 14px;
       background: rgba(255, 255, 255, 0.04);
       color: var(--muted);
       text-decoration: none;
-      font-weight: 750;
+      font-weight: 700;
+      font-size: 0.92rem;
+      transition: all 0.15s ease;
     }
 
     .quick a:hover {
       border-color: rgba(168, 240, 214, 0.32);
       color: var(--text);
       background: rgba(60, 199, 183, 0.08);
+      transform: translateX(3px);
     }
 
     .notice {
       margin: 0 auto 34px;
-      padding: 18px 20px;
+      padding: 16px 20px;
       border: 1px solid rgba(242, 201, 76, 0.24);
-      border-radius: 24px;
+      border-radius: 18px;
       background: rgba(242, 201, 76, 0.10);
       color: #F7E7A6;
       font-weight: 700;
+      font-size: 0.92rem;
       text-align: center;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 28px;
+      grid-template-columns: 270px 1fr;
+      gap: 32px;
       align-items: start;
-      padding-bottom: 78px;
+      padding-bottom: 40px;
     }
 
     .toc {
       position: sticky;
-      top: 86px;
+      top: 96px;
       padding: 18px;
       border: 1px solid var(--line);
-      border-radius: 24px;
-      background: rgba(8, 22, 36, 0.76);
+      border-radius: 22px;
+      background: rgba(8, 22, 36, 0.85);
+      backdrop-filter: blur(16px);
       box-shadow: 0 18px 60px rgba(0, 0, 0, 0.22);
     }
 
     .toc strong {
       display: block;
-      margin-bottom: 10px;
-      color: var(--text);
+      margin-bottom: 12px;
+      padding-left: 8px;
+      color: var(--mint);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
     }
 
     .toc a {
       display: block;
-      padding: 8px 0;
+      padding: 8px 12px;
+      border-radius: 10px;
       color: var(--muted);
       text-decoration: none;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: all 0.15s ease;
+      margin-bottom: 2px;
     }
 
     .toc a:hover {
       color: var(--mint);
+      background: rgba(60, 199, 183, 0.08);
+    }
+
+    .toc a.active {
+      color: #071727;
+      background: var(--mint);
+      font-weight: 800;
     }
 
     main {
       display: grid;
-      gap: 18px;
+      gap: 24px;
+      padding-bottom: 50vh; /* allows lower sections to scroll to top cleanly */
     }
 
     section {
-      padding: 30px;
+      padding: 32px;
       border: 1px solid var(--line);
-      border-radius: 30px;
+      border-radius: 24px;
       background:
         linear-gradient(145deg, rgba(11, 28, 45, 0.86), rgba(10, 26, 47, 0.62)),
         radial-gradient(circle at 100% 0%, rgba(60, 199, 183, 0.12), transparent 20rem);
       box-shadow: 0 18px 70px rgba(0, 0, 0, 0.18);
-      scroll-margin-top: 96px;
+      scroll-margin-top: 100px;
     }
 
     h2 {
       margin: 0 0 12px;
-      font-size: clamp(1.55rem, 3vw, 2.35rem);
-      line-height: 1.08;
-      letter-spacing: -0.035em;
+      font-size: clamp(1.45rem, 2.5vw, 2.1rem);
+      line-height: 1.15;
+      letter-spacing: -0.025em;
     }
 
     h3 {
@@ -285,23 +299,24 @@
     }
 
     .chip {
-      padding: 9px 12px;
+      padding: 8px 14px;
       border-radius: 999px;
       border: 1px solid rgba(168, 240, 214, 0.16);
       background: rgba(255, 255, 255, 0.045);
       color: var(--text);
-      font-weight: 800;
-      font-size: 0.92rem;
+      font-weight: 700;
+      font-size: 0.88rem;
     }
 
     .callout {
       margin-top: 16px;
       padding: 16px;
       border-left: 4px solid var(--teal);
-      border-radius: 16px;
+      border-radius: 14px;
       background: rgba(60, 199, 183, 0.09);
       color: var(--mint);
-      font-weight: 750;
+      font-weight: 700;
+      font-size: 0.92rem;
     }
 
     .signal {
@@ -313,11 +328,12 @@
 
     .signal div {
       padding: 14px;
-      border-radius: 18px;
+      border-radius: 14px;
       background: rgba(255, 255, 255, 0.045);
       border: 1px solid rgba(255, 255, 255, 0.08);
       color: var(--muted);
-      font-weight: 750;
+      font-weight: 700;
+      font-size: 0.9rem;
     }
 
     .green { color: var(--mint); }
@@ -343,6 +359,28 @@
       color: var(--mint);
       text-decoration: none;
       font-weight: 800;
+    }
+
+    .button {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 8px;
+      padding: 0 14px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.04);
+      font-size: 0.85rem;
+      font-weight: 750;
+      transition: transform 180ms ease, border-color 180ms ease;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      border-color: rgba(60, 199, 183, 0.48);
+      color: var(--text);
     }
 
     @media (max-width: 900px) {
@@ -378,35 +416,13 @@
 
       section,
       .hero-card {
-        padding: 22px;
-        border-radius: 24px;
+        padding: 20px;
+        border-radius: 20px;
       }
 
       .signal {
         grid-template-columns: 1fr;
       }
-    }
-
-    .button {
-      min-height: 38px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 8px;
-      padding: 0 14px;
-      color: var(--muted);
-      background: rgba(255, 255, 255, 0.04);
-      font-size: 0.85rem;
-      font-weight: 750;
-      transition: transform 180ms ease, border-color 180ms ease;
-      text-decoration: none;
-    }
-
-    .button:hover {
-      transform: translateY(-1px);
-      border-color: rgba(60, 199, 183, 0.48);
-      color: var(--text);
     }
   </style>
 </head>
@@ -421,7 +437,7 @@
         <a href="../">Overview</a>
         <a href="../privacy/">Privacy</a>
         <a href="../terms/">Terms</a>
-        <a href="../../contact/">Support</a>
+        <a href="../../#contact">Support</a>
       </div>
       <a class="button" href="../../">Back to Shivora Labs</a>
     </nav>
@@ -449,17 +465,17 @@
 
   <div class="shell grid">
     <aside class="toc" aria-label="Guide sections">
-      <strong>Guide sections</strong>
-      <a href="#account">Account</a>
-      <a href="#home">Home</a>
-      <a href="#track">Track</a>
-      <a href="#finish">Finish and save</a>
-      <a href="#coach">Cadens AI Coach</a>
-      <a href="#programs">Programs</a>
-      <a href="#modes">Dog Walk and Lawn Care</a>
-      <a href="#history">History and widgets</a>
-      <a href="#privacy">Privacy</a>
-      <a href="#feedback">Feedback</a>
+      <strong>Guide Sections</strong>
+      <a href="#account">1. Account</a>
+      <a href="#home">2. Home</a>
+      <a href="#track">3. Track</a>
+      <a href="#finish">4. Finish and save</a>
+      <a href="#coach">5. Cadens AI Coach</a>
+      <a href="#programs">6. Programs</a>
+      <a href="#modes">7. Dog Walk &amp; Lawn Care</a>
+      <a href="#history">8. History &amp; widgets</a>
+      <a href="#privacy">9. Privacy</a>
+      <a href="#feedback">10. Feedback</a>
     </aside>
 
     <main>
@@ -469,7 +485,7 @@
           <li>Open Cadens.</li>
           <li>Tap <strong>Create Account</strong>.</li>
           <li>Enter display name, email, and password.</li>
-          <li>Agree to the Terms & Health Notice.</li>
+          <li>Agree to the Terms &amp; Health Notice.</li>
           <li>Confirm your account from email.</li>
         </ol>
         <div class="callout">Confirmation may open in browser first. After confirmation, return to Cadens and sign in.</div>
@@ -504,13 +520,13 @@
 
       <section id="coach">
         <h2>5. Cadens AI Coach</h2>
-        <p>Open <strong>Workouts</strong> → <strong>Adaptive training plan</strong>. Cadens AI Coach is currently rule-based beta guidance. It looks at selected activity, schedule, recent completion, and safe progression rules to suggest the next best step.</p>
+        <p>Open <strong>Workouts</strong> &rarr; <strong>Adaptive training plan</strong>. Cadens AI Coach is currently rule-based beta guidance. It looks at selected activity, schedule, recent completion, and safe progression rules to suggest the next best step.</p>
         <p>Adjust or skip workouts when tired, sore, sick, injured, or short on time.</p>
       </section>
 
       <section id="programs">
         <h2>6. Guided programs</h2>
-        <p>Open <strong>Workouts</strong> → <strong>Guided programs</strong>. Programs are multi-week plans grouped by activity type. Completed or skipped sessions should move the plan forward based on calendar date and completion history.</p>
+        <p>Open <strong>Workouts</strong> &rarr; <strong>Guided programs</strong>. Programs are multi-week plans grouped by activity type. Completed or skipped sessions should move the plan forward based on calendar date and completion history.</p>
       </section>
 
       <section id="modes">
@@ -528,7 +544,7 @@
 
       <section id="privacy">
         <h2>9. Privacy, export, and deletion</h2>
-        <p>Open <strong>Profile</strong> → <strong>Settings & Tools</strong> for Privacy Policy, Terms & Health Notice, Export My Data, and Delete Account.</p>
+        <p>Open <strong>Profile</strong> &rarr; <strong>Settings &amp; Tools</strong> for Privacy Policy, Terms &amp; Health Notice, Export My Data, and Delete Account.</p>
         <p>Delete Account removes your Cadens account and associated app data from Cadens systems, subject to operational, legal, security, and backup-retention requirements described in the Privacy Policy.</p>
       </section>
 
@@ -542,9 +558,32 @@
 
   <footer class="footer">
     <div class="shell">
-      <span>© 2026 Shivora Labs. Cadens Early Access.</span>
-      <span><a href="../privacy/">Privacy</a> · <a href="../terms/">Terms</a> · <a href="mailto:support@shivoralabs.com">Support</a></span>
+      <span>&copy; 2026 Shivora Labs. Cadens Early Access.</span>
+      <span><a href="../privacy/">Privacy</a> &middot; <a href="../terms/">Terms</a> &middot; <a href="mailto:support@shivoralabs.com">Support</a></span>
     </div>
   </footer>
+
+  <script>
+    // Active link scrollspy
+    const sections = document.querySelectorAll("main section");
+    const navLinks = document.querySelectorAll(".toc a");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute("id");
+          navLinks.forEach(link => {
+            if (link.getAttribute("href") === `#${id}`) {
+              link.classList.add("active");
+            } else {
+              link.classList.remove("active");
+            }
+          });
+        }
+      });
+    }, { rootMargin: "-100px 0px -60% 0px", threshold: 0 });
+
+    sections.forEach(sec => observer.observe(sec));
+  </script>
 </body>
 </html>
