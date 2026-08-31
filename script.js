@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const visibleTarget = target.querySelector(".section-head, .contact-wrap") || target;
     const headerHeight = header ? header.getBoundingClientRect().height : 0;
-    const offset = headerHeight + 28;
+    const offset = headerHeight + 38;
     const top = visibleTarget.getBoundingClientRect().top + window.scrollY - offset;
     window.scrollTo({ top: Math.max(0, top), behavior });
     if (updateHash) {
