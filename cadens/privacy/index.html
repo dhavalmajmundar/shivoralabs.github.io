@@ -12,22 +12,27 @@
   <link rel="icon" href="../../Icons/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="../../Icons/favicon-32.png" sizes="32x32" />
   <link rel="apple-touch-icon" href="../../Icons/favicon-180.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #05060a;
-      --panel: #0d0f16;
-      --panel-2: #11141d;
-      --line: rgba(232, 234, 241, 0.14);
-      --line-strong: rgba(232, 234, 241, 0.24);
-      --text: #f6f7fb;
-      --soft: #d9dce6;
-      --muted: #9fa5b4;
-      --gold: #e4c37f;
-      --gold-2: #b28742;
-      --teal: #6bc8bb;
+      --bg: #0d0d0d;
+      --panel: rgba(255, 255, 255, 0.035);
+      --panel-2: rgba(255, 255, 255, 0.055);
+      --line: rgba(245, 245, 240, 0.1);
+      --line-strong: rgba(245, 245, 240, 0.18);
+      --text: #f5f5f0;
+      --soft: #dedbd0;
+      --muted: #a1a1a1;
+      --gold: #c9a84c;
+      --gold-2: #f0d78c;
+      --teal: #7ed7c5;
       --shadow: 0 24px 80px rgba(0, 0, 0, 0.46);
       --radius: 14px;
       --max: 1140px;
+      --font-display: 'Instrument Serif', Georgia, serif;
+      --font-sans: 'Work Sans', system-ui, -apple-system, sans-serif;
     }
 
     * {
@@ -43,12 +48,12 @@
     body {
       min-height: 100vh;
       background:
-        linear-gradient(180deg, rgba(5, 6, 10, 0.78), #05060a 36%),
-        radial-gradient(circle at 82% 8%, rgba(228, 195, 127, 0.13), transparent 26%),
-        radial-gradient(circle at 12% 18%, rgba(107, 200, 187, 0.1), transparent 28%),
-        #05060a;
+        linear-gradient(180deg, rgba(13, 13, 13, 0.78), #0d0d0d 36%),
+        radial-gradient(circle at 82% 8%, rgba(201, 168, 76, 0.13), transparent 26%),
+        radial-gradient(circle at 12% 18%, rgba(126, 215, 197, 0.1), transparent 28%),
+        #0d0d0d;
       color: var(--text);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: var(--font-sans);
       line-height: 1.65;
       overflow-x: hidden;
     }
@@ -86,7 +91,7 @@
       top: 0;
       z-index: 20;
       border-bottom: 1px solid var(--line);
-      background: rgba(5, 6, 10, 0.88);
+      background: rgba(13, 13, 13, 0.88);
       backdrop-filter: blur(18px);
     }
 
@@ -112,7 +117,7 @@
       height: 36px;
       border-radius: 8px;
       object-fit: cover;
-      filter: drop-shadow(0 0 12px rgba(228, 195, 127, 0.16));
+      filter: drop-shadow(0 0 12px rgba(201, 168, 76, 0.16));
     }
 
     .brand span {
@@ -162,7 +167,7 @@
 
     .button:hover {
       transform: translateY(-1px);
-      border-color: rgba(228, 195, 127, 0.48);
+      border-color: rgba(201, 168, 76, 0.48);
     }
 
     .legal-hero {
@@ -176,9 +181,9 @@
       gap: 10px;
       margin-bottom: 20px;
       padding: 7px 12px;
-      border: 1px solid rgba(107, 200, 187, 0.28);
+      border: 1px solid rgba(126, 215, 197, 0.28);
       border-radius: 8px;
-      background: rgba(107, 200, 187, 0.07);
+      background: rgba(126, 215, 197, 0.07);
       color: #c7fff6;
       font-size: 0.75rem;
       font-weight: 850;
@@ -192,12 +197,14 @@
       height: 7px;
       border-radius: 50%;
       background: var(--teal);
-      box-shadow: 0 0 18px rgba(107, 200, 187, 0.7);
+      box-shadow: 0 0 18px rgba(126, 215, 197, 0.7);
     }
 
     h1,
-    h2,
-    h3 {
+    h2 {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 400;
       letter-spacing: 0;
       line-height: 1.15;
     }
@@ -205,7 +212,6 @@
     h1 {
       max-width: 760px;
       font-size: clamp(2.4rem, 4.5vw, 4.2rem);
-      font-weight: 860;
     }
 
     .lede {
@@ -230,7 +236,7 @@
       border-radius: var(--radius);
       padding: 24px;
       background:
-        radial-gradient(circle at 20% 14%, rgba(107, 200, 187, 0.18), transparent 36%),
+        radial-gradient(circle at 20% 14%, rgba(126, 215, 197, 0.18), transparent 36%),
         var(--panel);
       box-shadow: var(--shadow);
     }
@@ -266,7 +272,7 @@
       padding: 18px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: rgba(13, 15, 22, 0.88);
+      background: rgba(20, 20, 20, 0.88);
       backdrop-filter: blur(16px);
       box-shadow: 0 18px 58px rgba(0, 0, 0, 0.28);
     }
@@ -299,7 +305,7 @@
     }
 
     .toc a.active {
-      color: #05060a;
+      color: #0d0d0d;
       background: var(--gold);
       font-weight: 800;
     }
@@ -312,7 +318,7 @@
       display: none;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: rgba(13, 15, 22, 0.86);
+      background: rgba(20, 20, 20, 0.86);
       box-shadow: 0 18px 58px rgba(0, 0, 0, 0.28);
       padding: clamp(24px, 3.5vw, 36px);
       animation: fadeIn 0.22s ease-out;
@@ -354,13 +360,12 @@
 
     .policy-nav-btn:hover {
       border-color: var(--gold);
-      background: rgba(228, 195, 127, 0.12);
+      background: rgba(201, 168, 76, 0.12);
       color: var(--gold);
     }
 
     h2 {
-      font-size: 1.45rem;
-      font-weight: 820;
+      font-size: 1.6rem;
       margin-bottom: 14px;
     }
 
@@ -393,16 +398,16 @@
       color: var(--soft);
       font-weight: 720;
       text-decoration: underline;
-      text-decoration-color: rgba(228, 195, 127, 0.34);
+      text-decoration-color: rgba(201, 168, 76, 0.34);
       text-underline-offset: 4px;
     }
 
     .notice {
       margin-top: 16px;
-      border: 1px solid rgba(228, 195, 127, 0.26);
+      border: 1px solid rgba(201, 168, 76, 0.26);
       border-radius: var(--radius);
       padding: 18px;
-      background: rgba(228, 195, 127, 0.07);
+      background: rgba(201, 168, 76, 0.07);
       color: var(--soft);
       font-size: 0.95rem;
     }

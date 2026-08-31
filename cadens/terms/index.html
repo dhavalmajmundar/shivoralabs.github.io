@@ -8,18 +8,23 @@
   <link rel="icon" href="../../Icons/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="../../Icons/favicon-32.png" sizes="32x32" />
   <link rel="apple-touch-icon" href="../../Icons/favicon-180.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #05060a;
-      --panel: rgba(16, 18, 27, 0.82);
-      --line: rgba(226, 228, 240, 0.14);
-      --text: #f5f7fb;
-      --muted: #a8adbd;
-      --soft: #d8dbe6;
-      --gold: #e4c37f;
-      --cyan: #00e5ff;
+      --bg: #0d0d0d;
+      --panel: rgba(255, 255, 255, 0.045);
+      --line: rgba(245, 245, 240, 0.12);
+      --text: #f5f5f0;
+      --muted: #a1a1a1;
+      --soft: #dedbd0;
+      --gold: #c9a84c;
+      --cyan: #52efe5;
       --radius: 14px;
       --max: 1140px;
+      --font-display: 'Instrument Serif', Georgia, serif;
+      --font-sans: 'Work Sans', system-ui, -apple-system, sans-serif;
     }
 
     * { box-sizing: border-box; }
@@ -34,14 +39,16 @@
       min-height: 100vh;
       color: var(--text);
       background:
-        radial-gradient(circle at 80% 0%, rgba(0, 229, 255, 0.16), transparent 32%),
-        radial-gradient(circle at 12% 12%, rgba(156, 77, 255, 0.16), transparent 30%),
-        linear-gradient(180deg, #080914, var(--bg) 42%);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        radial-gradient(circle at 80% 0%, rgba(201, 168, 76, 0.14), transparent 32%),
+        radial-gradient(circle at 12% 12%, rgba(82, 239, 229, 0.08), transparent 30%),
+        linear-gradient(180deg, #111111, var(--bg) 42%);
+      font-family: var(--font-sans);
       line-height: 1.65;
     }
 
-    a { color: #b7fbff; }
+    h1, h2 { font-family: var(--font-display); font-style: italic; font-weight: 400; letter-spacing: 0; }
+
+    a { color: var(--cyan); }
 
     .shell {
       width: min(var(--max), calc(100% - 48px));
@@ -54,7 +61,7 @@
       top: 0;
       z-index: 20;
       border-bottom: 1px solid var(--line);
-      background: rgba(5, 6, 10, 0.82);
+      background: rgba(13, 13, 13, 0.82);
       backdrop-filter: blur(18px);
       margin-bottom: 24px;
     }
@@ -151,10 +158,10 @@
       width: fit-content;
       margin-bottom: 14px;
       padding: 6px 10px;
-      border: 1px solid rgba(0, 229, 255, 0.28);
+      border: 1px solid rgba(82, 239, 229, 0.28);
       border-radius: 999px;
-      color: #c9f9ff;
-      background: rgba(0, 229, 255, 0.055);
+      color: #d6fbf7;
+      background: rgba(82, 239, 229, 0.055);
       font-size: 0.74rem;
       font-weight: 900;
       letter-spacing: 0.14em;
@@ -200,7 +207,7 @@
       margin: 18px 0;
       border-left: 3px solid var(--cyan);
       padding: 14px 16px;
-      background: rgba(0, 229, 255, 0.06);
+      background: rgba(82, 239, 229, 0.06);
       color: var(--soft);
     }
 

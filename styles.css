@@ -90,7 +90,7 @@ body::before {
   left: 60%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(138, 43, 226, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.12) 0%, transparent 70%);
   filter: blur(80px);
 }
 
@@ -100,7 +100,7 @@ body::before {
   left: 10%;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(0, 229, 255, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(82, 239, 229, 0.1) 0%, transparent 70%);
   filter: blur(100px);
 }
 
@@ -261,7 +261,7 @@ section,
   background: linear-gradient(135deg, var(--cosmic-cyan), var(--electric-blue));
   color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 12px 35px rgba(0, 229, 255, 0.25);
+  box-shadow: 0 12px 35px rgba(82, 239, 229, 0.25);
 }
 
 /* Mobile Hamburger Menu */
@@ -346,9 +346,9 @@ section {
   align-items: center;
   gap: 10px;
   padding: 8px 14px;
-  border: 1px solid rgba(0, 229, 255, 0.15);
+  border: 1px solid rgba(82, 239, 229, 0.15);
   border-radius: 999px;
-  background: rgba(0, 229, 255, 0.05);
+  background: rgba(82, 239, 229, 0.05);
   color: var(--cosmic-cyan);
   font-size: 0.72rem;
   font-weight: 700;
@@ -416,7 +416,7 @@ h1 {
 }
 
 .trust-item:hover {
-  border-color: rgba(0, 229, 255, 0.2);
+  border-color: rgba(82, 239, 229, 0.2);
 }
 
 .trust-item strong {
@@ -455,7 +455,7 @@ h1 {
   position: absolute;
   width: 320px;
   height: 320px;
-  background: radial-gradient(circle, rgba(0, 82, 255, 0.2) 0%, rgba(138, 43, 226, 0.15) 50%, transparent 70%);
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.18) 0%, rgba(126, 215, 197, 0.12) 50%, transparent 70%);
   filter: blur(40px);
   z-index: 1;
 }
@@ -571,9 +571,9 @@ h2 {
 
 .service-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(0, 229, 255, 0.25);
+  border-color: rgba(82, 239, 229, 0.25);
   background: rgba(13, 15, 22, 0.7);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 229, 255, 0.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(82, 239, 229, 0.05);
 }
 
 .service-card:hover::before {
@@ -582,8 +582,8 @@ h2 {
 
 /* Special styling for Web Development card to standout as recommended studio output */
 .service-card.featured {
-  background: rgba(13, 15, 22, 0.75);
-  border-color: rgba(138, 43, 226, 0.25);
+  background: rgba(20, 20, 20, 0.75);
+  border-color: rgba(201, 168, 76, 0.25);
 }
 
 .service-card.featured::before {
@@ -591,8 +591,8 @@ h2 {
 }
 
 .service-card.featured:hover {
-  border-color: rgba(138, 43, 226, 0.45);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(138, 43, 226, 0.1);
+  border-color: rgba(201, 168, 76, 0.45);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(201, 168, 76, 0.1);
 }
 
 .card-top {
@@ -810,7 +810,7 @@ h2 {
   position: absolute;
   width: 300px;
   height: 300px;
-  background: radial-gradient(circle, rgba(0, 229, 255, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(82, 239, 229, 0.08) 0%, transparent 70%);
   filter: blur(30px);
 }
 
@@ -883,11 +883,11 @@ h2 {
 
 .status-pill {
   width: fit-content;
-  border: 1px solid rgba(0, 229, 255, 0.2);
+  border: 1px solid rgba(82, 239, 229, 0.2);
   border-radius: 999px;
   padding: 4px 10px;
   color: var(--cosmic-cyan);
-  background: rgba(0, 229, 255, 0.05);
+  background: rgba(82, 239, 229, 0.05);
   font-size: 0.7rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -970,7 +970,7 @@ h2 {
   background: var(--bg);
   border-color: var(--cosmic-cyan);
   color: var(--cosmic-cyan);
-  box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
+  box-shadow: 0 0 15px rgba(82, 239, 229, 0.2);
 }
 
 .process-step h3 {
@@ -1082,7 +1082,7 @@ h2 {
 .contact-mini-form textarea:focus {
   outline: none;
   border-color: var(--cosmic-cyan);
-  box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.1);
+  box-shadow: 0 0 0 3px rgba(82, 239, 229, 0.1);
 }
 
 .contact-mini-form textarea {
@@ -1223,14 +1223,14 @@ h2 {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  border: 1px solid rgba(0, 229, 255, 0.28);
+  border: 1px solid rgba(82, 239, 229, 0.28);
   border-radius: 999px;
   padding: 0 18px 0 10px;
   color: var(--text);
   background:
     linear-gradient(135deg, rgba(17, 20, 29, 0.92), rgba(7, 9, 16, 0.96)),
     var(--panel);
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45), 0 0 24px rgba(0, 229, 255, 0.1);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45), 0 0 24px rgba(82, 239, 229, 0.1);
   cursor: pointer;
 }
 
@@ -1258,7 +1258,7 @@ h2 {
   overflow: hidden;
   color: var(--text);
   background:
-    radial-gradient(circle at 18% 0%, rgba(0, 229, 255, 0.12), transparent 32%),
+    radial-gradient(circle at 18% 0%, rgba(82, 239, 229, 0.12), transparent 32%),
     linear-gradient(180deg, rgba(17, 20, 29, 0.98), rgba(7, 8, 14, 0.98));
   box-shadow: 0 28px 90px rgba(0, 0, 0, 0.66);
   backdrop-filter: blur(18px);
@@ -1335,9 +1335,9 @@ h2 {
 
 .assistant-message.user {
   align-self: flex-end;
-  border-color: rgba(0, 229, 255, 0.2);
+  border-color: rgba(82, 239, 229, 0.2);
   color: var(--text);
-  background: rgba(0, 229, 255, 0.08);
+  background: rgba(82, 239, 229, 0.08);
 }
 
 .assistant-message.bot {
@@ -1357,11 +1357,11 @@ h2 {
 }
 
 .assistant-chip {
-  border: 1px solid rgba(0, 229, 255, 0.2);
+  border: 1px solid rgba(82, 239, 229, 0.2);
   border-radius: 999px;
   padding: 7px 10px;
   color: var(--soft);
-  background: rgba(0, 229, 255, 0.055);
+  background: rgba(82, 239, 229, 0.055);
   font: inherit;
   font-size: 0.78rem;
   cursor: pointer;
