@@ -1821,6 +1821,14 @@ section[id] {
   scroll-margin-top: 104px;
 }
 
+#services,
+#cadens,
+#apps,
+#studio,
+#contact {
+  padding-top: clamp(38px, 4.5vw, 64px);
+}
+
 .hero {
   grid-template-columns: minmax(0, 1fr) minmax(420px, 0.82fr);
   gap: clamp(44px, 5vw, 72px);
@@ -2187,8 +2195,16 @@ h3,
 }
 
 .product-panel {
-  max-width: 980px;
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  grid-template-columns: minmax(0, 0.96fr) minmax(420px, 1.04fr);
   background: rgba(255, 255, 255, 0.035);
+}
+
+.product-copy {
+  justify-content: flex-start;
 }
 
 .product-title img {
@@ -2213,6 +2229,9 @@ h3,
   background:
     linear-gradient(145deg, rgba(82, 239, 229, 0.08), rgba(201, 168, 76, 0.06)),
     rgba(255, 255, 255, 0.025);
+  min-height: 390px;
+  align-items: flex-start;
+  padding-top: clamp(30px, 4vw, 48px);
 }
 
 .product-visual::after {
@@ -2248,6 +2267,20 @@ h3,
 .assistant-handoff textarea:focus {
   border-color: var(--gold-2);
   box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.14);
+}
+
+.contact-wrap {
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
+  align-items: start;
+}
+
+.contact-card,
+.contact-side {
+  height: auto;
+}
+
+.contact-side {
+  justify-content: flex-start;
 }
 
 #inline-form-status.is-visible,
