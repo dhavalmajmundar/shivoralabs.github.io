@@ -13,6 +13,42 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", handleScroll);
   handleScroll(); // Initial check
 
+  // Keep in-page navigation landing positions consistent with the sticky header.
+  function scrollToAnchor(targetId, updateHash = true, behavior = "smooth") {
+    if (!targetId || targetId === "#") return;
+    const target = document.querySelector(targetId);
+    if (!target) return;
+
+    const visibleTarget = target.querySelector(".section-head, .contact-wrap") || target;
+    const headerHeight = header ? header.getBoundingClientRect().height : 0;
+    const offset = headerHeight + 28;
+    const top = visibleTarget.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top: Math.max(0, top), behavior });
+    if (updateHash) {
+      history.pushState(null, "", targetId);
+    }
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", (event) => {
+      const targetId = anchor.getAttribute("href");
+      event.preventDefault();
+      scrollToAnchor(targetId);
+    });
+  });
+
+  if (window.location.hash) {
+    window.setTimeout(() => scrollToAnchor(window.location.hash, false, "auto"), 80);
+    window.addEventListener("load", () => scrollToAnchor(window.location.hash, false, "auto"));
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => scrollToAnchor(window.location.hash, false, "auto"));
+    }
+  }
+
+  window.addEventListener("hashchange", () => {
+    scrollToAnchor(window.location.hash, false);
+  });
+
   // 2. Mobile Drawer Navigation Toggle
   const hamburger = document.querySelector(".hamburger");
   const drawer = document.querySelector(".mobile-drawer");
