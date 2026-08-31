@@ -14,14 +14,21 @@ document.addEventListener("DOMContentLoaded", () => {
   handleScroll(); // Initial check
 
   // Keep in-page navigation landing positions consistent with the sticky header.
+  const legacyHashMap = {
+    "#work": "#home",
+    "#services": "#studio",
+    "#apps": "#pipeline"
+  };
+
   function scrollToAnchor(targetId, updateHash = true, behavior = "smooth") {
     if (!targetId || targetId === "#") return;
+    targetId = legacyHashMap[targetId] || targetId;
     const target = document.querySelector(targetId);
     if (!target) return;
 
-    const visibleTarget = target.querySelector(".section-head, .contact-wrap") || target;
+    const visibleTarget = target;
     const headerHeight = header ? header.getBoundingClientRect().height : 0;
-    const offset = headerHeight + 38;
+    const offset = headerHeight;
     const top = visibleTarget.getBoundingClientRect().top + window.scrollY - offset;
     window.scrollTo({ top: Math.max(0, top), behavior });
     if (updateHash) {
@@ -38,7 +45,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   if (window.location.hash) {
+    if (legacyHashMap[window.location.hash]) {
+      history.replaceState(null, "", legacyHashMap[window.location.hash]);
+    }
     window.setTimeout(() => scrollToAnchor(window.location.hash, false, "auto"), 80);
+    window.setTimeout(() => scrollToAnchor(window.location.hash, false, "auto"), 260);
+    window.setTimeout(() => scrollToAnchor(window.location.hash, false, "auto"), 700);
     window.addEventListener("load", () => scrollToAnchor(window.location.hash, false, "auto"));
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(() => scrollToAnchor(window.location.hash, false, "auto"));
@@ -46,6 +58,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   window.addEventListener("hashchange", () => {
+    if (legacyHashMap[window.location.hash]) {
+      history.replaceState(null, "", legacyHashMap[window.location.hash]);
+    }
     scrollToAnchor(window.location.hash, false);
   });
 
@@ -337,7 +352,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   projectButton.addEventListener("click", () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+    scrollToAnchor("#contact");
     assistantRoot.classList.remove("is-open");
   });
 
