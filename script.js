@@ -13,6 +13,23 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", handleScroll);
   handleScroll(); // Initial check
 
+  // Keep in-page navigation landing positions consistent with the sticky header.
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", (event) => {
+      const targetId = anchor.getAttribute("href");
+      if (!targetId || targetId === "#") return;
+      const target = document.querySelector(targetId);
+      if (!target) return;
+
+      event.preventDefault();
+      const headerHeight = header ? header.getBoundingClientRect().height : 0;
+      const offset = headerHeight + 28;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+      history.pushState(null, "", targetId);
+    });
+  });
+
   // 2. Mobile Drawer Navigation Toggle
   const hamburger = document.querySelector(".hamburger");
   const drawer = document.querySelector(".mobile-drawer");
