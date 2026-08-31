@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
       id: "privacy",
       label: "Where are Cadens policies?",
       keywords: ["privacy", "policy", "terms", "safety", "legal"],
-      answer: 'Cadens policy pages are available here: <a href="cadens/privacy/">Privacy Policy</a> and <a href="cadens/terms/">Terms and Safety</a>.'
+      answer: 'Cadens policy pages are available here: <a href="/cadens/privacy/">Privacy Policy</a> and <a href="/cadens/terms/">Terms and Safety</a>.'
     }
   ];
 
@@ -195,13 +195,13 @@ document.addEventListener("DOMContentLoaded", () => {
   assistantRoot.className = "assistant-widget";
   assistantRoot.innerHTML = `
     <button class="assistant-launcher" type="button" aria-label="Open Shivora Assistant">
-      <img src="Icons/favicon-120.png" alt="" />
+      <img src="/Icons/favicon-120.png" alt="" />
       <span>Shivora Assistant</span>
     </button>
     <div class="assistant-panel" aria-label="Shivora Assistant" aria-live="polite">
       <div class="assistant-header">
         <div class="assistant-title">
-          <img src="Icons/favicon-120.png" alt="" />
+          <img src="/Icons/favicon-120.png" alt="" />
           <div>
             <strong>Shivora Assistant</strong>
             <span>Common questions, quick answers</span>
