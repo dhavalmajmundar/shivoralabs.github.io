@@ -124,9 +124,11 @@ document.addEventListener("DOMContentLoaded", () => {
     navigator.clipboard.writeText(text).then(() => {
       if (statusEl) {
         statusEl.textContent = successMsg;
+        statusEl.style.display = "block";
         statusEl.classList.add("is-visible");
         setTimeout(() => {
           statusEl.classList.remove("is-visible");
+          statusEl.style.display = "none";
         }, 4000);
       } else {
         alert(successMsg);
@@ -135,6 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const fallbackMsg = "Could not automatically copy. Please copy manually: " + text;
       if (statusEl) {
         statusEl.textContent = fallbackMsg;
+        statusEl.style.display = "block";
         statusEl.classList.add("is-visible");
       } else {
         alert(fallbackMsg);
@@ -290,7 +293,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    addAssistantMessage("I can help with Shivora Labs services, Cadens, project fit, pricing, policies, and contact details. If you want a specific answer from Shivora Labs, send this conversation and we will review it.", "bot");
+    addAssistantMessage("I can help with Shivora Labs services, Cadens, project fit, pricing, policies, and contact details. For a specific project answer, send this conversation and Shivora Labs can review the details.", "bot");
   }
 
   function openAssistant() {

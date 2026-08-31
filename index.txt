@@ -503,7 +503,7 @@
             For now, you can add a simple contact method here, such as:
             <br><br>
             <strong>Email:</strong> contact@shivoralabs.com<br>
-            <strong>Location:</strong> Charlotte / Harrisburg, NC
+            <strong>Studio:</strong> Remote-first product studio
           </div>
         </div>
       </section>

@@ -2368,3 +2368,18 @@ h3,
     height: 54px;
   }
 }
+
+@media (max-width: 900px) {
+  .hero,
+  .product-panel,
+  .contact-wrap {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero-visual,
+  .featured-work-card,
+  .product-visual,
+  .phone-mockup {
+    max-width: 100%;
+  }
+}

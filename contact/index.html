@@ -243,7 +243,7 @@
         <div class="eyebrow stagger-1">Contact Shivora Labs</div>
         <h1 class="stagger-2">Tell us what you want to build.</h1>
         <p class="stagger-3">
-          Share the rough idea, the current challenges, or the product screens you want to refine. Shivora Labs reviews every inquiry carefully and responds from <button class="copy-link-btn" type="button" onclick="window.copyEmailHelper('support@shivoralabs.com', 'Copied: support@shivoralabs.com', 'form-status')">support@shivoralabs.com</button>.
+          Share the rough idea, the current challenges, or the product screens you want to refine. Shivora Labs reviews every inquiry carefully and follows up by email.
         </p>
         
         <aside class="contact-info-card stagger-4" aria-label="Contact details">
@@ -259,8 +259,8 @@
               <dd>Apps, premium websites, dashboards, automations, and AI workflow tools.</dd>
             </div>
             <div>
-              <dt>Studio Location</dt>
-              <dd>Charlotte, NC</dd>
+              <dt>Studio Model</dt>
+              <dd>Remote-first product studio</dd>
             </div>
           </dl>
         </aside>
@@ -303,7 +303,7 @@
           </div>
 
           <p class="form-note">
-            Your message will be sent directly to our studio dashboard. Use **Copy Message** if you want to keep a backup.
+            Send a concise project note to Shivora Labs. Use Copy Message if you want to keep a copy for your records.
           </p>
 
           <div class="form-actions">
@@ -361,7 +361,7 @@
       if (!form.reportValidity()) return;
       const content = buildEmailContent();
       navigator.clipboard.writeText(content).then(() => {
-        showLocalStatus("Copied your prepared message. Send it to support@shivoralabs.com.");
+        showLocalStatus("Prepared message copied for your records.");
       });
     });
 
@@ -395,7 +395,7 @@
       })
       .then(() => {
         form.reset();
-        showLocalStatus("Thank you for reaching out. Your message has been received.");
+        showLocalStatus("Thank you. Your project note has been received.");
       })
       .catch(() => {
         showLocalStatus("Your message could not be sent. Please copy and email support@shivoralabs.com directly.", false);
