@@ -924,6 +924,21 @@ h2 {
   color: var(--text);
 }
 
+.process-cta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: clamp(28px, 3vw, 40px);
+  border-top: 1px solid var(--line);
+  margin-top: clamp(28px, 3vw, 40px);
+}
+
+.process-cta p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  flex: 1;
+}
+
 /* Studio Process Timeline Layout */
 .process-grid-timeline {
   display: grid;
@@ -1828,6 +1843,10 @@ section[id] {
 #contact {
   padding-top: clamp(56px, 6vw, 80px);
   padding-bottom: clamp(64px, 8vw, 96px);
+}
+
+#process {
+  padding-bottom: clamp(32px, 3.5vw, 48px);
 }
 
 .page-section {
