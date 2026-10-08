@@ -158,6 +158,41 @@
     }
     .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); text-decoration: none; }
     .btn-primary svg { width: 20px; height: 20px; }
+    .store-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 54px;
+      padding: 10px 18px;
+      border-radius: 12px;
+      border: 1px solid rgba(245, 245, 240, 0.22);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02)),
+        #050505;
+      color: #fff;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+      transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+    }
+    .store-button:hover {
+      transform: translateY(-1px);
+      border-color: rgba(126, 215, 197, 0.48);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.36);
+      text-decoration: none;
+    }
+    .store-button svg { width: 24px; height: 24px; flex: 0 0 auto; }
+    .store-copy { display: grid; line-height: 1.08; }
+    .store-copy small {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .store-copy strong {
+      color: #fff;
+      font-size: 0.98rem;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
     .btn-ghost {
       display: inline-flex;
       align-items: center;
@@ -413,7 +448,15 @@
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76a2 2 0 0 0 2.78-.78l9.7-16.8-2.2-2.2-10.28 17.8a2 2 0 0 0 0 2zm17.44-11.38-3.5-2-3.5 2 3.5 6.04 3.5-6.04zm-9-9-3.5 2 3.5 6.04L15.12 5.38l-3.5-2zM3.5 1.24a2 2 0 0 0-2 0 2 2 0 0 0-1 1.74v17.04l3.5-6.04-2.5-1.44V3.98l2 1.16 3.5-6.04A2 2 0 0 0 3.5 1.24z"/></svg>
           Get it on Google Play
         </a>
-        <a class="btn-ghost" href="https://apps.apple.com/us/app/cadens-fitness/id6807950958" target="_blank" rel="noopener">Download on the App Store</a>
+        <a class="store-button" href="https://apps.apple.com/us/app/cadens-fitness/id6807950958" target="_blank" rel="noopener" aria-label="Download Cadens Fitness on the App Store">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M16.36 1.45c0 1.08-.44 2.11-1.16 2.89-.77.84-2.02 1.49-3.03 1.4-.12-1.03.43-2.13 1.12-2.88.77-.83 2.12-1.45 3.07-1.41zm3.58 16.92c-.61 1.4-.9 2.03-1.68 3.27-1.09 1.68-2.62 3.78-4.52 3.8-1.69.02-2.13-1.1-4.42-1.09-2.29.01-2.77 1.11-4.46 1.09-1.89-.02-3.34-1.92-4.43-3.61C-2.59 17.1-1.62 11.58 2.05 9.4c1.31-.78 3.04-1.21 4.6-1.21 1.65 0 3.02 1.14 4.43 1.14 1.36 0 2.2-1.14 4.17-1.14 1.49 0 3.07.81 4.38 2.2-3.85 2.11-3.23 7.59.31 7.98z"/>
+          </svg>
+          <span class="store-copy">
+            <small>Download on the</small>
+            <strong>App Store</strong>
+          </span>
+        </a>
         <a class="btn-ghost" href="#features">See features ↓</a>
       </div>
       <p class="hero-note">Free to download. <a href="#beta">Join before Dec 31, 2026 and become a founding member.</a></p>
@@ -550,7 +593,10 @@
         Get it on Google Play
       </a>
       <a class="btn-primary" href="https://apps.apple.com/us/app/cadens-fitness/id6807950958" target="_blank" rel="noopener">
-        Download on the App Store
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M16.36 1.45c0 1.08-.44 2.11-1.16 2.89-.77.84-2.02 1.49-3.03 1.4-.12-1.03.43-2.13 1.12-2.88.77-.83 2.12-1.45 3.07-1.41zm3.58 16.92c-.61 1.4-.9 2.03-1.68 3.27-1.09 1.68-2.62 3.78-4.52 3.8-1.69.02-2.13-1.1-4.42-1.09-2.29.01-2.77 1.11-4.46 1.09-1.89-.02-3.34-1.92-4.43-3.61C-2.59 17.1-1.62 11.58 2.05 9.4c1.31-.78 3.04-1.21 4.6-1.21 1.65 0 3.02 1.14 4.43 1.14 1.36 0 2.2-1.14 4.17-1.14 1.49 0 3.07.81 4.38 2.2-3.85 2.11-3.23 7.59.31 7.98z"/>
+        </svg>
+        Get it on the App Store
       </a>
       <a class="btn-ghost" href="mailto:support@shivoralabs.com">
         Contact us
