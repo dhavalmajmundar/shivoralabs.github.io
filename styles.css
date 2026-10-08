@@ -792,6 +792,37 @@ h2 {
   gap: 10px;
 }
 
+.product-links .store-link {
+  border-color: rgba(232, 234, 241, 0.18);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.025)),
+    #05060a;
+  color: var(--text);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
+}
+
+.product-links .store-link.google {
+  border-color: rgba(82, 239, 229, 0.24);
+  background:
+    linear-gradient(135deg, rgba(82, 239, 229, 0.15), rgba(201, 168, 76, 0.08)),
+    #05060a;
+}
+
+.product-links .store-link svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.product-links .store-link:hover {
+  border-color: rgba(82, 239, 229, 0.42);
+  background:
+    linear-gradient(135deg, rgba(82, 239, 229, 0.22), rgba(201, 168, 76, 0.12)),
+    #05060a;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
 /* CSS Mockup Container */
 .product-visual {
   background: linear-gradient(135deg, #0d1326 0%, #060814 100%);
